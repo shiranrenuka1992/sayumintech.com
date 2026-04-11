@@ -1,19 +1,245 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Sayumin Tech</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body { background: #0d1117; color: #fff; font-family: Arial; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; text-align: center; }
-    h1 { font-size: 48px; color: #58a6ff; }
-    p { font-size: 20px; color: #8b949e; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sayumin Tech | Electronics Repair & Sales | Matara</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0a0a0a;
+            color: #f5f5f5;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+     .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+     .logo {
+            width: 220px;
+            height: auto;
+            margin-bottom: 25px;
+            animation: fadeInDown 1s ease-out;
+        }
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+     .tagline {
+            font-size: 1.3rem;
+            color: #00aaff;
+            font-weight: 600;
+            margin-bottom: 20px;
+            height: 30px;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+     .about-text {
+            max-width: 650px;
+            margin: 0 auto 40px;
+            color: #b3b3b3;
+            font-size: 1.1rem;
+            animation: fadeInUp 1s ease-out 0.9s both;
+        }
+     .btn-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            animation: fadeInUp 1s ease-out 1.2s both;
+        }
+     .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: #00aaff;
+            color: #0a0a0a;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            border: 2px solid #00aaff;
+        }
+     .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 170, 255, 0.3);
+        }
+     .btn-outline {
+            background: transparent;
+            color: #00aaff;
+        }
+     .btn-outline:hover {
+            background: #00aaff;
+            color: #0a0a0a;
+        }
+        section {
+            padding: 80px 0;
+        }
+     .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+     .section-title span {
+            color: #00aaff;
+        }
+     .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+     .service-card {
+            background: #141414;
+            padding: 35px 25px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #222;
+            transition: all 0.3s ease;
+        }
+     .service-card:hover {
+            transform: translateY(-10px);
+            border-color: #00aaff;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+     .service-card i {
+            font-size: 3rem;
+            color: #00aaff;
+            margin-bottom: 20px;
+        }
+     .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+     .service-card p {
+            color: #b3b3b3;
+        }
+        #contact {
+            background: #141414;
+            text-align: center;
+        }
+     .contact-info {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+     .contact-info p {
+            margin: 10px 0;
+        }
+     .contact-info i {
+            color: #00aaff;
+            margin-right: 10px;
+        }
+     .social-links a {
+            color: #f5f5f5;
+            font-size: 1.8rem;
+            margin: 0 15px;
+            transition: all 0.3s ease;
+        }
+     .social-links a:hover {
+            color: #00aaff;
+            transform: translateY(-5px);
+        }
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid #222;
+            color: #777;
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+         .tagline { font-size: 1.1rem; }
+         .section-title { font-size: 2rem; }
+        }
+    </style>
 </head>
 <body>
-  <div>
-    <h1>sayumintech.com</h1>
-    <p>Website Coming Soon...</p>
-    <p>Owned by Shiran Sayumin</p>
-  </div>
-</body>
-</html>
+
+    <header>
+        <div class="container">
+            <img src="logo.png" alt="Sayumin Tech Logo" class="logo">
+            <h1>Shiran Renuka</h1>
+            <p class="tagline" id="typed-text"></p>
+            <p class="about-text">
+                Professional Electronics Reverse Engineer & Tech Supplier based in Matara. I don't just repair - I provide solutions. From chip-level ECU, Laptop, Drone repairs to quality electronic devices, components & tools. One stop for all your tech needs.
+            </p>
+            <div class="btn-group">
+                <a href="#contact" class="btn">Contact Me</a>
+                <a href="#services" class="btn btn-outline">My Services</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">My <span>Services</span></h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-microchip"></i>
+                    <h3>Chip Level Repair</h3>
+                    <p>ECU, Laptop, Drone motherboard & BIOS IC, BGA, CPU, GPU level diagnostics and repair.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-search-dollar"></i>
+                    <h3>Reverse Engineering</h3>
+                    <p>Deep analysis of electronic circuits to diagnose and solve complex hardware failures.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-screwdriver-wrench"></i>
+                    <h3>Equipment Repair</h3>
+                    <p>BGA Rework Station, Soldering Station, Hot Air Station, and other repair tool service & repair.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-store"></i>
+                    <h3>Electronics & Tools Sales</h3>
+                    <p>Soldering Stations, Multimeters, Power Supplies, Microscopes & all repair tools. Best prices.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-memory"></i>
+                    <h3>Components & IC Sales</h3>
+                    <p>Hard-to-find ICs, MOSFETs, Capacitors, BIOS chips, Drone parts. Genuine components only.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-laptop"></i>
+                    <h3>Device Sales</h3>
+                    <p>Quality Refurbished Laptops, Drones, and other electronic devices with warranty.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In <span>Touch</span></h2>
+            <div class="contact-info">
+                <p><i class="fas fa-map-marker-alt"></i> Matara, Sri Lanka</p>
+                <p><i class="fas fa-envelope"></i> shiranrenuka@gmail.com</p>
+                <p><i class="fab fa-whatsapp"></i
