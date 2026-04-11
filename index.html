@@ -3,105 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sayumin Tech | Original AirPods 3 Pro | Matara</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>SAYUMIN - Online Store</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; background-color: #0a0a0a; color: #f5f5f5; line-height: 1.6; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-        header { min-height: 100vh; display: flex; align-items: center; padding: 60px 0; }
-        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
-        .logo { width: 150px; margin-bottom: 20px; }
-        h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.2; margin-bottom: 15px; }
-        h1 span { color: #00aaff; }
-        .price { font-size: 2.5rem; font-weight: 700; color: #00aaff; margin: 20px 0; }
-        .price-old { font-size: 1.5rem; color: #777; text-decoration: line-through; margin-left: 15px; }
-        .features { list-style: none; margin: 30px 0; }
-        .features li { margin-bottom: 15px; font-size: 1.1rem; }
-        .features i { color: #00aaff; margin-right: 10px; }
-        .btn { display: inline-block; padding: 18px 40px; background: #00aaff; color: #0a0a0a; text-decoration: none; font-weight: 700; font-size: 1.2rem; border-radius: 50px; transition: all 0.3s ease; border: 2px solid #00aaff; }
-        .btn:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(0, 170, 255, 0.4); }
-        .btn i { margin-right: 10px; }
-        .product-img { width: 100%; border-radius: 20px; animation: float 3s ease-in-out infinite; }
-        .guarantee { background: #141414; padding: 80px 0; text-align: center; }
-        .section-title { font-size: 2.5rem; margin-bottom: 50px; font-weight: 700; }
-        .guarantee-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-        .guarantee-card { padding: 30px; }
-        .guarantee-card i { font-size: 3rem; color: #00aaff; margin-bottom: 20px; }
-        .guarantee-card h3 { font-size: 1.3rem; margin-bottom: 10px; }
-        footer { text-align: center; padding: 40px 0; border-top: 1px solid #222; }
-        .contact-info { font-size: 1.2rem; margin-bottom: 20px; }
-        .contact-info p { margin: 10px 0; }
-        .contact-info i { color: #00aaff; margin-right: 10px; }
-        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0px); } }
-        @media (max-width: 768px) { .hero-grid { grid-template-columns: 1fr; text-align: center; } h1 { font-size: 2.5rem; } .product-img { order: -1; max-width: 300px; margin: 0 auto; } }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+        body { background: #f5f5f5; color: #212121; }
+        
+        /* Header - Daraz Style */
+        .header { background: #f85606; padding: 12px 0; position: sticky; top: 0; z-index: 100; }
+        .header-content { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 20px; padding: 0 15px; }
+        .logo { color: white; font-size: 28px; font-weight: 900; letter-spacing: 1px; }
+        .search-bar { flex: 1; display: flex; }
+        .search-bar input { flex: 1; padding: 10px 15px; border: none; border-radius: 2px 0 0 2px; font-size: 14px; }
+        .search-bar button { background: #d14100; color: white; border: none; padding: 0 25px; border-radius: 0 2px 2px 0; cursor: pointer; font-weight: 600; }
+        
+        /* Banner */
+        .banner { background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); color: white; text-align: center; padding: 30px 15px; }
+        .banner h1 { font-size: 24px; margin-bottom: 8px; }
+        .banner p { color: #f85606; font-weight: 600; letter-spacing: 2px; }
+        
+        /* Trust Badges */
+        .trust-badges { background: white; padding: 20px 15px; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; border-bottom: 1px solid #eee; }
+        .badge { text-align: center; font-size: 13px; }
+        .badge-icon { font-size: 28px; margin-bottom: 5px; }
+        
+        /* Products */
+        .container { max-width: 1200px; margin: 30px auto; padding: 0 15px; }
+        .section-title { font-size: 22px; margin-bottom: 20px; font-weight: 600; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; }
+        .product-card { background: white; border-radius: 4px; overflow: hidden; transition: 0.3s; cursor: pointer; }
+        .product-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.15); transform: translateY(-3px); }
+        .product-img { width: 100%; height: 200px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; font-size: 50px; }
+        .product-info { padding: 12px; }
+        .product-name { font-size: 14px; margin-bottom: 8px; height: 40px; overflow: hidden; }
+        .product-price { color: #f85606; font-size: 18px; font-weight: 700; margin-bottom: 5px; }
+        .product-delivery { color: #666; font-size: 12px; margin-bottom: 10px; }
+        .buy-btn { width: 100%; background: #f85606; color: white; border: none; padding: 10px; border-radius: 2px; font-weight: 600; cursor: pointer; font-size: 14px; }
+        .buy-btn:hover { background: #d14100; }
+        
+        /* Footer */
+        .footer { background: #1a1a1a; color: #999; padding: 40px 15px 20px; margin-top: 50px; }
+        .footer-content { max-width: 1200px; margin: 0 auto; text-align: center; }
+        .footer h3 { color: white; margin-bottom: 15px; }
+        .footer p { margin: 8px 0; font-size: 14px; }
+        .footer-bottom { border-top: 1px solid #333; margin-top: 25px; padding-top: 20px; font-size: 13px; }
+        
+        @media (max-width: 600px) {
+            .header-content { flex-wrap: wrap; }
+            .logo { font-size: 22px; }
+            .search-bar { order: 3; width: 100%; margin-top: 10px; }
+            .trust-badges { gap: 20px; }
+            .product-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <div class="hero-grid">
-                <div class="hero-text">
-                    <img src="logo.png" alt="Sayumin Tech Logo" class="logo">
-                    <h1>Original <span>AirPods 3</span> Pro</h1>
-                    <p style="color: #b3b3b3; font-size: 1.1rem;">Brand New | 1 Year Apple Warranty | Limited Stock</p>
-                    <div class="price">
-                        Rs. 42,900 <span class="price-old">Rs. 49,900</span>
+    <!-- ================== ME TIKA WITHARAI WENAS KARANNA ONA ================== -->
+    <script>
+        const CONFIG = {
+            // 1. Ube WhatsApp Number eka methana danna - 94 n patan ganna
+            whatsapp: "947XXXXXXXX", 
+            
+            // 2. Ube Gmail eka methana danna
+            email: "sayumin@gmail.com",
+            
+            // 3. Products tika methana add/edit karanna
+            products: [
+                { name: "AirPods Pro 2nd Gen", price: "6,500", img: "🎧", delivery: "5-7 Days Delivery" },
+                { name: "Premium TWS Earbuds i12", price: "2,200", img: "🎵", delivery: "5-7 Days Delivery" },
+                { name: "Lenovo ThinkPlus LP40", price: "3,500", img: "🎮", delivery: "5-7 Days Delivery" },
+            ]
+        };
+    </script>
+    <!-- ================== MEETA YATIN MOKUTH WENAS KARANNA EPA ================== -->
+
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">SAYUMIN</div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search in SAYUMIN">
+                <button>Search</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Banner -->
+    <div class="banner">
+        <h1>GENUINE PRODUCTS. HONEST SERVICE.</h1>
+        <p>SRI LANKA</p>
+    </div>
+
+    <!-- Trust Badges -->
+    <div class="trust-badges">
+        <div class="badge">
+            <div class="badge-icon">🚚</div>
+            <div><strong>Islandwide Delivery</strong></div>
+        </div>
+        <div class="badge">
+            <div class="badge-icon">✅</div>
+            <div><strong>Test Before You Pay</strong></div>
+        </div>
+        <div class="badge">
+            <div class="badge-icon">💬</div>
+            <div><strong>WhatsApp Support</strong></div>
+        </div>
+    </div>
+
+    <!-- Products -->
+    <div class="container">
+        <h2 class="section-title">Featured Products</h2>
+        <div class="product-grid" id="productGrid"></div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-content">
+            <h3>SAYUMIN</h3>
+            <p>📱 WhatsApp: <span id="footerWhatsApp"></span></p>
+            <p>📧 Email: <span id="footerEmail"></span></p>
+            <p>🚚 Islandwide Delivery | ✅ Test Before You Pay</p>
+            <div class="footer-bottom">
+                © 2026 SAYUMIN. All Rights Reserved.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Render Products
+        const grid = document.getElementById('productGrid');
+        CONFIG.products.forEach(p => {
+            const msg = Hello! I want to order: ${p.name} - Rs. ${p.price};
+            const whatsappLink = https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)};
+            
+            grid.innerHTML += `
+                <div class="product-card">
+                    <div class="product-img">${p.img}</div>
+                    <div class="product-info">
+                        <div class="product-name">${p.name}</div>
+                        <div class="product-price">Rs. ${p.price}</div>
+                        <div class="product-delivery">${p.delivery}</div>
+                        <button class="buy-btn" onclick="window.open('${whatsappLink}', '_blank')">Buy Now</button>
                     </div>
-                    <ul class="features">
-                        <li><i class="fas fa-check-circle"></i> 100% Original with Serial Check</li>
-                        <li><i class="fas fa-check-circle"></i> Spatial Audio & Adaptive EQ</li>
-                        <li><i class="fas fa-check-circle"></i> MagSafe Charging Case</li>
-                        <li><i class="fas fa-check-circle"></i> Island-wide Cash on Delivery</li>
-                    </ul>
-                    <a href="https://wa.me/94721352940?text=Hello%20Sayumin,%20I%20want%20to%20order%20AirPods%203" target="_blank" class="btn">
-                        <i class="fab fa-whatsapp"></i> Order on WhatsApp
-                    </a>
                 </div>
-                <div class="hero-image">
-                    <img src="https://i.imgur.com/uK1s3yD.png" alt="AirPods 3 Pro" class="product-img">
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <section class="guarantee">
-        <div class="container">
-            <h2 class="section-title">Why Buy From <span>Sayumin Tech?</span></h2>
-            <div class="guarantee-grid">
-                <div class="guarantee-card">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>100% Genuine</h3>
-                    <p>Check serial number before you pay. No fakes, no clones.</p>
-                </div>
-                <div class="guarantee-card">
-                    <i class="fas fa-truck-fast"></i>
-                    <h3>Fast Delivery</h3>
-                    <p>Colombo: Same Day. Island-wide: 1-2 Days. COD Available.</p>
-                </div>
-                <div class="guarantee-card">
-                    <i class="fas fa-headset"></i>
-                    <h3>After Sale Support</h3>
-                    <p>Any issue? Call me directly. We handle warranty claims.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <h2 class="section-title" style="font-size: 2rem; margin-bottom: 20px;">Order Now</h2>
-            <div class="contact-info">
-                <p><i class="fas fa-map-marker-alt"></i> Matara, Sri Lanka</p>
-                <p><i class="fab fa-whatsapp"></i> +94 72 135 2940 <span style="color:#00aaff; font-size: 0.9rem;">(WhatsApp Message Only)</span></p>
-            </div>
-            <p style="margin-top: 30px; color: #777;">&copy; 2026 Sayumin Tech. All Rights Reserved.</p>
-        </div>
-    </footer>
+            `;
+        });
+        
+        // Footer Info
+        document.getElementById('footerWhatsApp').innerText = '+' + CONFIG.whatsapp;
+        document.getElementById('footerEmail').innerText = CONFIG.email;
+    </script>
 
 </body>
 </html>
