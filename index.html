@@ -1,158 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAYUMIN - Online Store</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
-        body { background: #f5f5f5; color: #212121; }
-        
-        /* Header - Daraz Style */
-        .header { background: #f85606; padding: 12px 0; position: sticky; top: 0; z-index: 100; }
-        .header-content { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 20px; padding: 0 15px; }
-        .logo { color: white; font-size: 28px; font-weight: 900; letter-spacing: 1px; }
-        .search-bar { flex: 1; display: flex; }
-        .search-bar input { flex: 1; padding: 10px 15px; border: none; border-radius: 2px 0 0 2px; font-size: 14px; }
-        .search-bar button { background: #d14100; color: white; border: none; padding: 0 25px; border-radius: 0 2px 2px 0; cursor: pointer; font-weight: 600; }
-        
-        /* Banner */
-        .banner { background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); color: white; text-align: center; padding: 30px 15px; }
-        .banner h1 { font-size: 24px; margin-bottom: 8px; }
-        .banner p { color: #f85606; font-weight: 600; letter-spacing: 2px; }
-        
-        /* Trust Badges */
-        .trust-badges { background: white; padding: 20px 15px; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; border-bottom: 1px solid #eee; }
-        .badge { text-align: center; font-size: 13px; }
-        .badge-icon { font-size: 28px; margin-bottom: 5px; }
-        
-        /* Products */
-        .container { max-width: 1200px; margin: 30px auto; padding: 0 15px; }
-        .section-title { font-size: 22px; margin-bottom: 20px; font-weight: 600; }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; }
-        .product-card { background: white; border-radius: 4px; overflow: hidden; transition: 0.3s; cursor: pointer; }
-        .product-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.15); transform: translateY(-3px); }
-        .product-img { width: 100%; height: 200px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; font-size: 50px; }
-        .product-info { padding: 12px; }
-        .product-name { font-size: 14px; margin-bottom: 8px; height: 40px; overflow: hidden; }
-        .product-price { color: #f85606; font-size: 18px; font-weight: 700; margin-bottom: 5px; }
-        .product-delivery { color: #666; font-size: 12px; margin-bottom: 10px; }
-        .buy-btn { width: 100%; background: #f85606; color: white; border: none; padding: 10px; border-radius: 2px; font-weight: 600; cursor: pointer; font-size: 14px; }
-        .buy-btn:hover { background: #d14100; }
-        
-        /* Footer */
-        .footer { background: #1a1a1a; color: #999; padding: 40px 15px 20px; margin-top: 50px; }
-        .footer-content { max-width: 1200px; margin: 0 auto; text-align: center; }
-        .footer h3 { color: white; margin-bottom: 15px; }
-        .footer p { margin: 8px 0; font-size: 14px; }
-        .footer-bottom { border-top: 1px solid #333; margin-top: 25px; padding-top: 20px; font-size: 13px; }
-        
-        @media (max-width: 600px) {
-            .header-content { flex-wrap: wrap; }
-            .logo { font-size: 22px; }
-            .search-bar { order: 3; width: 100%; margin-top: 10px; }
-            .trust-badges { gap: 20px; }
-            .product-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAYUMIN Tech</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { background: #f5f5f5; }
+   .header { background: #f85606; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+   .logo { font-size: 24px; font-weight: bold; }
+   .cart-icon { position: relative; cursor: pointer; font-size: 24px; }
+   .cart-count { position: absolute; top: -8px; right: -8px; background: red; color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 12px; display: flex; align-items: center; justify-content: center; }
+   .banner { background: linear-gradient(135deg, #f85606, #ff8c00); color: white; padding: 40px 20px; text-align: center; }
+   .banner h1 { font-size: 32px; margin-bottom: 10px; }
+   .products { padding: 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto; }
+   .product-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+   .product-img { width: 100%; height: 160px; background: #eee; display: flex; align-items: center; justify-content: center; font-size: 48px; }
+   .product-img img { width: 100%; height: 100%; object-fit: cover; }
+   .product-info { padding: 12px; }
+   .product-name { font-size: 14px; margin-bottom: 5px; height: 35px; overflow: hidden; }
+   .product-price { color: #f85606; font-weight: bold; font-size: 18px; margin-bottom: 8px; }
+   .product-delivery { font-size: 12px; color: #666; margin-bottom: 10px; }
+   .add-cart-btn { width: 100%; background: #f85606; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+   .add-cart-btn:hover { background: #d64a05; }
+   .footer { background: #333; color: white; padding: 20px; text-align: center; margin-top: 40px; }
+
+    /* Cart Modal */
+   .cart-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 200; }
+   .cart-content { background: white; width: 90%; max-width: 500px; margin: 50px auto; border-radius: 10px; max-height: 80vh; overflow-y: auto; }
+   .cart-header { background: #f85606; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
+   .close-cart { font-size: 28px; cursor: pointer; }
+   .cart-items { padding: 15px; }
+   .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee; }
+   .cart-item-name { flex: 1; font-size: 14px; }
+   .cart-item-price { font-weight: bold; color: #f85606; margin: 0 10px; }
+   .remove-btn { background: red; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer; }
+   .cart-total { padding: 15px; font-size: 20px; font-weight: bold; text-align: right; }
+   .checkout-btn { width: calc(100% - 30px); margin: 0 15px 15px; background: #25D366; color: white; border: none; padding: 15px; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 16px; }
+   .empty-cart { padding: 40px 15px; text-align: center; color: #999; }
+  </style>
 </head>
 <body>
-
-    <!-- ================== ME TIKA WITHARAI WENAS KARANNA ONA ================== -->
-    <script>
-        const CONFIG = {
-            // 1. Ube WhatsApp Number eka methana danna - 94 n patan ganna
-            whatsapp: "94721352940", 
-            
-            // 2. Ube Gmail eka methana danna
-            email: "shiranrenuka@gmail.com",
-            
-            // 3. Products tika methana add/edit karanna
-            products: [
-                { name: "AirPods Pro 2nd Gen", price: "6,500", img: "sa2.jpg", delivery: "5-7 Days Delivery" },
-                { name: "Premium TWS Earbuds i12", price: "2,200", img: "sa1.jpg", delivery: "5-7 Days Delivery" },
-                { name: "Lenovo ThinkPlus LP40", price: "3,500", img: "sa3.jpg", delivery: "5-7 Days Delivery" },
-            ]
-        };
-    </script>
-    <!-- ================== MEETA YATIN MOKUTH WENAS KARANNA EPA ================== -->
-
-    <!-- Header -->
-    <div class="header">
-        <div class="header-content">
-            <div class="logo">SAYUMIN</div>
-            <div class="search-bar">
-                <input type="text" placeholder="Search in SAYUMIN">
-                <button>Search</button>
-            </div>
-        </div>
+  <div class="header">
+    <div class="logo">SAYUMIN</div>
+    <div class="cart-icon" onclick="openCart()">
+      🛒 <span class="cart-count" id="cartCount">0</span>
     </div>
+  </div>
 
-    <!-- Banner -->
-    <div class="banner">
-        <h1>GENUINE PRODUCTS. HONEST SERVICE.</h1>
-        <p>SRI LANKA</p>
+  <div class="banner">
+    <h1>Online Shopping Sri Lanka</h1>
+    <p>Best Price & Fast Delivery</p>
+  </div>
+
+  <div class="products" id="productList"></div>
+
+  <div class="footer">
+    <p>Contact: <span id="footerPhone"></span></p>
+    <p>Email: <span id="footerEmail"></span></p>
+    <p style="margin-top:10px;">© 2026 SAYUMIN Tech</p>
+  </div>
+
+  <!-- Cart Modal -->
+  <div class="cart-modal" id="cartModal">
+    <div class="cart-content">
+      <div class="cart-header">
+        <h2>Shopping Cart</h2>
+        <span class="close-cart" onclick="closeCart()">&times;</span>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-total" id="cartTotal">Total: Rs 0</div>
+      <button class="checkout-btn" onclick="checkoutWhatsApp()">Checkout via WhatsApp</button>
     </div>
+  </div>
 
-    <!-- Trust Badges -->
-    <div class="trust-badges">
-        <div class="badge">
-            <div class="badge-icon">🚚</div>
-            <div><strong>Islandwide Delivery</strong></div>
+  <script>
+    const CONFIG = {
+      whatsapp: "94721352940",
+      email: "shiranrenuka@gmail.com",
+      products: [
+        { name: "AirPods Pro Clone", price: "6500", img: "sa1.jpg", delivery: "2-4 Days" },
+        { name: "Fast Charger 65W", price: "2800", img: "sa2.jpg", delivery: "2-4 Days" },
+        { name: "iPhone Back Cover", price: "1200", img: "sa3.jpg", delivery: "2-4 Days" }
+      ]
+    };
+
+    let cart = JSON.parse(localStorage.getItem('sayuminCart')) || [];
+
+    function renderProducts() {
+      const list = document.getElementById('productList');
+      list.innerHTML = CONFIG.products.map((p, i) => `
+        <div class="product-card">
+          <div class="product-img">
+            ${p.img? <img src="${p.img}" alt="${p.name}"> : '📱'}
+          </div>
+          <div class="product-info">
+            <div class="product-name">${p.name}</div>
+            <div class="product-price">Rs ${p.price}</div>
+            <div class="product-delivery">🚚 ${p.delivery}</div>
+            <button class="add-cart-btn" onclick="addToCart(${i})">Add to Cart</button>
+          </div>
         </div>
-        <div class="badge">
-            <div class="badge-icon">✅</div>
-            <div><strong>Test Before You Pay</strong></div>
-        </div>
-        <div class="badge">
-            <div class="badge-icon">💬</div>
-            <div><strong>WhatsApp Support</strong></div>
-        </div>
-    </div>
+      `).join('');
+      document.getElementById('footerPhone').textContent = '+' + CONFIG.whatsapp;
+      document.getElementById('footerEmail').textContent = CONFIG.email;
+      updateCartCount();
+    }
 
-    <!-- Products -->
-    <div class="container">
-        <h2 class="section-title">Featured Products</h2>
-        <div class="product-grid" id="productGrid"></div>
-    </div>
+    function addToCart(index) {
+      const product = CONFIG.products[index];
+      cart.push(product);
+      localStorage.setItem('sayuminCart', JSON.stringify(cart));
+      updateCartCount();
+      alert(product.name + ' Cart එකට දැම්මා! ✅');
+    }
 
-    <!-- Footer -->
-    <div class="footer">
-        <div class="footer-content">
-            <h3>SAYUMIN</h3>
-            <p>📱 WhatsApp: <span id="footerWhatsApp"></span></p>
-            <p>📧 Email: <span id="footerEmail"></span></p>
-            <p>🚚 Islandwide Delivery | ✅ Test Before You Pay</p>
-            <div class="footer-bottom">
-                © 2026 SAYUMIN. All Rights Reserved.
-            </div>
-        </div>
-    </div>
+    function updateCartCount() {
+      document.getElementById('cartCount').textContent = cart.length;
+    }
 
-    <script>
-        // Render Products
-        const grid = document.getElementById('productGrid');
-        CONFIG.products.forEach(p => {
-            const msg = Hello! I want to order: ${p.name} - Rs. ${p.price};
-            const whatsappLink = https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)};
-            
-            grid.innerHTML += `
-                <div class="product-card">
-                    <div class="product-img">${p.img}</div>
-                    <div class="product-info">
-                        <div class="product-name">${p.name}</div>
-                        <div class="product-price">Rs. ${p.price}</div>
-                        <div class="product-delivery">${p.delivery}</div>
-                        <button class="buy-btn" onclick="window.open('${whatsappLink}', '_blank')">Buy Now</button>
-                    </div>
-                </div>
-            `;
-        });
-        
-        // Footer Info
-        document.getElementById('footerWhatsApp').innerText = '+' + CONFIG.whatsapp;
-        document.getElementById('footerEmail').innerText = CONFIG.email;
-    </script>
+    function openCart() {
+      document.getElementById('cartModal').style.display = 'block';
+      renderCart();
+    }
 
+    function closeCart() {
+      document.getElementById('cartModal').style.display = 'none';
+    }
+
+    function renderCart() {
+      const cartItems = document.getElementById('cartItems');
+      if (cart.length === 0) {
+        cartItems.innerHTML = '<div class="empty-cart">Cart එක හිස් 🛒</div>';
+        document.getElementById('cartTotal').textContent = 'Total: Rs 0';
+        return;
+      }
+
+      let total = 0;
+      cartItems.innerHTML = cart.map((item, i) => {
+        total += parseInt(item.price.replace(/,/g, ''));
+        return `
+          <div class="cart-item">
+            <div class="cart-item-name">${item.name}</div>
+            <div class="cart-item-price">Rs ${item.price}</div>
+            <button class="remove-btn" onclick="removeFromCart(${i})">X</button>
+          </div>
+        `;
+      }).join('');
+      document.getElementById('cartTotal').textContent = 'Total: Rs ' + total.toLocaleString();
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      localStorage.setItem('sayuminCart', JSON.stringify(cart));
+      updateCartCount();
+      renderCart();
+    }
+
+    function checkoutWhatsApp() {
+      if (cart.length === 0) {
+        alert('Cart එක හිස්! බඩු ටිකක් දාන්න.');
+        return;
+      }
+      let message = 'ආයුබෝවන් SAYUMIN! මට මේ බඩු ටික Order කරන්න ඕන:%0A%0A';
+      let total = 0;
+      cart.forEach((item, i) => {
+        message += ${i+1}. ${item.name} - Rs ${item.price}%0A;
+        total += parseInt(item.price.replace(/,/g, ''));
+      });
+      message += %0A*Total: Rs ${total.toLocaleString()}*%0A%0Aමගේ Details:;
+
+      const waUrl = 'https://wa.me/' + CONFIG.whatsapp + '?text=' + message;
+      window.open(waUrl, '_blank');
+
+      cart = [];
+      localStorage.setItem('sayuminCart', JSON.stringify(cart));
+      updateCartCount();
+      closeCart();
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('cartModal');
+      if (event.target == modal) {
+        closeCart();
+      }
+    }
+
+    renderProducts();
+  </script>
 </body>
 </html>
