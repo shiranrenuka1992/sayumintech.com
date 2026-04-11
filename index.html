@@ -3,163 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sayumin Tech | Electronics Repair & Sales | Matara</title>
+    <title>Sayumin Tech | Original AirPods 3 Pro | Matara</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; background-color: #0a0a0a; color: #f5f5f5; line-height: 1.6; overflow-x: hidden; }
- .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-        header { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 40px 20px; position: relative; }
- .logo { width: 220px; height: auto; margin-bottom: 25px; animation: fadeInDown 1s ease-out; }
-        h1 { font-size: 3rem; font-weight: 700; margin-bottom: 10px; animation: fadeInUp 1s ease-out 0.3s both; }
- .tagline { font-size: 1.3rem; color: #00aaff; font-weight: 600; margin-bottom: 20px; height: 30px; animation: fadeInUp 1s ease-out 0.6s both; }
- .about-text { max-width: 650px; margin: 0 auto 40px; color: #b3b3b3; font-size: 1.1rem; animation: fadeInUp 1s ease-out 0.9s both; }
- .btn-group { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; animation: fadeInUp 1s ease-out 1.2s both; }
- .btn { display: inline-block; padding: 14px 32px; background: #00aaff; color: #0a0a0a; text-decoration: none; font-weight: 600; border-radius: 50px; transition: all 0.3s ease; border: 2px solid #00aaff; }
- .btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0, 170, 255, 0.3); }
- .btn-outline { background: transparent; color: #00aaff; }
- .btn-outline:hover { background: #00aaff; color: #0a0a0a; }
-        section { padding: 80px 0; }
- .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 50px; font-weight: 700; }
- .section-title span { color: #00aaff; }
- .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
- .service-card { background: #141414; padding: 35px 25px; border-radius: 15px; text-align: center; border: 1px solid #222; transition: all 0.3s ease; }
- .service-card:hover { transform: translateY(-10px); border-color: #00aaff; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); }
- .service-card i { font-size: 3rem; color: #00aaff; margin-bottom: 20px; }
- .service-card h3 { font-size: 1.3rem; margin-bottom: 10px; }
- .service-card p { color: #b3b3b3; }
-        #contact { background: #141414; text-align: center; }
- .contact-info { font-size: 1.2rem; margin-bottom: 30px; }
- .contact-info p { margin: 10px 0; }
- .contact-info i { color: #00aaff; margin-right: 10px; }
- .social-links a { color: #f5f5f5; font-size: 1.8rem; margin: 0 15px; transition: all 0.3s ease; }
- .social-links a:hover { color: #00aaff; transform: translateY(-5px); }
-        footer { text-align: center; padding: 30px 0; border-top: 1px solid #222; color: #777; }
-        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        @media (max-width: 768px) { h1 { font-size: 2.2rem; }.tagline { font-size: 1.1rem; }.section-title { font-size: 2rem; } }
+        body { font-family: 'Poppins', sans-serif; background-color: #0a0a0a; color: #f5f5f5; line-height: 1.6; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        header { min-height: 100vh; display: flex; align-items: center; padding: 60px 0; }
+        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .logo { width: 150px; margin-bottom: 20px; }
+        h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.2; margin-bottom: 15px; }
+        h1 span { color: #00aaff; }
+        .price { font-size: 2.5rem; font-weight: 700; color: #00aaff; margin: 20px 0; }
+        .price-old { font-size: 1.5rem; color: #777; text-decoration: line-through; margin-left: 15px; }
+        .features { list-style: none; margin: 30px 0; }
+        .features li { margin-bottom: 15px; font-size: 1.1rem; }
+        .features i { color: #00aaff; margin-right: 10px; }
+        .btn { display: inline-block; padding: 18px 40px; background: #00aaff; color: #0a0a0a; text-decoration: none; font-weight: 700; font-size: 1.2rem; border-radius: 50px; transition: all 0.3s ease; border: 2px solid #00aaff; }
+        .btn:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(0, 170, 255, 0.4); }
+        .btn i { margin-right: 10px; }
+        .product-img { width: 100%; border-radius: 20px; animation: float 3s ease-in-out infinite; }
+        .guarantee { background: #141414; padding: 80px 0; text-align: center; }
+        .section-title { font-size: 2.5rem; margin-bottom: 50px; font-weight: 700; }
+        .guarantee-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .guarantee-card { padding: 30px; }
+        .guarantee-card i { font-size: 3rem; color: #00aaff; margin-bottom: 20px; }
+        .guarantee-card h3 { font-size: 1.3rem; margin-bottom: 10px; }
+        footer { text-align: center; padding: 40px 0; border-top: 1px solid #222; }
+        .contact-info { font-size: 1.2rem; margin-bottom: 20px; }
+        .contact-info p { margin: 10px 0; }
+        .contact-info i { color: #00aaff; margin-right: 10px; }
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0px); } }
+        @media (max-width: 768px) { .hero-grid { grid-template-columns: 1fr; text-align: center; } h1 { font-size: 2.5rem; } .product-img { order: -1; max-width: 300px; margin: 0 auto; } }
     </style>
 </head>
 <body>
 
     <header>
         <div class="container">
-            <img src="logo.png" alt="Sayumin Tech Logo" class="logo">
-            <h1>SAYUMIN TECH</h1>
-            <p class="tagline" id="typed-text"></p>
-            <p class="about-text">
-                Professional Electronics Reverse Engineer & Tech Supplier based in Matara. I don't just repair - I provide solutions. From chip-level ECU, Laptop, Drone repairs to quality electronic devices, components & tools. One stop for all your tech needs.
-            </p>
-            <div class="btn-group">
-                <a href="#contact" class="btn">Contact Me</a>
-                <a href="#services" class="btn btn-outline">My Services</a>
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <img src="logo.png" alt="Sayumin Tech Logo" class="logo">
+                    <h1>Original <span>AirPods 3</span> Pro</h1>
+                    <p style="color: #b3b3b3; font-size: 1.1rem;">Brand New | 1 Year Apple Warranty | Limited Stock</p>
+                    <div class="price">
+                        Rs. 42,900 <span class="price-old">Rs. 49,900</span>
+                    </div>
+                    <ul class="features">
+                        <li><i class="fas fa-check-circle"></i> 100% Original with Serial Check</li>
+                        <li><i class="fas fa-check-circle"></i> Spatial Audio & Adaptive EQ</li>
+                        <li><i class="fas fa-check-circle"></i> MagSafe Charging Case</li>
+                        <li><i class="fas fa-check-circle"></i> Island-wide Cash on Delivery</li>
+                    </ul>
+                    <a href="https://wa.me/94721352940?text=Hello%20Sayumin,%20I%20want%20to%20order%20AirPods%203" target="_blank" class="btn">
+                        <i class="fab fa-whatsapp"></i> Order on WhatsApp
+                    </a>
+                </div>
+                <div class="hero-image">
+                    <img src="https://i.imgur.com/uK1s3yD.png" alt="AirPods 3 Pro" class="product-img">
+                </div>
             </div>
         </div>
     </header>
 
-    <section id="services">
+    <section class="guarantee">
         <div class="container">
-            <h2 class="section-title">My <span>Services</span></h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <i class="fas fa-microchip"></i>
-                    <h3>Chip Level Repair</h3>
-                    <p>ECU, Laptop, Drone motherboard & BIOS IC, BGA, CPU, GPU level diagnostics and repair.</p>
+            <h2 class="section-title">Why Buy From <span>Sayumin Tech?</span></h2>
+            <div class="guarantee-grid">
+                <div class="guarantee-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>100% Genuine</h3>
+                    <p>Check serial number before you pay. No fakes, no clones.</p>
                 </div>
-                <div class="service-card">
-                    <i class="fas fa-search-dollar"></i>
-                    <h3>Reverse Engineering</h3>
-                    <p>Deep analysis of electronic circuits to diagnose and solve complex hardware failures.</p>
+                <div class="guarantee-card">
+                    <i class="fas fa-truck-fast"></i>
+                    <h3>Fast Delivery</h3>
+                    <p>Colombo: Same Day. Island-wide: 1-2 Days. COD Available.</p>
                 </div>
-                <div class="service-card">
-                    <i class="fas fa-screwdriver-wrench"></i>
-                    <h3>Equipment Repair</h3>
-                    <p>BGA Rework Station, Soldering Station, Hot Air Station, and other repair tool service & repair.</p>
+                <div class="guarantee-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>After Sale Support</h3>
+                    <p>Any issue? Call me directly. We handle warranty claims.</p>
                 </div>
-                <div class="service-card">
-                    <i class="fas fa-store"></i>
-                    <h3>Electronics & Tools Sales</h3>
-                    <p>Soldering Stations, Multimeters, Power Supplies, Microscopes & all repair tools. Best prices.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-memory"></i>
-                    <h3>Components & IC Sales</h3>
-                    <p>Hard-to-find ICs, MOSFETs, Capacitors, BIOS chips, Drone parts. Genuine components only.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-laptop"></i>
-                    <h3>Device Sales</h3>
-                    <p>Quality Refurbished Laptops, Drones, and other electronic devices with warranty.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="container">
-            <h2 class="section-title">Get In <span>Touch</span></h2>
-            <div class="contact-info">
-                <p><i class="fas fa-map-marker-alt"></i> Matara, Sri Lanka</p>
-                <p><i class="fas fa-envelope"></i> shiranrenuka@gmail.com</p>
-                <p><i class="fab fa-whatsapp"></i> +94 72 135 2940 <span style="color:#00aaff; font-size: 0.9rem;">(WhatsApp Message Only)</span></p>
-            </div>
-            <div class="btn-group">
-                <a href="https://wa.me/94721352940?text=Hello%20Sayumin,%20I%20need%20help%20with..." target="_blank" class="btn">
-                    <i class="fab fa-whatsapp"></i> Message on WhatsApp
-                </a>
-                <a href="mailto:shiranrenuka@gmail.com" class="btn btn-outline">
-                    <i class="fas fa-envelope"></i> Send Email
-                </a>
-            </div>
-            <div class="social-links" style="margin-top: 30px;">
-                <a href="https://web.facebook.com/sayumin.tec" target="_blank" title="Facebook Page">
-                    <i class="fab fa-facebook"></i>
-                </a>
             </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Sayumin Tech. All Rights Reserved.</p>
-            <p>Designed & Developed by Shiran Renuka</p>
+            <h2 class="section-title" style="font-size: 2rem; margin-bottom: 20px;">Order Now</h2>
+            <div class="contact-info">
+                <p><i class="fas fa-map-marker-alt"></i> Matara, Sri Lanka</p>
+                <p><i class="fab fa-whatsapp"></i> +94 72 135 2940 <span style="color:#00aaff; font-size: 0.9rem;">(WhatsApp Message Only)</span></p>
+            </div>
+            <p style="margin-top: 30px; color: #777;">&copy; 2026 Sayumin Tech. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <script>
-        const textArray = ["Chip Level Specialist", "ECU & Drone Expert", "Electronics Supplier"];
-        const typedTextSpan = document.getElementById("typed-text");
-        let textArrayIndex = 0;
-        let charIndex = 0;
-
-        function type() {
-            if (charIndex < textArray[textArrayIndex].length) {
-                typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
-                charIndex++;
-                setTimeout(type, 100);
-            } else {
-                setTimeout(erase, 2000);
-            }
-        }
-
-        function erase() {
-            if (charIndex > 0) {
-                typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
-                charIndex--;
-                setTimeout(erase, 50);
-            } else {
-                textArrayIndex++;
-                if (textArrayIndex >= textArray.length) textArrayIndex = 0;
-                setTimeout(type, 500);
-            }
-        }
-
-        document.addEventListener("DOMContentLoaded", function() {
-            setTimeout(type, 1500);
-        });
-    </script>
 </body>
 </html>
