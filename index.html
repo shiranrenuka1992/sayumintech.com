@@ -7,186 +7,50 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
     body { background: #f5f5f5; }
-   .header { background: #f85606; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
-   .logo { font-size: 24px; font-weight: bold; }
-   .cart-icon { position: relative; cursor: pointer; font-size: 24px; }
-   .cart-count { position: absolute; top: -8px; right: -8px; background: red; color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 12px; display: flex; align-items: center; justify-content: center; }
-   .banner { background: linear-gradient(135deg, #f85606, #ff8c00); color: white; padding: 40px 20px; text-align: center; }
-   .banner h1 { font-size: 32px; margin-bottom: 10px; }
-   .categories { padding: 20px; max-width: 1200px; margin: 0 auto; }
-   .category-list { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
-   .category-btn { background: #f85606; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; }
-   .category-btn:hover { background: #d64a05; }
-   .products { padding: 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto; }
-   .product-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-   .product-img { width: 100%; height: 160px; background: #eee; display: flex; align-items: center; justify-content: center; font-size: 48px; }
-   .product-img img { width: 100%; height: 100%; object-fit: cover; }
-   .product-info { padding: 12px; }
-   .product-name { font-size: 14px; margin-bottom: 5px; height: 35px; overflow: hidden; }
-   .product-price { color: #f85606; font-weight: bold; font-size: 18px; margin-bottom: 8px; }
-   .product-delivery { font-size: 12px; color: #666; margin-bottom: 10px; }
-   .add-cart-btn { width: 100%; background: #f85606; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; font-weight: bold; }
-   .add-cart-btn:hover { background: #d64a05; }
-   .footer { background: #333; color: white; padding: 20px; text-align: center; margin-top: 40px; }
-    /* Cart Modal */
-   .cart-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 200; }
-   .cart-content { background: white; width: 90%; max-width: 500px; margin: 50px auto; border-radius: 10px; max-height: 80vh; overflow-y: auto; }
-   .cart-header { background: #f85606; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
-   .close-cart { font-size: 28px; cursor: pointer; }
-   .cart-items { padding: 15px; }
-   .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee; }
-   .cart-item-name { flex: 1; font-size: 14px; }
-   .cart-item-price { font-weight: bold; color: #f85606; margin: 0 10px; }
-   .remove-btn { background: red; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer; }
-   .cart-total { padding: 15px; font-size: 20px; font-weight: bold; text-align: right; }
-   .checkout-btn { width: calc(100% - 30px); margin: 0 15px 15px; background: #25D366; color: white; border: none; padding: 15px; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 16px; }
-   .empty-cart { padding: 40px 15px; text-align: center; color: #999; }
+    .header { background: #f85606; padding: 15px; color: white; text-align: center; font-size: 24px; font-weight: bold; }
+    .products { padding: 15px; display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; }
+    .product-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .product-img { width: 100%; height: 140px; background: #eee; display: flex; align-items: center; justify-content: center; font-size: 40px; }
+    .product-info { padding: 12px; }
+    .product-name { font-size: 14px; margin-bottom: 5px; }
+    .product-price { color: #f85606; font-weight: bold; font-size: 18px; margin-bottom: 10px; }
+    .add-cart-btn { width: 100%; background: #f85606; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; font-weight: bold; }
   </style>
 </head>
 <body>
-  <div class="header">
-    <div class="logo">SAYUMIN</div>
-    <div class="cart-icon" onclick="openCart()"> 🛒 <span class="cart-count" id="cartCount">0</span> </div>
-  </div>
-  <div class="banner">
-    <h1>Online Shopping Sri Lanka</h1>
-    <p>Best Price & Fast Delivery</p>
-  </div>
-  <div class="categories">
-    <div class="category-list">
-      <button class="category-btn" onclick="filterProducts('all')">All</button>
-      <button class="category-btn" onclick="filterProducts('tools')">Tools</button>
-      <button class="category-btn" onclick="filterProducts('charger')">Charger</button>
-      <button class="category-btn" onclick="filterProducts('accessories')">Accessories</button>
-    </div>
-  </div>
-  <div class="products" id="productList"></div>
-  <div class="footer">
-    <p>Contact: <span id="footerPhone">+94721352940</span></p>
-    <p>Email: <span id="footerEmail">shiranrenuka@gmail.com</span></p>
-    <p style="margin-top:10px;">© 2026 SAYUMIN Tech</p>
-  </div>
-  <!-- Cart Modal -->
-  <div class="cart-modal" id="cartModal">
-    <div class="cart-content">
-      <div class="cart-header">
-        <h2>Shopping Cart</h2>
-        <span class="close-cart" onclick="closeCart()">&times;</span>
+  <div class="header">SAYUMIN</div>
+
+  <div class="products">
+    <!-- Card 1 -->
+    <div class="product-card">
+      <div class="product-img">🔧</div>
+      <div class="product-info">
+        <div class="product-name">Laptop IC Chip</div>
+        <div class="product-price">Rs 1000</div>
+        <button class="add-cart-btn">Add to Cart</button>
       </div>
-      <div class="cart-items" id="cartItems"></div>
-      <div class="cart-total" id="cartTotal">Total: Rs 0</div>
-      <button class="checkout-btn" onclick="checkoutWhatsApp()">Checkout via WhatsApp</button>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="product-card">
+      <div class="product-img">⌨️</div>
+      <div class="product-info">
+        <div class="product-name">Laptop Keyboard</div>
+        <div class="product-price">Rs 2500</div>
+        <button class="add-cart-btn">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="product-card">
+      <div class="product-img">🛠️</div>
+      <div class="product-info">
+        <div class="product-name">Repair Tool Kit</div>
+        <div class="product-price">Rs 3200</div>
+        <button class="add-cart-btn">Add to Cart</button>
+      </div>
     </div>
   </div>
-  <script>
-    const CONFIG = {
-      whatsapp: "94721352940",
-      email: "shiranrenuka@gmail.com",
-      products: [
-        { name: "AirPods Pro Clone", price: "6500", img: "sa1.jpg", delivery: "2-4 Days", category: "tools" },
-        { name: "Fast Charger 65W", price: "2800", img: "sa2.jpg", delivery: "2-4 Days", category: "charger" },
-        { name: "iPhone Back Cover", price: "1200", img: "sa3.jpg", delivery: "2-4 Days", category: "accessories" }
-      ]
-    };
-    let cart = JSON.parse(localStorage.getItem('sayuminCart')) || [];
 
-    function renderProducts() {
-      filterProducts('all');
-      document.getElementById('footerPhone').textContent = '+' + CONFIG.whatsapp;
-      document.getElementById('footerEmail').textContent = CONFIG.email;
-      updateCartCount();
-    }
-
-    function filterProducts(category) {
-      const list = document.getElementById('productList');
-      list.innerHTML = CONFIG.products
-       .filter(p => category === 'all' || p.category === category)
-       .map((p, i) => `
-          <div class="product-card">
-            <div class="product-img"> ${p.img? <img src="${p.img}" alt="${p.name}"> : '📱'} </div>
-            <div class="product-info">
-              <div class="product-name">${p.name}</div>
-              <div class="product-price">Rs ${p.price}</div>
-              <div class="product-delivery">🚚 ${p.delivery}</div>
-              <button class="add-cart-btn" onclick="addToCart(${i})">Add to Cart</button>
-            </div>
-          </div>
-        `).join('');
-    }
-
-    function addToCart(index) {
-      const product = CONFIG.products[index];
-      cart.push(product);
-      localStorage.setItem('sayuminCart', JSON.stringify(cart));
-      updateCartCount();
-      alert(${product.name} added to cart!);
-    }
-
-    function updateCartCount() {
-      document.getElementById('cartCount').textContent = cart.length;
-    }
-
-    function openCart() {
-      const cartModal = document.getElementById('cartModal');
-      const cartItems = document.getElementById('cartItems');
-      const cartTotal = document.getElementById('cartTotal');
-
-      if(cart.length === 0) {
-        cartItems.innerHTML = '<div class="empty-cart">Cart එක හිස් 🛒</div>';
-        cartTotal.textContent = 'Total: Rs 0';
-      } else {
-        let total = 0;
-        cartItems.innerHTML = cart.map((item, index) => {
-          total += parseInt(item.price);
-          return `
-            <div class="cart-item">
-              <div class="cart-item-name">${item.name}</div>
-              <div class="cart-item-price">Rs ${item.price}</div>
-              <button class="remove-btn" onclick="removeFromCart(${index})">X</button>
-            </div>
-          `;
-        }).join('');
-        cartTotal.textContent = Total: Rs ${total};
-      }
-      cartModal.style.display = 'block';
-    }
-
-    function closeCart() {
-      document.getElementById('cartModal').style.display = 'none';
-    }
-
-    function removeFromCart(index) {
-      cart.splice(index, 1);
-      localStorage.setItem('sayuminCart', JSON.stringify(cart));
-      updateCartCount();
-      openCart();
-    }
-
-    function checkoutWhatsApp() {
-      if(cart.length === 0) {
-        alert('Cart එක හිස්! මුලින්ම බඩු දාගනින් 🛒');
-        return;
-      }
-      let message = *SAYUMIN Tech Order*%0A%0A;
-      let total = 0;
-      cart.forEach(item => {
-        message += • ${item.name} - Rs ${item.price}%0A;
-        total += parseInt(item.price);
-      });
-      message += %0A*Total: Rs ${total}*%0A%0AOrder එක Confirm කරන්න.;
-      window.open(https://wa.me/${CONFIG.whatsapp}?text=${message}, '_blank');
-    }
-
-    // Modal එකෙන් පිට Click කරාම Close වෙන්න
-    window.onclick = function(event) {
-      const modal = document.getElementById('cartModal');
-      if (event.target == modal) {
-        closeCart();
-      }
-    }
-
-    // Page එක Load වෙද්දි Products ටික Render කරනවා
-    renderProducts();
-  </script>
 </body>
 </html>
