@@ -1,4 +1,18 @@
-<!DOCTYPE html>
+[22:33, 12/04/2026] Renuka: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAYUMIN Tech</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { background: #f5f5f5; }
+   .header { background: #f85606; padding: 15px; position: sticky; top: 0; z-index: 100; }
+   .header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+   .logo { color: white; font-size: 24px; font-weight: bold; }
+   .cart-icon { position: relative; cursor: pointer; font-size: 24px; color: white; }
+   .cart-count { position: absolute; top: -8px; right: -8px; background: red; color: white; border-radius: 50%; width: …
+[22:51, 12/04/2026] Renuka: <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -83,14 +97,14 @@
     var products = [
       { id: 1, name: "Motherboard IC Chip", price: 1200, category: "Laptop Repair Components", img: "🔧", stock: true },
       { id: 2, name: "LCD Screen Cable", price: 800, category: "Laptop Repair Components", img: "🔧", stock: true },
-      { id: 3, name: "Laptop Cooling Pad", price: 2200, category: "Laptop Repair Accessories", img: "💨", stock: true },
+      { id: 3, name: "Laptop Cooling Pad", price: 2200, category: "Laptop Repair Accessories", img: "💨", stock: false },
       { id: 4, name: "USB-C Hub", price: 3500, category: "Laptop Repair Accessories", img: "🔌", stock: true },
       { id: 5, name: "Laptop Keyboard", price: 2500, category: "Battery/Charger/Keyboard", img: "⌨️", stock: true },
       { id: 6, name: "Laptop Battery 6-Cell", price: 8500, category: "Battery/Charger/Keyboard", img: "🔋", stock: true },
       { id: 7, name: "65W Laptop Charger", price: 3200, category: "Battery/Charger/Keyboard", img: "🔌", stock: true },
       { id: 101, name: "DELL LA-F115P BIOS 8MB", price: 1000, category: "BIOS Files", img: "💾", digital: true, stock: true, board_model: "LA-F115P" },
       { id: 102, name: "HP 6050A2979101 BIOS", price: 1000, category: "BIOS Files", img: "💾", digital: true, stock: true, board_model: "6050A2979101" },
-      { id: 103, name: "LENOVO NM-C121 BIOS 16MB", price: 1200, category: "BIOS Files", img: "💾", digital: true, stock:false,  board_model: "NM-C121" },
+      { id: 103, name: "LENOVO NM-C121 BIOS 16MB", price: 1200, category: "BIOS Files", img: "💾", digital: true, stock: false, board_model: "NM-C121" },
       { id: 201, name: "DELL LA-F115P Schematic", price: 600, category: "Schematics", img: "📄", digital: true, stock: true, board_model: "LA-F115P" },
       { id: 202, name: "HP 6050A2979101 Schematic", price: 600, category: "Schematics", img: "📄", digital: true, stock: true, board_model: "6050A2979101" },
       { id: 203, name: "LENOVO NM-C121 Schematic", price: 800, category: "Schematics", img: "📄", digital: true, stock: true, board_model: "NM-C121" },
@@ -100,7 +114,7 @@
       { id: 10, name: "Precision Screwdriver Set", price: 1800, category: "Tools", img: "🛠️", stock: true },
       { id: 11, name: "Soldering Iron Kit", price: 4500, category: "Tools", img: "🛠️", stock: true },
       { id: 12, name: "Digital Multimeter", price: 2800, category: "Electronics Devices", img: "📟", stock: true }
-      { id: 13, name: " Multimeter", price: 0000, category: "Electronics Devices", img: "sa1.jpg", stock: true } ];
+    ];
 
     var cart = [];
     var currentCategory = "All";
