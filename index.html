@@ -69,7 +69,39 @@
         <h2>Shopping Cart</h2>
         <span class="close-cart" onclick="closeCart()">&times;</span>
       </div>
-      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-items" id="cartItems"></div><!-- Cart Policy Notes - API = අපි 😎 -->
+<div class="cart-notes" style="background: #fff3cd; border: 2px solid #ffc107; padding: 18px; margin-top: 20px; border-radius: 8px; font-size: 14px; line-height: 1.7;">
+  <h4 style="margin: 0 0 12px 0; color: #b35400; font-size: 16px;">🛒 ඇනවුම් කිරීමට පෙර - Important Notes Before Ordering</h4>
+  
+  <!-- Sinhala Version -->
+  <div style="margin-bottom: 15px;">
+    <ul style="margin: 0; padding-left: 20px; color: #333;">
+      <li><b>ගෙවීම් තහවුරු කිරීම:</b> අපගේ ගිණුමට මුදල් බැර කර එහි තහවුරු කිරීමේ පත්‍රය WhatsApp හරහා අප වෙත ලැබුණු පසුව පමණක් කූරියර් සේවාව වෙත භාණ්ඩ යොමු කරනු ලැබේ.</li>
+      <li><b>COD පහසුකම් නොමැත.</b></li>
+      <li style="display: flex; align-items: flex-start; gap: 10px; flex-wrap: wrap;">
+        <img src="promptxp.jpg" alt="Prompt XP Courier" style="height: 28px; margin-top: 2px; background: #fff; padding: 2px; border-radius: 4px;">
+        <span style="flex: 1; min-width: 200px;"><b>කුරියර් සේවාව:</b> අප සාමාන්‍යයෙන් Prompt XP Courier භාවිතා කරයි. <b>නමුත් ඔබ කැමති ඕනෑම කුරියර් සේවාවක් හරහා භාණ්ඩ එවීමට අපට හැකිය.</b> කුරියර් ගාස්තු පාරිභෝගිකයා විසින් ගෙවිය යුතුය.</span>
+      </li>
+      <li><b>Digital භාණ්ඩ (BIOS/Schematic/BoardView):</b> ගෙවීම තහවුරු කිරීමෙන් පසු ඔබ ලබාදෙන <b>WhatsApp අංකයට හෝ Email</b> ලිපිනයට එවනු ලැබේ.</li>
+    </ul>
+  </div>
+
+  <hr style="border: 0; border-top: 1px dashed #ffc107; margin: 15px 0;">
+
+  <!-- English Version -->
+  <div style="color: #444;">
+    <strong style="color: #b35400;">For English Readers:</strong>
+    <ul style="margin: 8px 0 0 0; padding-left: 20px;">
+      <li><b>Payment Confirmation:</b> Items will be handed over to courier only after you deposit payment to our account and send us the payment confirmation slip via WhatsApp.</li>
+      <li><b>No COD Available.</b></li>
+      <li style="display: flex; align-items: flex-start; gap: 10px; flex-wrap: wrap;">
+        <img src="promptxp.jpg" alt="Prompt XP Courier" style="height: 28px; margin-top: 2px; background: #fff; padding: 2px; border-radius: 4px;">
+        <span style="flex: 1; min-width: 200px;"><b>Courier Service:</b> We usually use Prompt XP Courier. <b>However, we can ship through any courier service of your choice.</b> Courier charges must be paid by the customer upon delivery.</span>
+      </li>
+      <li><b>Digital Items (BIOS/Schematic/BoardView):</b> Will be sent to your <b>WhatsApp number or Email</b> after payment confirmation.</li>
+    </ul>
+  </div>
+</div>
       <div class="cart-total" id="cartTotal">Total: Rs 0</div>
       <button class="checkout-btn" onclick="checkoutWhatsApp()">Checkout via WhatsApp</button>
     </div>
