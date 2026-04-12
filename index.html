@@ -1,8 +1,110 @@
-
-<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><meta name="next-head-count" content="2"/><link rel="preload" href="/dashboard/_next/static/css/a9c41dcb3ae63a24.css" as="style"/><link rel="stylesheet" href="/dashboard/_next/static/css/a9c41dcb3ae63a24.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/dashboard/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/dashboard/_next/static/chunks/webpack-bd59874afd5fbe19.js" defer=""></script><script src="/dashboard/_next/static/chunks/framework-45ce3d09104a2cae.js" defer=""></script><script src="/dashboard/_next/static/chunks/main-cd7c9eef9cb880c4.js" defer=""></script><script src="/dashboard/_next/static/chunks/pages/_app-bc3541a810468beb.js" defer=""></script><script src="/dashboard/_next/static/chunks/2220-24f5b276849892e7.js" defer=""></script><script src="/dashboard/_next/static/chunks/pages/design/%5BpageId%5D-f2f82dfe4d7621f1.js" defer=""></script><script src="/dashboard/_next/static/XprxU5k7xdwg1SBJoIiKP/_buildManifest.js" defer=""></script><script src="/dashboard/_next/static/XprxU5k7xdwg1SBJoIiKP/_ssgManifest.js" defer=""></script><style data-styled="" data-styled-version="5.3.11">.bMAsda{position:absolute;top:0;right:0;bottom:0;left:0;z-index:100;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;background:#F4F6F9;}/*!sc*/
-data-styled.g10[id="sc-4eb909d7-0"]{content:"bMAsda,"}/*!sc*/
-</style></head><body data-app-version="5.1.29"><div id="__next" data-reactroot=""><noscript><!-- Google Tag Manager (noscript) -->
-                    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WLNLJ7TZ"
-                    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-                    <!-- End Google Tag Manager (noscript) --></noscript><div class="css-1ce6ohw ant-app"><div data-testid="loading" class="sc-4eb909d7-0 bMAsda"><div class="ant-spin ant-spin-lg ant-spin-spinning css-1ce6ohw" aria-live="polite" aria-busy="true"><span class="ant-spin-dot ant-spin-dot-spin"><i class="ant-spin-dot-item"></i><i class="ant-spin-dot-item"></i><i class="ant-spin-dot-item"></i><i class="ant-spin-dot-item"></i></span></div></div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/design/[pageId]","query":{},"buildId":"XprxU5k7xdwg1SBJoIiKP","assetPrefix":"/dashboard","nextExport":true,"autoExport":true,"isFallback":false,"locale":"en","locales":["en","cs","de","es","fr"],"defaultLocale":"en","scriptLoader":[]}</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9eb1c311bc2ef8d4',t:'MTc3NTk5MTk5MA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"d043dbdeefdc4538b9fd5560e688b8a1","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
-</body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAYUMIN Tech</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { background: #f5f5f5; }
+    .header { background: #f85606; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+    .logo { font-size: 24px; font-weight: bold; }
+    .cart-icon { position: relative; cursor: pointer; font-size: 24px; }
+    .cart-count { position: absolute; top: -8px; right: -8px; background: red; color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 12px; display: flex; align-items: center; justify-content: center; }
+    .banner { background: linear-gradient(135deg, #f85606, #ff8c00); color: white; padding: 40px 20px; text-align: center; }
+    .banner h1 { font-size: 32px; margin-bottom: 10px; }
+    .categories { padding: 20px; max-width: 1200px; margin: 0 auto; }
+    .category-list { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+    .category-btn { background: #f85606; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+    .products { padding: 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto; }
+    .product-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .product-img { width: 100%; height: 160px; background: #eee; display: flex; align-items: center; justify-content: center; font-size: 48px; }
+    .product-img img { width: 100%; height: 100%; object-fit: cover; }
+    .product-info { padding: 12px; }
+    .product-name { font-size: 14px; margin-bottom: 5px; height: 35px; overflow: hidden; }
+    .product-price { color: #f85606; font-weight: bold; font-size: 18px; margin-bottom: 8px; }
+    .product-delivery { font-size: 12px; color: #666; margin-bottom: 10px; }
+    .add-cart-btn { width: 100%; background: #f85606; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+    .add-cart-btn:hover { background: #d64a05; }
+    .footer { background: #333; color: white; padding: 20px; text-align: center; margin-top: 40px; }
+    /* Cart Modal */
+    .cart-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 200; }
+    .cart-content { background: white; width: 90%; max-width: 500px; margin: 50px auto; border-radius: 10px; max-height: 80vh; overflow-y: auto; }
+    .cart-header { background: #f85606; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
+    .close-cart { font-size: 28px; cursor: pointer; }
+    .cart-items { padding: 15px; }
+    .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee; }
+    .cart-item-name { flex: 1; font-size: 14px; }
+    .cart-item-price { font-weight: bold; color: #f85606; margin: 0 10px; }
+    .remove-btn { background: red; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer; }
+    .cart-total { padding: 15px; font-size: 20px; font-weight: bold; text-align: right; }
+    .checkout-btn { width: calc(100% - 30px); margin: 0 15px 15px; background: #25D366; color: white; border: none; padding: 15px; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 16px; }
+    .empty-cart { padding: 40px 15px; text-align: center; color: #999; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">SAYUMIN</div>
+    <div class="cart-icon" onclick="openCart()"> 🛒 <span class="cart-count" id="cartCount">0</span> </div>
+  </div>
+  <div class="banner">
+    <h1>Online Shopping Sri Lanka</h1>
+    <p>Best Price & Fast Delivery</p>
+  </div>
+  <div class="categories">
+    <div class="category-list">
+      <button class="category-btn" onclick="filterProducts('all')">All</button>
+      <button class="category-btn" onclick="filterProducts('tools')">Tools</button>
+      <button class="category-btn" onclick="filterProducts('charger')">Charger</button>
+      <button class="category-btn" onclick="filterProducts('accessories')">Accessories</button>
+    </div>
+  </div>
+  <div class="products" id="productList"></div>
+  <div class="footer">
+    <p>Contact: <span id="footerPhone">+94721352940</span></p>
+    <p>Email: <span id="footerEmail">shiranrenuka@gmail.com</span></p>
+    <p style="margin-top:10px;">© 2026 SAYUMIN Tech</p>
+  </div>
+  <!-- Cart Modal -->
+  <div class="cart-modal" id="cartModal">
+    <div class="cart-content">
+      <div class="cart-header">
+        <h2>Shopping Cart</h2>
+        <span class="close-cart" onclick="closeCart()">&times;</span>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-total" id="cartTotal">Total: Rs 0</div>
+      <button class="checkout-btn" onclick="checkoutWhatsApp()">Checkout via WhatsApp</button>
+    </div>
+  </div>
+  <script>
+    const CONFIG = {
+      whatsapp: "94721352940",
+      email: "shiranrenuka@gmail.com",
+      products: [
+        { name: "AirPods Pro Clone", price: "6500", img: "sa1.jpg", delivery: "2-4 Days", category: "tools" },
+        { name: "Fast Charger 65W", price: "2800", img: "sa2.jpg", delivery: "2-4 Days", category: "charger" },
+        { name: "iPhone Back Cover", price: "1200", img: "sa3.jpg", delivery: "2-4 Days", category: "accessories" }
+      ]
+    };
+    let cart = JSON.parse(localStorage.getItem('sayuminCart')) || [];
+    
+    function renderProducts() {
+      filterProducts('all');
+      document.getElementById('footerPhone').textContent = '+' + CONFIG.whatsapp;
+      document.getElementById('footerEmail').textContent = CONFIG.email;
+      updateCartCount();
+    }
+    
+    function filterProducts(category) {
+      const list = document.getElementById('productList');
+      list.innerHTML = CONFIG.products
+        .filter(p => category === 'all' || p.category === category)
+        .map((p, i) => `
+          <div class="product-card">
+            <div class="product-img"> ${p.img? <img src="${p.img}" alt="${p.name}"> : '📱'} </div>
+            <div class="product-info">
+              <div class="product-name">${p.name}</div>
+              <div class="product-price">Rs ${p.price}</div>
+              <div class="product-delivery">🚚 ${p.delivery}</div>
+              <button class="add-cart
