@@ -110,19 +110,20 @@
       filterProducts();
     }
 
-    function filterProducts() {
-      var searchText = document.getElementById('searchInput').value.toLowerCase();
-      var filtered = [];
-      for (var i = 0; i < products.length; i++) {
-        var p = products[i];
-        var matchCategory = currentCategory === "All" || p.category === currentCategory;
-        var matchSearch = p.name.toLowerCase().includes(searchText);
-        if (matchCategory && matchSearch) {
-          filtered.push(p);
-        }
-      }
-      renderProducts(filtered);
+   function filterProducts() {
+  var searchText = document.getElementById('searchInput').value.toLowerCase();
+  var filtered = [];
+  for (var i = 0; i < products.length; i++) {
+    var p = products[i];
+    // Category එකත් lowercase කරලා Compare කරනවා. මේක තමයි Fix එක
+    var matchCategory = currentCategory === "All" || p.category.toLowerCase() === currentCategory.toLowerCase();
+    var matchSearch = p.name.toLowerCase().includes(searchText);
+    if (matchCategory && matchSearch) {
+      filtered.push(p);
     }
+  }
+  renderProducts(filtered);
+}
 
     function renderProducts(productArray) {
       var list = document.getElementById('productList');
