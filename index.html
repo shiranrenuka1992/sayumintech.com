@@ -7,57 +7,148 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
     body { background: #f5f5f5; }
-   .header { background: #f85606; padding: 15px; color: white; display: flex; justify-content: space-between; align-items: center; }
-   .logo { font-size: 24px; font-weight: bold; }
-   .cart-icon { position: relative; cursor: pointer; font-size: 24px; }
-   .cart-count { position: absolute; top: -8px; right: -8px; background: red; color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 12px; display: flex; align-items: center; justify-content: center; }
-   .products { padding: 15px; display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; }
-   .product-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-   .product-img { width: 100%; height: 140px; background: #eee; display: flex; align-items: center; justify-content: center; font-size: 40px; }
-   .product-info { padding: 12px; }
-   .product-name { font-size: 14px; margin-bottom: 5px; }
-   .product-price { color: #f85606; font-weight: bold; font-size: 18px; margin-bottom: 10px; }
-   .add-cart-btn { width: 100%; background: #f85606; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+  .header { background: #f85606; padding: 15px; position: sticky; top: 0; z-index: 100; }
+  .header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+  .logo { color: white; font-size: 24px; font-weight: bold; }
+  .cart-icon { position: relative; cursor: pointer; font-size: 24px; color: white; }
+  .cart-count { position: absolute; top: -8px; right: -8px; background: red; color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 12px; display: flex; align-items: center; justify-content: center; }
+  .search-bar input { width: 100%; padding: 10px; border: none; border-radius: 5px; font-size: 16px; }
+  .categories { padding: 15px; background: white; overflow-x: auto; white-space: nowrap; }
+  .cat-btn { background: #eee; color: #333; border: none; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-size: 14px; margin-right: 8px; display: inline-block; }
+  .cat-btn.active { background: #f85606; color: white; font-weight: bold; }
+  .products { padding: 15px; display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; }
+  .product-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+  .product-img { width: 100%; height: 140px; background: #eee; display: flex; align-items: center; justify-content: center; font-size: 40px; }
+  .product-img img { width: 100%; height: 100%; object-fit: cover; }
+  .product-info { padding: 12px; }
+  .product-name { font-size: 14px; margin-bottom: 5px; height: 35px; overflow: hidden; }
+  .product-price { color: #f85606; font-weight: bold; font-size: 18px; margin-bottom: 10px; }
+  .add-cart-btn { width: 100%; background: #f85606; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+  .add-cart-btn:hover { background: #d64a05; }
+  .no-products { text-align: center; color: #999; padding: 40px; grid-column: 1 / -1; }
+ .cart-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 200; }
+ .cart-content { background: white; width: 90%; max-width: 500px; margin: 50px auto; border-radius: 10px; max-height: 80vh; overflow-y: auto; }
+ .cart-header { background: #f85606; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; border-radius: 10px 10px 0 0; }
+ .close-cart { font-size: 28px; cursor: pointer; }
+ .cart-items { padding: 15px; }
+ .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee; }
+ .cart-item-name { flex: 1; font-size: 14px; }
+ .cart-item-price { font-weight: bold; color: #f85606; margin: 0 10px; }
+ .remove-btn { background: red; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer; }
+ .cart-total { padding: 15px; font-size: 20px; font-weight: bold; text-align: right; border-top: 2px solid #eee; }
+ .checkout-btn { width: calc(100% - 30px); margin: 0 15px 15px; background: #25D366; color: white; border: none; padding: 15px; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 16px; }
+ .empty-cart { padding: 40px 15px; text-align: center; color: #999; }
   </style>
 </head>
 <body>
   <div class="header">
-    <div class="logo">SAYUMIN</div>
-    <div class="cart-icon" onclick="showCart()"> 🛒 <span class="cart-count" id="cartCount">0</span> </div>
+    <div class="header-top">
+      <div class="logo">SAYUMIN</div>
+      <div class="cart-icon" onclick="openCart()"> 🛒 <span class="cart-count" id="cartCount">0</span> </div>
+    </div>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search products..." onkeyup="filterProducts()">
+    </div>
   </div>
 
+  <div class="categories" id="categoryList"></div>
   <div class="products" id="productList"></div>
 
+  <div class="cart-modal" id="cartModal">
+    <div class="cart-content">
+      <div class="cart-header">
+        <h2>Shopping Cart</h2>
+        <span class="close-cart" onclick="closeCart()">&times;</span>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-total" id="cartTotal">Total: Rs 0</div>
+      <button class="checkout-btn" onclick="checkoutWhatsApp()">Checkout via WhatsApp</button>
+    </div>
+  </div>
+
   <script>
-    // Console එකේ මේක Print වෙනවද බලන්න
-    console.log("SAYUMIN Tech Script Start");
+    var CONFIG = { whatsapp: "94721352940" };
     
+    // උඹ දුන්න Categories ටික
+    var categories = [
+      "All", 
+      "Laptop Repair Components", 
+      "Laptop Repair Accessories", 
+      "Battery/Charger/Keyboard", 
+      "BIOS File", 
+      "Tools", 
+      "Electronics Devices"
+    ];
+    
+    // Category එකට අදාලව Products ටික. උඹට ඕන විදියට මේක වෙනස් කරගන්න පුළුවන්
     var products = [
-      { id: 1, name: "Laptop IC Chip", price: 1000 },
-      { id: 2, name: "Laptop Keyboard", price: 2500 },
-      { id: 3, name: "Repair Tool Kit", price: 3200 }
+      { id: 1, name: "Motherboard IC Chip", price: 1200, category: "Laptop Repair Components", img: "🔧" },
+      { id: 2, name: "LCD Screen Cable", price: 800, category: "Laptop Repair Components", img: "🔧" },
+      { id: 3, name: "Laptop Cooling Pad", price: 2200, category: "Laptop Repair Accessories", img: "💨" },
+      { id: 4, name: "USB-C Hub", price: 3500, category: "Laptop Repair Accessories", img: "🔌" },
+      { id: 5, name: "Laptop Keyboard", price: 2500, category: "Battery/Charger/Keyboard", img: "⌨️" },
+      { id: 6, name: "Laptop Battery 6-Cell", price: 8500, category: "Battery/Charger/Keyboard", img: "🔋" },
+      { id: 7, name: "65W Laptop Charger", price: 3200, category: "Battery/Charger/Keyboard", img: "🔌" },
+      { id: 8, name: "Dell BIOS File", price: 500, category: "BIOS File", img: "💾" },
+      { id: 9, name: "HP BIOS File", price: 500, category: "BIOS File", img: "💾" },
+      { id: 10, name: "Precision Screwdriver Set", price: 1800, category: "Tools", img: "🛠️" },
+      { id: 11, name: "Soldering Iron Kit", price: 4500, category: "Tools", img: "🛠️" },
+      { id: 12, name: "Digital Multimeter", price: 2800, category: "Electronics Devices", img: "📟" }
     ];
 
     var cart = [];
-    
-    // Products ටික හදන Function එක
-    function loadProducts() {
+    var currentCategory = "All";
+
+    function loadCategories() {
       var html = "";
+      for (var i = 0; i < categories.length; i++) {
+        var cat = categories[i];
+        var activeClass = cat === currentCategory? "active" : "";
+        html += '<button class="cat-btn ' + activeClass + '" onclick="selectCategory(\'' + cat + '\')">' + cat + '</button>';
+      }
+      document.getElementById('categoryList').innerHTML = html;
+    }
+
+    function selectCategory(category) {
+      currentCategory = category;
+      loadCategories();
+      filterProducts();
+    }
+
+    function filterProducts() {
+      var searchText = document.getElementById('searchInput').value.toLowerCase();
+      var filtered = [];
       for (var i = 0; i < products.length; i++) {
         var p = products[i];
+        var matchCategory = currentCategory === "All" || p.category === currentCategory;
+        var matchSearch = p.name.toLowerCase().includes(searchText);
+        if (matchCategory && matchSearch) {
+          filtered.push(p);
+        }
+      }
+      renderProducts(filtered);
+    }
+
+    function renderProducts(productArray) {
+      var list = document.getElementById('productList');
+      if (productArray.length === 0) {
+        list.innerHTML = '<div class="no-products">No products found in this category 😢</div>';
+        return;
+      }
+      var html = "";
+      for (var i = 0; i < productArray.length; i++) {
+        var p = productArray[i];
         html += '<div class="product-card">';
-        html += '<div class="product-img">🔧</div>';
+        html += '<div class="product-img">' + p.img + '</div>';
         html += '<div class="product-info">';
         html += '<div class="product-name">' + p.name + '</div>';
         html += '<div class="product-price">Rs ' + p.price + '</div>';
         html += '<button class="add-cart-btn" onclick="addToCart(' + p.id + ')">Add to Cart</button>';
         html += '</div></div>';
       }
-      document.getElementById('productList').innerHTML = html;
-      console.log("Products Loaded");
+      list.innerHTML = html;
     }
 
-    // Cart එකට Add කරන Function එක
     function addToCart(productId) {
       var product = null;
       for (var i = 0; i < products.length; i++) {
@@ -66,31 +157,51 @@
           break;
         }
       }
-      if (product) {
-        cart.push(product);
-        document.getElementById('cartCount').textContent = cart.length;
-        alert(product.name + ' Cart එකට දැම්මා! ✅');
-      }
+      if (product) { cart.push(product); updateCartCount(); }
     }
-
-    // Cart එක පෙන්නන Function එක
-    function showCart() {
+    function updateCartCount() { document.getElementById('cartCount').textContent = cart.length; }
+    function openCart() {
+      var cartModal = document.getElementById('cartModal');
+      var cartItems = document.getElementById('cartItems');
+      var cartTotal = document.getElementById('cartTotal');
       if (cart.length === 0) {
-        alert('Cart එක හිස් බං 🛒');
-        return;
+        cartItems.innerHTML = '<div class="empty-cart">Cart එක හිස් 🛒</div>';
+        cartTotal.textContent = 'Total: Rs 0';
+      } else {
+        var total = 0;
+        var itemsHtml = '';
+        for (var i = 0; i < cart.length; i++) {
+          var item = cart[i];
+          total += item.price;
+          itemsHtml += '<div class="cart-item">';
+          itemsHtml += '<div class="cart-item-name">' + item.name + '</div>';
+          itemsHtml += '<div class="cart-item-price">Rs ' + item.price + '</div>';
+          itemsHtml += '<button class="remove-btn" onclick="removeFromCart(' + i + ')">X</button>';
+          itemsHtml += '</div>';
+        }
+        cartItems.innerHTML = itemsHtml;
+        cartTotal.textContent = 'Total: Rs ' + total;
       }
-      var message = 'Cart එකේ තියෙන බඩු:\n\n';
+      cartModal.style.display = 'block';
+    }
+    function closeCart() { document.getElementById('cartModal').style.display = 'none'; }
+    function removeFromCart(index) { cart.splice(index, 1); updateCartCount(); openCart(); }
+    function checkoutWhatsApp() {
+      if (cart.length === 0) { alert('Cart එක හිස්!'); return; }
+      var message = 'SAYUMIN Tech Order%0A%0A';
       var total = 0;
       for (var i = 0; i < cart.length; i++) {
-        message += (i + 1) + '. ' + cart[i].name + ' - Rs ' + cart[i].price + '\n';
+        message += '• ' + cart[i].name + ' - Rs ' + cart[i].price + '%0A';
         total += cart[i].price;
       }
-      message += '\nTotal: Rs ' + total;
-      alert(message);
+      message += '%0A*Total: Rs ' + total + '*%0A%0AMage order eka confirm karanna.';
+      window.open('https://wa.me/' + CONFIG.whatsapp + '?text=' + message, '_blank');
     }
-
-    // Page එක Load වෙද්දිම Products ටික Load කරනවා
-    loadProducts();
+    window.onclick = function(event) {
+      if (event.target == document.getElementById('cartModal')) { closeCart(); }
+    }
+    loadCategories();
+    filterProducts();
   </script>
 </body>
 </html>
