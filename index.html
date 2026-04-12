@@ -7,42 +7,46 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
     body { background: #f5f5f5; }
- .header { background: #f85606; padding: 15px; position: sticky; top: 0; z-index: 100; }
- .header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
- .logo { color: white; font-size: 24px; font-weight: bold; }
- .cart-icon { position: relative; cursor: pointer; font-size: 24px; color: white; }
- .cart-count { position: absolute; top: -8px; right: -8px; background: red; color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 12px; display: flex; align-items: center; justify-content: center; }
- .search-bar input { width: 100%; padding: 10px; border: none; border-radius: 5px; font-size: 16px; }
- .categories { padding: 15px; background: white; overflow-x: auto; white-space: nowrap; }
- .cat-btn { background: #eee; color: #333; border: none; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-size: 14px; margin-right: 8px; display: inline-block; }
- .cat-btn.active { background: #f85606; color: white; font-weight: bold; }
- .products { padding: 15px; display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; }
- .product-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
- .product-img { width: 100%; height: 140px; background: #eee; display: flex; align-items: center; justify-content: center; font-size: 40px; }
- .product-img img { width: 100%; height: 100%; object-fit: cover; }
- .product-info { padding: 12px; }
- .product-name { font-size: 14px; margin-bottom: 5px; height: 35px; overflow: hidden; }
- .product-price { color: #f85606; font-weight: bold; font-size: 18px; margin-bottom: 10px; }
- .add-cart-btn { width: 100%; background: #f85606; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; font-weight: bold; }
- .add-cart-btn:hover { background: #d64a05; }
- .no-products { text-align: center; color: #999; padding: 40px; grid-column: 1 / -1; }
-  
-  /* Cart Modal + Qty Styles */
- .cart-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 200; }
- .cart-content { background: white; width: 90%; max-width: 500px; margin: 50px auto; border-radius: 10px; max-height: 80vh; overflow-y: auto; }
- .cart-header { background: #f85606; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; border-radius: 10px 10px 0 0; }
- .close-cart { font-size: 28px; cursor: pointer; }
- .cart-items { padding: 15px; }
- .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee; }
- .cart-item-name { flex: 1; font-size: 14px; }
- .cart-item-controls { display: flex; align-items: center; gap: 10px; }
- .qty-btn { background: #eee; border: none; width: 25px; height: 25px; border-radius: 5px; cursor: pointer; font-weight: bold; }
- .qty-text { font-weight: bold; min-width: 20px; text-align: center; }
- .cart-item-price { font-weight: bold; color: #f85606; margin-left: 10px; min-width: 70px; text-align: right; }
- .remove-btn { background: red; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer; margin-left: 10px; }
- .cart-total { padding: 15px; font-size: 20px; font-weight: bold; text-align: right; border-top: 2px solid #eee; }
- .checkout-btn { width: calc(100% - 30px); margin: 0 15px 15px; background: #25D366; color: white; border: none; padding: 15px; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 16px; }
- .empty-cart { padding: 40px 15px; text-align: center; color: #999; }
+   .header { background: #f85606; padding: 15px; position: sticky; top: 0; z-index: 100; }
+   .header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+   .logo { color: white; font-size: 24px; font-weight: bold; }
+   .cart-icon { position: relative; cursor: pointer; font-size: 24px; color: white; }
+   .cart-count { position: absolute; top: -8px; right: -8px; background: red; color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 12px; display: flex; align-items: center; justify-content: center; }
+   .search-bar input { width: 100%; padding: 10px; border: none; border-radius: 5px; font-size: 16px; }
+   .categories { padding: 15px; background: white; overflow-x: auto; white-space: nowrap; }
+   .cat-btn { background: #eee; color: #333; border: none; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-size: 14px; margin-right: 8px; display: inline-block; }
+   .cat-btn.active { background: #f85606; color: white; font-weight: bold; }
+   .products { padding: 15px; display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; }
+   .product-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+   .product-img { width: 100%; height: 140px; background: #eee; display: flex; align-items: center; justify-content: center; font-size: 40px; }
+   .product-img img { width: 100%; height: 100%; object-fit: cover; }
+   .product-info { padding: 12px; }
+   .product-name { font-size: 14px; margin-bottom: 5px; height: 35px; overflow: hidden; }
+   .stock-status { font-size: 12px; font-weight: bold; margin-bottom: 5px; }
+   .in-stock { color: #28a745; }
+   .out-of-stock { color: #dc3545; }
+   .board-model { font-size: 12px; color: #555; margin-bottom: 8px; background: #f0f0f0; padding: 3px 6px; border-radius: 3px; display: inline-block; }
+   .product-price { color: #f85606; font-weight: bold; font-size: 18px; margin-bottom: 10px; }
+   .add-cart-btn { width: 100%; background: #f85606; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+   .add-cart-btn:hover { background: #d64a05; }
+   .request-btn { background: #ffc107; color: #333; }
+   .request-btn:hover { background: #e0a800; }
+   .no-products { text-align: center; color: #999; padding: 40px; grid-column: 1 / -1; }
+   .cart-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 200; }
+   .cart-content { background: white; width: 90%; max-width: 500px; margin: 50px auto; border-radius: 10px; max-height: 80vh; overflow-y: auto; }
+   .cart-header { background: #f85606; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; border-radius: 10px 10px 0 0; }
+   .close-cart { font-size: 28px; cursor: pointer; }
+   .cart-items { padding: 15px; }
+   .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee; }
+   .cart-item-name { flex: 1; font-size: 14px; }
+   .cart-item-controls { display: flex; align-items: center; gap: 10px; }
+   .qty-btn { background: #eee; border: none; width: 25px; height: 25px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+   .qty-text { font-weight: bold; min-width: 20px; text-align: center; }
+   .cart-item-price { font-weight: bold; color: #f85606; margin-left: 10px; min-width: 70px; text-align: right; }
+   .remove-btn { background: red; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer; margin-left: 10px; }
+   .cart-total { padding: 15px; font-size: 20px; font-weight: bold; text-align: right; border-top: 2px solid #eee; }
+   .checkout-btn { width: calc(100% - 30px); margin: 0 15px 15px; background: #25D366; color: white; border: none; padding: 15px; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 16px; }
+   .empty-cart { padding: 40px 15px; text-align: center; color: #999; }
   </style>
 </head>
 <body>
@@ -52,7 +56,7 @@
       <div class="cart-icon" onclick="openCart()"> 🛒 <span class="cart-count" id="cartCount">0</span> </div>
     </div>
     <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="Search products..." onkeyup="filterProducts()">
+      <input type="text" id="searchInput" placeholder="Search by Model or Name..." onkeyup="filterProducts()">
     </div>
   </div>
 
@@ -73,25 +77,32 @@
 
   <script>
     var CONFIG = { whatsapp: "94721352940" };
-    
-    var categories = ["All", "Laptop Repair Components", "Laptop Repair Accessories", "Battery/Charger/Keyboard", "BIOS File", "Tools", "Electronics Devices"];
-    
+
+    var categories = ["All", "BIOS Files", "Schematics", "BoardView", "Laptop Repair Components", "Laptop Repair Accessories", "Battery/Charger/Keyboard", "Tools", "Electronics Devices"];
+
     var products = [
-      { id: 1, name: "Motherboard IC Chip", price: 1200, category: "Laptop Repair Components", img: "🔧" },
-      { id: 2, name: "LCD Screen Cable", price: 800, category: "Laptop Repair Components", img: "🔧" },
-      { id: 3, name: "Laptop Cooling Pad", price: 2200, category: "Laptop Repair Accessories", img: "💨" },
-      { id: 4, name: "USB-C Hub", price: 3500, category: "Laptop Repair Accessories", img: "🔌" },
-      { id: 5, name: "Laptop Keyboard", price: 2500, category: "Battery/Charger/Keyboard", img: "⌨️" },
-      { id: 6, name: "Laptop Battery 6-Cell", price: 8500, category: "Battery/Charger/Keyboard", img: "🔋" },
-      { id: 7, name: "65W Laptop Charger", price: 3200, category: "Battery/Charger/Keyboard", img: "🔌" },
-      { id: 8, name: "Dell BIOS File", price: 500, category: "BIOS File", img: "💾" },
-      { id: 9, name: "HP BIOS File", price: 500, category: "BIOS File", img: "💾" },
-      { id: 10, name: "Precision Screwdriver Set", price: 1800, category: "Tools", img: "🛠️" },
-      { id: 11, name: "Soldering Iron Kit", price: 4500, category: "Tools", img: "🛠️" },
-      { id: 12, name: "Digital Multimeter", price: 2800, category: "Electronics Devices", img: "📟" }
+      { id: 1, name: "Motherboard IC Chip", price: 1200, category: "Laptop Repair Components", img: "🔧", stock: true },
+      { id: 2, name: "LCD Screen Cable", price: 800, category: "Laptop Repair Components", img: "🔧", stock: true },
+      { id: 3, name: "Laptop Cooling Pad", price: 2200, category: "Laptop Repair Accessories", img: "💨", stock: false },
+      { id: 4, name: "USB-C Hub", price: 3500, category: "Laptop Repair Accessories", img: "🔌", stock: true },
+      { id: 5, name: "Laptop Keyboard", price: 2500, category: "Battery/Charger/Keyboard", img: "⌨️", stock: true },
+      { id: 6, name: "Laptop Battery 6-Cell", price: 8500, category: "Battery/Charger/Keyboard", img: "🔋", stock: true },
+      { id: 7, name: "65W Laptop Charger", price: 3200, category: "Battery/Charger/Keyboard", img: "🔌", stock: true },
+      { id: 101, name: "DELL LA-F115P BIOS 8MB", price: 1000, category: "BIOS Files", img: "💾", digital: true, stock: true, board_model: "LA-F115P" },
+      { id: 102, name: "HP 6050A2979101 BIOS", price: 1000, category: "BIOS Files", img: "💾", digital: true, stock: true, board_model: "6050A2979101" },
+      { id: 103, name: "LENOVO NM-C121 BIOS 16MB", price: 1200, category: "BIOS Files", img: "💾", digital: true, stock: false, board_model: "NM-C121" },
+      { id: 201, name: "DELL LA-F115P Schematic", price: 600, category: "Schematics", img: "📄", digital: true, stock: true, board_model: "LA-F115P" },
+      { id: 202, name: "HP 6050A2979101 Schematic", price: 600, category: "Schematics", img: "📄", digital: true, stock: true, board_model: "6050A2979101" },
+      { id: 203, name: "LENOVO NM-C121 Schematic", price: 800, category: "Schematics", img: "📄", digital: true, stock: true, board_model: "NM-C121" },
+      { id: 301, name: "DELL LA-F115P BoardView", price: 600, category: "BoardView", img: "🔍", digital: true, stock: true, board_model: "LA-F115P" },
+      { id: 302, name: "HP 6050A2979101 BoardView", price: 600, category: "BoardView", img: "🔍", digital: true, stock: true, board_model: "6050A2979101" },
+      { id: 303, name: "LENOVO NM-C121 BoardView", price: 800, category: "BoardView", img: "🔍", digital: true, stock: true, board_model: "NM-C121" },
+      { id: 10, name: "Precision Screwdriver Set", price: 1800, category: "Tools", img: "🛠️", stock: true },
+      { id: 11, name: "Soldering Iron Kit", price: 4500, category: "Tools", img: "🛠️", stock: true },
+      { id: 12, name: "Digital Multimeter", price: 2800, category: "Electronics Devices", img: "📟", stock: true }
     ];
 
-    var cart = []; // දැන් cart එකේ තියෙන්නෙ {id, name, price, qty} objects
+    var cart = [];
     var currentCategory = "All";
 
     function loadCategories() {
@@ -110,66 +121,96 @@
       filterProducts();
     }
 
-   function filterProducts() {
-  var searchText = document.getElementById('searchInput').value.toLowerCase();
-  var filtered = [];
-  for (var i = 0; i < products.length; i++) {
-    var p = products[i];
-    // Category එකත් lowercase කරලා Compare කරනවා. මේක තමයි Fix එක
-    var matchCategory = currentCategory === "All" || p.category.toLowerCase() === currentCategory.toLowerCase();
-    var matchSearch = p.name.toLowerCase().includes(searchText);
-    if (matchCategory && matchSearch) {
-      filtered.push(p);
+    function filterProducts() {
+      var searchText = document.getElementById('searchInput').value.toLowerCase();
+      var filtered = [];
+      for (var i = 0; i < products.length; i++) {
+        var p = products[i];
+        var matchCategory = currentCategory === "All" || p.category.toLowerCase() === currentCategory.toLowerCase();
+        var matchSearch = p.name.toLowerCase().includes(searchText) || (p.board_model && p.board_model.toLowerCase().includes(searchText));
+        if (matchCategory && matchSearch) {
+          filtered.push(p);
+        }
+      }
+      renderProducts(filtered);
     }
-  }
-  renderProducts(filtered);
-}
 
     function renderProducts(productArray) {
       var list = document.getElementById('productList');
       if (productArray.length === 0) {
-        list.innerHTML = '<div class="no-products">No products found in this category 😢</div>';
+        list.innerHTML = '<div class="no-products">No products found 😢</div>';
         return;
       }
       var html = "";
       for (var i = 0; i < productArray.length; i++) {
         var p = productArray[i];
+        var stockText = p.stock? '<div class="stock-status in-stock">✓ In Stock</div>' : '<div class="stock-status out-of-stock">✗ Out of Stock</div>';
+        var boardModelText = p.board_model? '<div class="board-model">Model: ' + p.board_model + '</div>' : '';
+        var buttonHtml = p.stock? '<button class="add-cart-btn" onclick="addToCart(' + p.id + ')">Add to Cart</button>' : '<button class="add-cart-btn request-btn" onclick="requestStock(' + p.id + ')">Request Stock</button>';
+
         html += '<div class="product-card">';
         html += '<div class="product-img">' + p.img + '</div>';
         html += '<div class="product-info">';
         html += '<div class="product-name">' + p.name + '</div>';
+        html += stockText;
+        html += boardModelText;
         html += '<div class="product-price">Rs ' + p.price + '</div>';
-        html += '<button class="add-cart-btn" onclick="addToCart(' + p.id + ')">Add to Cart</button>';
+        html += buttonHtml;
         html += '</div></div>';
       }
       list.innerHTML = html;
     }
 
-    // Qty එක එක්ක AddToCart
     function addToCart(productId) {
-      var existingItem = null;
-      for (var i = 0; i < cart.length; i++) {
-        if (cart[i].id === productId) {
-          existingItem = cart[i];
+      var product = null;
+      for (var i = 0; i < products.length; i++) {
+        if (products[i].id === productId) {
+          product = products[i];
           break;
         }
       }
-      
-      if (existingItem) {
-        existingItem.qty++; // දැනටම Cart එකේ තියෙනවනම් Qty එක විතරක් වැඩි කරනවා
-      } else {
-        var product = null;
-        for (var j = 0; j < products.length; j++) {
-          if (products[j].id === productId) {
-            product = products[j];
-            break;
-          }
-        }
-        if (product) {
-         cart.push({ id: product.id, name: product.name, price: product.price, qty: 1 });  // අලුතෙන් Add කරනවා
+      if (!product ||!product.stock) return;
+
+      var existingItem = null;
+      for (var j = 0; j < cart.length; j++) {
+        if (cart[j].id === productId) {
+          existingItem = cart[j];
+          break;
         }
       }
+      if (existingItem) {
+        existingItem.qty++;
+      } else {
+        cart.push({
+          id: product.id,
+          name: product.name,
+          price: product.price,
+          category: product.category,
+          digital: product.digital || false,
+          qty: 1
+        });
+      }
       updateCartCount();
+    }
+
+    function requestStock(productId) {
+      var product = null;
+      for (var i = 0; i < products.length; i++) {
+        if (products[i].id === productId) {
+          product = products[i];
+          break;
+        }
+      }
+      if (!product) return;
+      var message = 'SAYUMIN TECH - Stock Request%0A%0A';
+      message += 'Hi, මට මේ Item එක ඕන:%0A';
+      message += '• Item: ' + product.name + '%0A';
+      message += '• Category: ' + product.category + '%0A';
+      if(product.board_model){
+        message += '• Model: ' + product.board_model + '%0A';
+      }
+      message += '%0Aමේක Stock තියෙනවද? ගෙන්න ගන්න පුළුවන්ද?';
+      window.open('https://wa.me/' + CONFIG.whatsapp + '?text=' + message, '_blank');
     }
 
     function updateCartCount() {
@@ -184,7 +225,7 @@
       var cartModal = document.getElementById('cartModal');
       var cartItems = document.getElementById('cartItems');
       var cartTotal = document.getElementById('cartTotal');
-      
+
       if (cart.length === 0) {
         cartItems.innerHTML = '<div class="empty-cart">Cart එක හිස් 🛒</div>';
         cartTotal.textContent = 'Total: Rs 0';
@@ -215,34 +256,46 @@
     function changeQty(index, change) {
       cart[index].qty += change;
       if (cart[index].qty <= 0) {
-        cart.splice(index, 1); // Qty 0 උනොත් අයින් කරනවා
+        cart.splice(index, 1);
       }
       updateCartCount();
-      openCart(); // Modal එක Refresh කරනවා
+      openCart();
     }
 
     function closeCart() { document.getElementById('cartModal').style.display = 'none'; }
     function removeFromCart(index) { cart.splice(index, 1); updateCartCount(); openCart(); }
-    
+
     function checkoutWhatsApp() {
       if (cart.length === 0) { alert('Cart එක හිස්!'); return; }
-      var message = 'SAYUMIN Tech Order%0A%0A';
+      var message = 'SAYUMIN TECH - New Order%0A%0A';
       var total = 0;
       for (var i = 0; i < cart.length; i++) {
         var itemTotal = cart[i].price * cart[i].qty;
         message += '• ' + cart[i].name + ' x ' + cart[i].qty + ' - Rs ' + itemTotal + '%0A';
+        message += ' Category: ' + cart[i].category + '%0A';
+        if(cart[i].digital){
+          message += ' (Digital Item - Email කරන්න)%0A';
+        }
         total += itemTotal;
       }
-      message += '%0A*Total: Rs ' + total + '*%0A%0AMage order eka confirm karanna.';
+      message += '%0A*Total Amount: Rs ' + total + '*%0A%0A';
+      message += '----------------------------%0A';
+      message += 'Bank Deposit Details%0A';
+      message += 'Bank: BOC%0A';
+      message += 'Name: SAYUMIN TECH%0A';
+      message += 'A/C: 12345678%0A';
+      message += 'Branch: Moratuwa%0A';
+      message += '----------------------------%0A%0A';
+      message += 'සල්ලි දැම්මට පස්සෙ Slip එකේ Photo එකක් එවන්න. Confirm කරලා Link/Courier කරනවා 🛵';
       window.open('https://wa.me/' + CONFIG.whatsapp + '?text=' + message, '_blank');
     }
-    
+
     window.onclick = function(event) {
       if (event.target == document.getElementById('cartModal')) { closeCart(); }
     }
-    
+
     loadCategories();
     filterProducts();
   </script>
 </body>
-</html
+</html>
