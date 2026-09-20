@@ -145,5 +145,13 @@
     "category": "Electronics Devices",
     "img": "📟",
     "stock": true
-  }
+  },
+  {
+    "id": 14,
+    "name": "UNI-T UT33A+ Multimeter",
+    "price": 5800,
+    "category": "Electronics Devices",
+    "img": "🛠️",
+    "stock": true
+     },
 ]
