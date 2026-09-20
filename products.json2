@@ -1,0 +1,149 @@
+[
+  {
+    "id": 99901,
+    "name": "Pull Cord - Generator / Grass Cutter",
+    "price": 1500,
+    "category": "Tools",
+    "img": "🔧",
+    "stock": true,
+    "board_model": "Universal"
+  },
+  {
+    "id": 99902,
+    "name": "තෘණ කපන තලය - Grass Cutter Blade",
+    "price": 2500,
+    "category": "Tools",
+    "img": "🔧",
+    "stock": true,
+    "board_model": "Universal"
+  },
+  {
+    "id": 99903,
+    "name": "Spark Plug - Generator",
+    "price": 850,
+    "category": "Tools",
+    "img": "🔧",
+    "stock": true,
+    "board_model": "Universal"
+  },
+  {
+    "id": 1,
+    "name": "Motherboard IC Chip",
+    "price": 1200,
+    "category": "Laptop Repair Components",
+    "img": "🔧",
+    "stock": true
+  },
+  {
+    "id": 2,
+    "name": "LCD Screen Cable",
+    "price": 800,
+    "category": "Laptop Repair Components",
+    "img": "🔧",
+    "stock": true
+  },
+  {
+    "id": 3,
+    "name": "Laptop Cooling Pad",
+    "price": 2200,
+    "category": "Laptop Repair Accessories",
+    "img": "💨",
+    "stock": false
+  },
+  {
+    "id": 4,
+    "name": "USB-C Hub",
+    "price": 3500,
+    "category": "Laptop Repair Accessories",
+    "img": "🔌",
+    "stock": true
+  },
+  {
+    "id": 5,
+    "name": "Laptop Keyboard",
+    "price": 2500,
+    "category": "Battery/Charger/Keyboard",
+    "img": "⌨️",
+    "stock": true
+  },
+  {
+    "id": 6,
+    "name": "Laptop Battery 6-Cell",
+    "price": 8500,
+    "category": "Battery/Charger/Keyboard",
+    "img": "🔋",
+    "stock": true
+  },
+  {
+    "id": 7,
+    "name": "65W Laptop Charger",
+    "price": 3200,
+    "category": "Battery/Charger/Keyboard",
+    "img": "🔌",
+    "stock": true
+  },
+  {
+    "id": 101,
+    "name": "DELL LA-F115P BIOS 8MB",
+    "price": 2000,
+    "category": "BIOS Files",
+    "img": "💾",
+    "digital": true,
+    "stock": true,
+    "board_model": "LA-F115P"
+  },
+  {
+    "id": 102,
+    "name": "HP 6050A2979101 BIOS",
+    "price": 1000,
+    "category": "BIOS Files",
+    "img": "💾",
+    "digital": true,
+    "stock": true,
+    "board_model": "6050A2979101"
+  },
+  {
+    "id": 201,
+    "name": "DELL LA-F115P Schematic",
+    "price": 600,
+    "category": "Schematics",
+    "img": "📄",
+    "digital": true,
+    "stock": true,
+    "board_model": "LA-F115P"
+  },
+  {
+    "id": 301,
+    "name": "DELL LA-F115P BoardView",
+    "price": 600,
+    "category": "BoardView",
+    "img": "🔍",
+    "digital": true,
+    "stock": true,
+    "board_model": "LA-F115P"
+  },
+  {
+    "id": 10,
+    "name": "Precision Screwdriver Set",
+    "price": 1800,
+    "category": "Tools",
+    "img": "🛠️",
+    "stock": true
+  },
+  {
+    "id": 11,
+    "name": "Soldering Iron Kit",
+    "price": 4500,
+    "category": "Tools",
+    "img": "🛠️",
+    "stock": true
+  },
+  {
+    "id": 12,
+    "name": "UNI-T UT197PV Multimeter",
+    "price": 2800,
+    "category": "Electronics Devices",
+    "img": "📟",
+    "stock": true
+  }
+]
