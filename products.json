@@ -36,10 +36,10 @@
   },
   {
     "id": 2,
-    "name": "images.jpg",
+    "name": "images",
     "price": 800,
     "category": "Laptop Repair Components",
-    "img": "🔧",
+    "img": "images.jpg",
     "stock": true
   },
   {
