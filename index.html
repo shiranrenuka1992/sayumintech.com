@@ -1,422 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SAYUMIN Tech</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
-    body { background: #f5f5f5; }
-   .header { background: #f85606; padding: 15px; position: sticky; top: 0; z-index: 100; }
-   .header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-   .logo { color: white; font-size: 24px; font-weight: bold; }
-   .cart-icon { position: relative; cursor: pointer; font-size: 24px; color: white; }
-   .cart-count { position: absolute; top: -8px; right: -8px; background: red; color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 12px; display: flex; align-items: center; justify-content: center; }
-   .search-bar input { width: 100%; padding: 10px; border: none; border-radius: 5px; font-size: 16px; }
-   .categories { padding: 15px; background: white; overflow-x: auto; white-space: nowrap; }
-   .cat-btn { background: #eee; color: #333; border: none; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-size: 14px; margin-right: 8px; display: inline-block; }
-   .cat-btn.active { background: #f85606; color: white; font-weight: bold; }
-   .products { padding: 15px; display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; }
-   .product-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-   .product-img { width: 100%; height: 140px; background: #eee; display: flex; align-items: center; justify-content: center; font-size: 40px; }
-   .product-img img { width: 100%; height: 100%; object-fit: cover; }
-   .product-info { padding: 12px; }
-   .product-name { font-size: 14px; margin-bottom: 5px; height: 35px; overflow: hidden; }
-   .stock-status { font-size: 12px; font-weight: bold; margin-bottom: 5px; }
-   .in-stock { color: #28a745; }
-   .out-of-stock { color: #dc3545; }
-   .board-model { font-size: 12px; color: #555; margin-bottom: 8px; background: #f0f0f0; padding: 3px 6px; border-radius: 3px; display: inline-block; }
-   .product-price { color: #f85606; font-weight: bold; font-size: 18px; margin-bottom: 10px; }
-   .add-cart-btn { width: 100%; background: #f85606; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; font-weight: bold; }
-   .add-cart-btn:hover { background: #d64a05; }
-   .request-btn { background: #ffc107; color: #333; }
-   .request-btn:hover { background: #e0a800; }
-   .no-products { text-align: center; color: #999; padding: 40px; grid-column: 1 / -1; }
-   .cart-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 200; }
-   .cart-content { background: white; width: 90%; max-width: 500px; margin: 50px auto; border-radius: 10px; max-height: 80vh; overflow-y: auto; }
-   .cart-header { background: #f85606; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; border-radius: 10px 10px 0 0; }
-   .close-cart { font-size: 28px; cursor: pointer; }
-   .cart-items { padding: 15px; }
-   .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee; }
-   .cart-item-name { flex: 1; font-size: 14px; }
-   .cart-item-controls { display: flex; align-items: center; gap: 10px; }
-   .qty-btn { background: #eee; border: none; width: 25px; height: 25px; border-radius: 5px; cursor: pointer; font-weight: bold; }
-   .qty-text { font-weight: bold; min-width: 20px; text-align: center; }
-   .cart-item-price { font-weight: bold; color: #f85606; margin-left: 10px; min-width: 70px; text-align: right; }
-   .remove-btn { background: red; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer; margin-left: 10px; }
-   .cart-total { padding: 15px; font-size: 20px; font-weight: bold; text-align: right; border-top: 2px solid #eee; }
-   .checkout-btn { width: calc(100% - 30px); margin: 0 15px 15px; background: #25D366; color: white; border: none; padding: 15px; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 16px; }
-   .empty-cart { padding: 40px 15px; text-align: center; color: #999; }
-  </style>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAYUMIN Tech</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}body{background:#f5f5f5}
+.header{background:#f85606;padding:15px;position:sticky;top:0;z-index:100}
+.header-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}
+.logo{color:white;font-size:24px;font-weight:bold}.cart-icon{position:relative;cursor:pointer;font-size:24px;color:white}
+.cart-count{position:absolute;top:-8px;right:-8px;background:red;color:white;border-radius:50%;width:20px;height:20px;font-size:12px;display:flex;align-items:center;justify-content:center}
+.search-bar input{width:100%;padding:10px;border:none;border-radius:5px;font-size:16px}
+.categories{padding:15px;background:white;overflow-x:auto;white-space:nowrap}
+.cat-btn{background:#eee;color:#333;border:none;padding:8px 15px;border-radius:20px;cursor:pointer;font-size:14px;margin-right:8px;display:inline-block}
+.cat-btn.active{background:#f85606;color:white;font-weight:bold}
+.products{padding:15px;display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:15px}
+.product-card{background:white;border-radius:8px;overflow:hidden;box-shadow:0 2px 5px rgba(0,0,0,0.1)}
+.product-img{width:100%;height:140px;background:#eee;display:flex;align-items:center;justify-content:center;font-size:40px}
+.product-info{padding:12px}.product-name{font-size:14px;margin-bottom:5px;height:35px;overflow:hidden}
+.stock-status{font-size:12px;font-weight:bold;margin-bottom:5px}.in-stock{color:#28a745}.out-of-stock{color:#dc3545}
+.board-model{font-size:12px;color:#555;margin-bottom:8px;background:#f0f0f0;padding:3px 6px;border-radius:3px;display:inline-block}
+.product-price{color:#f85606;font-weight:bold;font-size:18px;margin-bottom:10px}
+.add-cart-btn{width:100%;background:#f85606;color:white;border:none;padding:10px;border-radius:5px;cursor:pointer;font-weight:bold}
+.request-btn{background:#ffc107;color:#333}
+.no-products{text-align:center;color:#999;padding:40px;grid-column:1/-1}
+.cart-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:200}
+.cart-content{background:white;width:90%;max-width:500px;margin:50px auto;border-radius:10px;max-height:80vh;overflow-y:auto}
+.cart-header{background:#f85606;color:white;padding:15px;display:flex;justify-content:space-between;align-items:center;border-radius:10px 10px 0 0}
+.close-cart{font-size:28px;cursor:pointer}.cart-items{padding:15px}
+.cart-item{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #eee}
+.cart-item-name{flex:1;font-size:14px}.cart-item-controls{display:flex;align-items:center;gap:10px}
+.qty-btn{background:#eee;border:none;width:25px;height:25px;border-radius:5px;cursor:pointer;font-weight:bold}
+.qty-text{font-weight:bold;min-width:20px;text-align:center}
+.cart-item-price{font-weight:bold;color:#f85606;margin-left:10px;min-width:70px;text-align:right}
+.remove-btn{background:red;color:white;border:none;padding:5px 10px;border-radius:3px;cursor:pointer;margin-left:10px}
+.cart-total{padding:15px;font-size:20px;font-weight:bold;text-align:right;border-top:2px solid #eee}
+.checkout-btn{width:calc(100% - 30px);margin:0 15px 15px;background:#25D366;color:white;border:none;padding:15px;border-radius:5px;cursor:pointer;font-weight:bold;font-size:16px}
+.empty-cart{padding:40px 15px;text-align:center;color:#999}
+</style>
 </head>
 <body>
-  <div class="header">
-    <div class="header-top">
-      <div class="logo">SAYUMIN</div>
-      <div class="cart-icon" onclick="openCart()"> 🛒 <span class="cart-count" id="cartCount">0</span> </div>
-    </div>
-    <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="Search by Model or Name..." onkeyup="filterProducts()">
-    </div>
-  </div>
-
-  <div class="categories" id="categoryList"></div>
-  <div class="products" id="productList"></div>
-
-  <div class="cart-modal" id="cartModal">
-    <div class="cart-content">
-      <div class="cart-header">
-        <h2>Shopping Cart</h2>
-        <span class="close-cart" onclick="closeCart()">&times;</span>
-      </div>
-      <div class="cart-items" id="cartItems"></div><!-- Cart Policy Notes - API = අපි 😎 -->
-<div class="cart-notes" style="background: #fff3cd; border: 2px solid #ffc107; padding: 18px; margin-top: 20px; border-radius: 8px; font-size: 14px; line-height: 1.7;">
-  <h4 style="margin: 0 0 12px 0; color: #b35400; font-size: 16px;">🛒 ඇනවුම් කිරීමට පෙර - Important Notes Before Ordering</h4>
-  
-  <!-- Sinhala Version -->
-  <div style="margin-bottom: 15px;">
-    <ul style="margin: 0; padding-left: 20px; color: #333;">
-      <li><b>ගෙවීම් තහවුරු කිරීම:</b> අපගේ ගිණුමට මුදල් බැර කර එහි තහවුරු කිරීමේ පත්‍රය WhatsApp හරහා අප වෙත ලැබුණු පසුව පමණක් කූරියර් සේවාව වෙත භාණ්ඩ යොමු කරනු ලැබේ.</li>
-      <li><b>COD පහසුකම් නොමැත.</b></li>
-      <li style="display: flex; align-items: flex-start; gap: 10px; flex-wrap: wrap;">
-        <img src="promptxp.jpg" alt="Prompt XP Courier" style="height: 28px; margin-top: 2px; background: #fff; padding: 2px; border-radius: 4px;">
-        <span style="flex: 1; min-width: 200px;"><b>කුරියර් සේවාව:</b> අප සාමාන්‍යයෙන් Prompt XP Courier භාවිතා කරයි. <b>නමුත් ඔබ කැමති ඕනෑම කුරියර් සේවාවක් හරහා භාණ්ඩ එවීමට අපට හැකිය.</b> කුරියර් ගාස්තු පාරිභෝගිකයා විසින් ගෙවිය යුතුය.</span>
-      </li>
-      <li><b>Digital භාණ්ඩ (BIOS/Schematic/BoardView):</b> ගෙවීම තහවුරු කිරීමෙන් පසු ඔබ ලබාදෙන <b>WhatsApp අංකයට හෝ Email</b> ලිපිනයට එවනු ලැබේ.</li>
-    </ul>
-  </div>
-
-  <hr style="border: 0; border-top: 1px dashed #ffc107; margin: 15px 0;">
-
-  <!-- English Version -->
-  <div style="color: #444;">
-    <strong style="color: #b35400;">For English Readers:</strong>
-    <ul style="margin: 8px 0 0 0; padding-left: 20px;">
-      <li><b>Payment Confirmation:</b> Items will be handed over to courier only after you deposit payment to our account and send us the payment confirmation slip via WhatsApp.</li>
-      <li><b>No COD Available.</b></li>
-      <li style="display: flex; align-items: flex-start; gap: 10px; flex-wrap: wrap;">
-        <img src="promptxp.jpg" alt="Prompt XP Courier" style="height: 28px; margin-top: 2px; background: #fff; padding: 2px; border-radius: 4px;">
-        <span style="flex: 1; min-width: 200px;"><b>Courier Service:</b> We usually use Prompt XP Courier. <b>However, we can ship through any courier service of your choice.</b> Courier charges must be paid by the customer upon delivery.</span>
-      </li>
-      <li><b>Digital Items (BIOS/Schematic/BoardView):</b> Will be sent to your <b>WhatsApp number or Email</b> after payment confirmation.</li>
-    </ul>
-  </div>
+<div class="header">
+<div class="header-top"><div class="logo">SAYUMIN</div><div class="cart-icon" onclick="openCart()">🛒 <span class="cart-count" id="cartCount">0</span></div></div>
+<div class="search-bar"><input type="text" id="searchInput" placeholder="Search by Model or Name..." onkeyup="filterProducts()"></div>
 </div>
-      <div class="cart-total" id="cartTotal">Total: Rs 0</div>
-      <button class="checkout-btn" onclick="checkoutWhatsApp()">Checkout via WhatsApp</button>
-    </div>
-  </div>
+<div class="categories" id="categoryList"></div>
+<div class="products" id="productList"><div class="no-products">Loading... ⏳</div></div>
+<div class="cart-modal" id="cartModal"><div class="cart-content">
+<div class="cart-header"><h2>Shopping Cart</h2><span class="close-cart" onclick="closeCart()">&times;</span></div>
+<div class="cart-items" id="cartItems"></div>
+<div style="background:#fff3cd;border:2px solid #ffc107;padding:15px;margin:10px;border-radius:8px;font-size:13px"><b>Payment:</b> Deposit කර slip එක WhatsApp කරන්න, COD නැත.</div>
+<div class="cart-total" id="cartTotal">Total: Rs 0</div>
+<button class="checkout-btn" onclick="checkoutWhatsApp()">Checkout via WhatsApp</button>
+</div></div>
+<script>
+var CONFIG={whatsapp:"94721352940"};
+var categories=["All","BIOS Files","Schematics","BoardView","Laptop Repair Components","Laptop Repair Accessories","Battery/Charger/Keyboard","Tools","Electronics Devices"];
+var products=[];
+var cart=[];var currentCategory="All";
 
-  <script>
-    var CONFIG = { whatsapp: "94721352940" };
+function loadCategories(){var html="";for(var i=0;i<categories.length;i++){var cat=categories[i];var activeClass=cat===currentCategory?"active":"";html+='<button class="cat-btn '+activeClass+'" onclick="selectCategory(\''+cat+'\')">'+cat+'</button>';}document.getElementById('categoryList').innerHTML=html;}
+function selectCategory(c){currentCategory=c;loadCategories();filterProducts();}
+function filterProducts(){var searchText=document.getElementById('searchInput').value.toLowerCase();var filtered=[];for(var i=0;i<products.length;i++){var p=products[i];var matchCategory=currentCategory==="All"||p.category.toLowerCase()===currentCategory.toLowerCase();var matchSearch=p.name.toLowerCase().includes(searchText)||(p.board_model&&p.board_model.toLowerCase().includes(searchText));if(matchCategory&&matchSearch){filtered.push(p);}}renderProducts(filtered);}
+function renderProducts(arr){var list=document.getElementById('productList');if(arr.length===0){list.innerHTML='<div class="no-products">No products found 😢</div>';return;}var html="";for(var i=0;i<arr.length;i++){var p=arr[i];var stockText=p.stock?'<div class="stock-status in-stock">✓ In Stock</div>':'<div class="stock-status out-of-stock">✗ Out of Stock</div>';var boardModelText=p.board_model?'<div class="board-model">Model: '+p.board_model+'</div>':'';var buttonHtml=p.stock?'<button class="add-cart-btn" onclick="addToCart('+p.id+')">Add to Cart</button>':'<button class="add-cart-btn request-btn" onclick="requestStock('+p.id+')">Request Stock</button>';html+='<div class="product-card"><div class="product-img">'+p.img+'</div><div class="product-info"><div class="product-name">'+p.name+'</div>'+stockText+boardModelText+'<div class="product-price">Rs '+p.price+'</div>'+buttonHtml+'</div></div>';}list.innerHTML=html;}
+function addToCart(pid){var product=null;for(var i=0;i<products.length;i++){if(products[i].id===pid){product=products[i];break;}}if(!product||!product.stock)return;var existing=null;for(var j=0;j<cart.length;j++){if(cart[j].id===pid){existing=cart[j];break;}}if(existing){existing.qty++;}else{cart.push({id:product.id,name:product.name,price:product.price,category:product.category,qty:1});}updateCartCount();}
+function requestStock(pid){var p=null;for(var i=0;i<products.length;i++){if(products[i].id===pid){p=products[i];break;}}if(!p)return;var msg='SAYUMIN TECH - Stock Request%0AItem: '+p.name;window.open('https://wa.me/'+CONFIG.whatsapp+'?text='+msg,'_blank');}
+function updateCartCount(){var total=0;for(var i=0;i<cart.length;i++){total+=cart[i].qty;}document.getElementById('cartCount').textContent=total;}
+function openCart(){var cartModal=document.getElementById('cartModal');var cartItems=document.getElementById('cartItems');var cartTotal=document.getElementById('cartTotal');if(cart.length===0){cartItems.innerHTML='<div class="empty-cart">Cart එක හිස් 🛒</div>';cartTotal.textContent='Total: Rs 0';}else{var total=0;var html='';for(var i=0;i<cart.length;i++){var item=cart[i];var itemTotal=item.price*item.qty;total+=itemTotal;html+='<div class="cart-item"><div class="cart-item-name">'+item.name+'</div><div class="cart-item-controls"><button class="qty-btn" onclick="changeQty('+i+',-1)">-</button><span class="qty-text">'+item.qty+'</span><button class="qty-btn" onclick="changeQty('+i+',1)">+</button></div><div class="cart-item-price">Rs '+itemTotal+'</div><button class="remove-btn" onclick="removeFromCart('+i+')">X</button></div>';}cartItems.innerHTML=html;cartTotal.textContent='Total: Rs '+total;}cartModal.style.display='block';}
+function changeQty(idx,ch){cart[idx].qty+=ch;if(cart[idx].qty<=0){cart.splice(idx,1);}updateCartCount();openCart();}
+function closeCart(){document.getElementById('cartModal').style.display='none';}
+function removeFromCart(idx){cart.splice(idx,1);updateCartCount();openCart();}
+function checkoutWhatsApp(){if(cart.length===0){alert('Cart හිස්!');return;}var msg='SAYUMIN TECH - New Order%0A%0A';var total=0;for(var i=0;i<cart.length;i++){var it=cart[i].price*cart[i].qty;msg+='• '+cart[i].name+' x '+cart[i].qty+' - Rs '+it+'%0A';total+=it;}msg+='%0A*Total: Rs '+total+'*';window.open('https://wa.me/'+CONFIG.whatsapp+'?text='+msg,'_blank');}
+window.onclick=function(e){if(e.target==document.getElementById('cartModal')){closeCart();}}
 
-    var categories = ["All", "BIOS Files", "Schematics", "BoardView", "Laptop Repair Components", "Laptop Repair Accessories", "Battery/Charger/Keyboard", "Tools", "Electronics Devices"];
-
-    var products = [ var products = []; // දැන් products.json එකෙන් Load වෙනවා
-    var cart = [];
-    var currentCategory = "All";
-
-    async function loadProductsFromJson(){
-      try {
-        const res = await fetch('products.json?v=' + Date.now());
-        if(!res.ok) throw new Error('products.json not found');
-        products = await res.json();
-        loadCategories();
-        filterProducts();
-      } catch(e){
-        document.getElementById('productList').innerHTML = '<div class="no-products">products.json හොයාගන්න බැරිවුණා! 😢<br>' + e + '</div>';
-      }
-    }
-
-    ];
-
-    var cart = [];
-    var currentCategory = "All";
-
-    function loadCategories() {
-      var html = "";
-      for (var i = 0; i < categories.length; i++) {
-        var cat = categories[i];
-        var activeClass = cat === currentCategory? "active" : "";
-        html += '<button class="cat-btn ' + activeClass + '" onclick="selectCategory(\'' + cat + '\')">' + cat + '</button>';
-      }
-      document.getElementById('categoryList').innerHTML = html;
-    }
-
-    function selectCategory(category) {
-      currentCategory = category;
-      loadCategories();
-      filterProducts();
-    }
-
-    function filterProducts() {
-      var searchText = document.getElementById('searchInput').value.toLowerCase();
-      var filtered = [];
-      for (var i = 0; i < products.length; i++) {
-        var p = products[i];
-        var matchCategory = currentCategory === "All" || p.category.toLowerCase() === currentCategory.toLowerCase();
-        var matchSearch = p.name.toLowerCase().includes(searchText) || (p.board_model && p.board_model.toLowerCase().includes(searchText));
-        if (matchCategory && matchSearch) {
-          filtered.push(p);
-        }
-      }
-      renderProducts(filtered);
-    }
-
-    function renderProducts(productArray) {
-      var list = document.getElementById('productList');
-      if (productArray.length === 0) {
-        list.innerHTML = '<div class="no-products">No products found 😢</div>';
-        return;
-      }
-      var html = "";
-      for (var i = 0; i < productArray.length; i++) {
-        var p = productArray[i];
-        var stockText = p.stock? '<div class="stock-status in-stock">✓ In Stock</div>' : '<div class="stock-status out-of-stock">✗ Out of Stock</div>';
-        var boardModelText = p.board_model? '<div class="board-model">Model: ' + p.board_model + '</div>' : '';
-        var buttonHtml = p.stock? '<button class="add-cart-btn" onclick="addToCart(' + p.id + ')">Add to Cart</button>' : '<button class="add-cart-btn request-btn" onclick="requestStock(' + p.id + ')">Request Stock</button>';
-
-        html += '<div class="product-card">';
-        html += '<div class="product-img">' + p.img + '</div>';
-        html += '<div class="product-info">';
-        html += '<div class="product-name">' + p.name + '</div>';
-        html += stockText;
-        html += boardModelText;
-        html += '<div class="product-price">Rs ' + p.price + '</div>';
-        html += buttonHtml;
-        html += '</div></div>';
-      }
-      list.innerHTML = html;
-    }
-
-    function addToCart(productId) {
-      var product = null;
-      for (var i = 0; i < products.length; i++) {
-        if (products[i].id === productId) {
-          product = products[i];
-          break;
-        }
-      }
-      if (!product ||!product.stock) return;
-
-      var existingItem = null;
-      for (var j = 0; j < cart.length; j++) {
-        if (cart[j].id === productId) {
-          existingItem = cart[j];
-          break;
-        }
-      }
-      if (existingItem) {
-        existingItem.qty++;
-      } else {
-        cart.push({
-          id: product.id,
-          name: product.name,
-          price: product.price,
-          category: product.category,
-          digital: product.digital || false,
-          qty: 1
-        });
-      }
-      updateCartCount();
-    }
-
-    function requestStock(productId) {
-      var product = null;
-      for (var i = 0; i < products.length; i++) {
-        if (products[i].id === productId) {
-          product = products[i];
-          break;
-        }
-      }
-      if (!product) return;
-      var message = 'SAYUMIN TECH - Stock Request%0A%0A';
-      message += 'Hi, මට මේ Item එක ඕන:%0A';
-      message += '• Item: ' + product.name + '%0A';
-      message += '• Category: ' + product.category + '%0A';
-      if(product.board_model){
-        message += '• Model: ' + product.board_model + '%0A';
-      }
-      message += '%0Aමේක Stock තියෙනවද? ගෙන්න ගන්න පුළුවන්ද?';
-      window.open('https://wa.me/' + CONFIG.whatsapp + '?text=' + message, '_blank');
-    }
-
-    function updateCartCount() {
-      var totalQty = 0;
-      for (var i = 0; i < cart.length; i++) {
-        totalQty += cart[i].qty;
-      }
-      document.getElementById('cartCount').textContent = totalQty;
-    }
-
-    function openCart() {
-      var cartModal = document.getElementById('cartModal');
-      var cartItems = document.getElementById('cartItems');
-      var cartTotal = document.getElementById('cartTotal');
-
-      if (cart.length === 0) {
-        cartItems.innerHTML = '<div class="empty-cart">Cart එක හිස් 🛒</div>';
-        cartTotal.textContent = 'Total: Rs 0';
-      } else {
-        var total = 0;
-        var itemsHtml = '';
-        for (var i = 0; i < cart.length; i++) {
-          var item = cart[i];
-          var itemTotal = item.price * item.qty;
-          total += itemTotal;
-          itemsHtml += '<div class="cart-item">';
-          itemsHtml += '<div class="cart-item-name">' + item.name + '</div>';
-          itemsHtml += '<div class="cart-item-controls">';
-          itemsHtml += '<button class="qty-btn" onclick="changeQty(' + i + ', -1)">-</button>';
-          itemsHtml += '<span class="qty-text">' + item.qty + '</span>';
-          itemsHtml += '<button class="qty-btn" onclick="changeQty(' + i + ', 1)">+</button>';
-          itemsHtml += '</div>';
-          itemsHtml += '<div class="cart-item-price">Rs ' + itemTotal + '</div>';
-          itemsHtml += '<button class="remove-btn" onclick="removeFromCart(' + i + ')">X</button>';
-          itemsHtml += '</div>';
-        }
-        cartItems.innerHTML = itemsHtml;
-        cartTotal.textContent = 'Total: Rs ' + total;
-      }
-      cartModal.style.display = 'block';
-    }
-
-    function changeQty(index, change) {
-      cart[index].qty += change;
-      if (cart[index].qty <= 0) {
-        cart.splice(index, 1);
-      }
-      updateCartCount();
-      openCart();
-    }
-
-    function closeCart() { document.getElementById('cartModal').style.display = 'none'; }
-    function removeFromCart(index) { cart.splice(index, 1); updateCartCount(); openCart(); }
-
-    function checkoutWhatsApp() {
-      if (cart.length === 0) { alert('Cart එක හිස්!'); return; }
-      var message = 'SAYUMIN TECH - New Order%0A%0A';
-      var total = 0;
-      for (var i = 0; i < cart.length; i++) {
-        var itemTotal = cart[i].price * cart[i].qty;
-        message += '• ' + cart[i].name + ' x ' + cart[i].qty + ' - Rs ' + itemTotal + '%0A';
-        message += ' Category: ' + cart[i].category + '%0A';
-        if(cart[i].digital){
-          message += ' (Digital Item - Email කරන්න)%0A';
-        }
-        total += itemTotal;
-      }
-      message += '%0A*Total Amount: Rs ' + total + '*%0A%0A';
-      message += '----------------------------%0A';
-      message += 'Bank Deposit Details%0A';
-      message += 'Bank: BOC%0A';
-      message += 'Name: SAYUMIN TECH%0A';
-      message += 'A/C: 12345678%0A';
-      message += 'Branch: Moratuwa%0A';
-      message += '----------------------------%0A%0A';
-      message += 'මුදල් අප වෙත deposit කරපසු slip එක එවීමට කටුතුකරන්න ඉන් පසුව ඔබගේ පාර්සලය courier ආයතනය වෙත බාරදෙනු ලැබේ  🛵';
-      window.open('https://wa.me/' + CONFIG.whatsapp + '?text=' + message, '_blank');
-    }
-
-    window.onclick = function(event) {
-      if (event.target == document.getElementById('cartModal')) { closeCart(); }
-    }
-     // START - products.json එකෙන් Load කරනවා
-    loadProductsFromJson();
-
-   
-  </script>
-  <!-- Our Skills & Services Section - SAYUMIN Tech -->
-<section id="skills" style="background-color: #ffffff; padding: 60px 20px; text-align: center; border-top: 1px solid #eee;">
-  <div style="max-width: 1200px; margin: 0 auto;">
-    
-    <h2 style="font-size: 34px; margin-bottom: 10px; color: #1a1a1a;">Our Expert Services</h2>
-    <p style="color: #555; margin-bottom: 50px; font-size: 18px;">"We Fix The Unfixable"</p>
-
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; text-align: left;">
-      
-      <!-- Skill 1: All Laptop Repair -->
-      <div style="background: #f9f9f9; padding: 30px; border-radius: 12px; border-left: 5px solid #00a854;">
-        <h3 style="margin-top: 0; color: #1a1a1a; font-size: 20px;">💻 All Laptop & Desktop Repairs</h3>
-        <p style="color: #444; line-height: 1.7;">
-          Complete motherboard-level diagnostics and repair for all issues including No Power, No Display, Charging Problems, and Overheating.
-        </p>
-      </div>
-
-      <!-- Skill 2: Chip Level -->
-      <div style="background: #f9f9f9; padding: 30px; border-radius: 12px; border-left: 5px solid #00a854;">
-        <h3 style="margin-top: 0; color: #1a1a1a; font-size: 20px;">🔬 Chip Level Repair Specialist</h3>
-        <p style="color: #444; line-height: 1.7;">
-          Expert knowledge in all electronic components including ICs, MOSFETs, Capacitors, and Resistors. Specialized in finding and replacing with correct equivalents.
-        </p>
-      </div>
-
-      <!-- Skill 3: BIOS & Schematic -->
-      <div style="background: #f9f9f9; padding: 30px; border-radius: 12px; border-left: 5px solid #00a854;">
-        <h3 style="margin-top: 0; color: #1a1a1a; font-size: 20px;">🧠 BIOS & Schematic Expert</h3>
-        <p style="color: #444; line-height: 1.7;">
-          Advanced BIOS Programming, Corrupt BIOS Repair, ME Region Cleaning, and Password Unlocks. Accurate fault diagnosis using Schematics & BoardView files.
-        </p>
-      </div>
-
-      <!-- Skill 4: Tools & Equipment -->
-      <div style="background: #f9f9f9; padding: 30px; border-radius: 12px; border-left: 5px solid #00a854;">
-        <h3 style="margin-top: 0; color: #1a1a1a; font-size: 20px;">🛠️ Advanced Tools & Tool Repair</h3>
-        <p style="color: #444; line-height: 1.7;">
-          Proficient with and capable of repairing professional equipment like BGA Rework Stations, Soldering Stations, SVOD Programmers, and Oscilloscopes.
-        </p>
-      </div>
-
-    </div>
-
-    <!-- Experience Note - Full Text -->
-    <div style="margin-top: 60px; background: #1a1a1a; color: white; padding: 30px; border-radius: 12px; max-width: 800px; margin-left: auto; margin-right: auto;">
-      <h3 style="margin-top: 0; color: #00ff88; font-size: 22px;">Why Choose Us?</h3>
-      <p style="line-height: 1.8; color: #dddddd; font-size: 16px;">
-        "With over 14+ years of hands-on experience in the Electronics, Laptop, and Tools Repair industry, we don't just sell you parts. We share our knowledge and guarantee quality you can trust for every repair and every product."
-      </p>
-    </div>
-
-  </div>
-</section>
-
-<!-- Footer Section -->
-<footer style="background-color: #1a1a1a; color: #ffffff; padding: 40px 20px;">
-  <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
-    
-    <!-- Logo + Name -->
-    <div style="margin-bottom: 20px;">
-      <img src="images/sayumin-logo.png" alt="SAYUMIN" style="height: 50px; margin-bottom: 10px;">
-      <h3 style="margin: 0; font-size: 24px;">SAYUMIN Tech</h3>
-      <p style="margin: 5px 0; color: #00ff88; font-weight: bold; font-size: 18px;">Your Trusted Repair & Parts Partner</p>
-    </div>
-
-    <!-- About Us -->
-    <div style="margin-bottom: 20px; max-width: 600px; margin-left: auto; margin-right: auto;">
-      <h4 style="margin-bottom: 10px;">About Us</h4>
-      <p style="line-height: 1.6; color: #cccccc;">
-        Sri Lanka's most trusted place for Laptop & Electronics Spare Parts, BIOS Files, and Schematics. Everything you need to fix the unfixable, all in one place.
-      </p>
-    </div>
-
-    <!-- Reva's Engineering Section -->
-    <div style="margin-bottom: 25px; padding: 15px; border: 1px solid #333; border-radius: 8px; max-width: 400px; margin-left: auto; margin-right: auto;">
-      <h4 style="margin: 0 0 5px 0; color: #00ff88;">Powered by</h4>
-      <p style="margin: 0; font-size: 20px; font-weight: bold;">Reva's Engineering</p>
-    </div>
-
-    <!-- Contact -->
-    <div style="margin-bottom: 20px;">
-      <p style="margin: 5px;">📍 Moratuwa, Sri Lanka</p>
-      <p style="margin: 5px;">📱 WhatsApp: 07X XXX XXXX</p>
-    </div>
-
-    <!-- Copyright -->
-    <div style="border-top: 1px solid #444; padding-top: 20px; margin-top: 30px; color: #888;">
-      <p style="margin: 0;">© 2026 SAYUMIN Tech & Reva's Engineering. All Rights Reserved.</p>
-    </div>
-
-  </div>
-</footer>
+fetch('products.json?v='+Date.now()).then(r=>r.json()).then(data=>{
+  if(Array.isArray(data)){products=data;console.log('Loaded',data.length);loadCategories();filterProducts();}
+}).catch(e=>{console.error(e);document.getElementById('productList').innerHTML='<div class="no-products">products.json load error: '+e+'<br>Check file name is products.json</div>';});
+</script>
 </body>
 </html>
