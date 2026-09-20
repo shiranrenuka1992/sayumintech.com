@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SAYUMIN TECH - Laptop Repair Parts</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
@@ -10,40 +9,33 @@
 body{background:#0b1220;color:#e2e8f0;min-height:100vh}
 .header{background:rgba(30,41,59,0.8);backdrop-filter:blur(12px);padding:16px 20px;position:sticky;top:0;z-index:100;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #1e293b}
 .logo{font-weight:800;font-size:22px;letter-spacing:1px;background:linear-gradient(90deg,#38bdf8,#818cf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.search-box{background:#0f172a;border:1px solid #334155;padding:10px 16px;border-radius:24px;color:white;width:180px;outline:none;transition:0.3s}
-.search-box:focus{border-color:#38bdf8;width:220px}
-.cart-icon{cursor:pointer;background:linear-gradient(90deg,#38bdf8,#818cf8);color:#0b1220;padding:10px 18px;border-radius:24px;font-weight:700;font-size:14px;box-shadow:0 4px 15px rgba(56,189,248,0.3)}
+.search-box{background:#0f172a;border:1px solid #334155;padding:10px 16px;border-radius:24px;color:white;width:180px;outline:none}
+.cart-icon{cursor:pointer;background:linear-gradient(90deg,#38bdf8,#818cf8);color:#0b1220;padding:10px 18px;border-radius:24px;font-weight:700;font-size:14px}
 .categories{display:flex;gap:10px;padding:16px 20px;overflow-x:auto;scrollbar-width:none}
-.categories::-webkit-scrollbar{display:none}
-.cat-btn{padding:9px 16px;border-radius:24px;border:1px solid #334155;background:#1e293b;color:#94a3b8;white-space:nowrap;cursor:pointer;font-size:13px;font-weight:600;transition:0.2s}
-.cat-btn.active{background:white;color:#0b1220;border-color:white;transform:scale(1.05)}
+.cat-btn{padding:9px 16px;border-radius:24px;border:1px solid #334155;background:#1e293b;color:#94a3b8;white-space:nowrap;cursor:pointer;font-size:13px;font-weight:600}
+.cat-btn.active{background:white;color:#0b1220;border-color:white}
 .product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:16px;padding:16px 20px}
 .product-card{background:#151f32;border-radius:16px;overflow:hidden;border:1px solid #1e293b;transition:0.3s}
-.product-card:hover{transform:translateY(-4px);border-color:#334155;box-shadow:0 10px 30px rgba(0,0,0,0.3)}
-.product-img{height:165px;background:white;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.product-img{height:165px;background:white;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .product-img img{width:100%;height:100%;object-fit:contain;padding:8px}
-.product-img.emoji{font-size:55px}
 .product-info{padding:12px}
-.product-name{font-size:13px;font-weight:600;line-height:1.3;height:34px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;color:#e2e8f0}
-.in-stock{color:#4ade80;font-size:11px;margin:6px 0;font-weight:600}
-.out-stock{color:#fb7185;font-size:11px;margin:6px 0;font-weight:600}
+.product-name{font-size:13px;font-weight:600;line-height:1.3;height:34px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
 .product-price{font-weight:800;color:#38bdf8;margin:6px 0;font-size:15px}
-.add-to-cart-btn{width:100%;padding:9px;background:white;color:#0b1220;border:none;border-radius:10px;font-weight:700;cursor:pointer;transition:0.2s;margin-top:4px}
-.add-to-cart-btn:hover{background:#38bdf8}
+.add-to-cart-btn{width:100%;padding:9px;background:white;color:#0b1220;border:none;border-radius:10px;font-weight:700;cursor:pointer;margin-top:4px}
 .request-stock-btn{width:100%;padding:9px;background:#1e293b;color:#94a3b8;border:1px solid #334155;border-radius:10px;cursor:pointer;font-weight:600}
 .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.75);backdrop-filter:blur(6px);z-index:200;justify-content:center;align-items:center}
-.modal-content{background:#151f32;width:92%;max-width:420px;border-radius:20px;padding:22px;border:1px solid #334155;max-height:85vh;overflow-y:auto}
+.modal-content{background:#151f32;width:92%;max-width:480px;border-radius:20px;padding:22px;border:1px solid #334155;max-height:90vh;overflow-y:auto}
 .cart-item{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #1e293b}
 .qty-btn{background:#1e293b;border:1px solid #334155;color:white;width:28px;height:28px;border-radius:8px;cursor:pointer}
 .remove-btn{background:#ef444420;border:1px solid #ef444450;color:#fb7185;padding:4px 10px;border-radius:8px;cursor:pointer;margin-left:8px}
 .checkout-btn{width:100%;padding:14px;background:linear-gradient(90deg,#22c55e,#16a34a);border:none;border-radius:12px;font-weight:800;margin-top:18px;cursor:pointer;color:white;font-size:15px}
-.no-products{text-align:center;padding:60px 20px;color:#64748b}
+.cart-notes{background:#fef3c7;border:1.5px solid #fbbf24;padding:16px;margin-top:18px;border-radius:12px;color:#451a03;font-size:13px;line-height:1.6}
 </style>
 </head>
 <body>
 <div class="header">
 <div class="logo">SAYUMIN TECH</div>
-<input type="text" id="searchInput" class="search-box" placeholder="Search products..." oninput="filterProducts()">
+<input type="text" id="searchInput" class="search-box" placeholder="Search..." oninput="filterProducts()">
 <div class="cart-icon" onclick="openCart()">🛒 <span id="cartCount">0</span></div>
 </div>
 <div class="categories" id="categoryList"></div>
@@ -51,49 +43,69 @@ body{background:#0b1220;color:#e2e8f0;min-height:100vh}
 
 <div class="modal" id="cartModal">
 <div class="modal-content">
-<h3 style="margin-bottom:12px">Your Cart</h3>
+<h3 style="margin-bottom:12px">Your Cart 🛒</h3>
 <div id="cartItems"></div>
-<div id="cartTotal" style="margin-top:16px;font-weight:800;font-size:18px"></div>
-<button class="checkout-btn" onclick="checkoutWhatsApp()">Checkout via WhatsApp</button>
+
+<div class="cart-notes">
+<h4 style="margin:0 0 10px 0;color:#92400e;font-size:14px;">🛒 ඇනවුම් කිරීමට පෙර - Important Notes</h4>
+<ul style="margin:0;padding-left:18px;color:#451a03;">
+<li><b>ගෙවීම් තහවුරු කිරීම:</b> අපගේ ගිණුමට මුදල් බැර කර Slip එක WhatsApp හරහා එවූ පසුව පමණක් භාණ්ඩ Courier කරනු ලැබේ.</li>
+<li><b style="color:#dc2626;">COD පහසුකම් නොමැත.</b></li>
+<li><b>කුරියර් සේවාව:</b> අප සාමාන්‍යයෙන් Prompt XP Courier භාවිතා කරයි. <b>ඔබ කැමති ඕනෑම Courier එකකින් එවීමට හැකිය.</b> Courier ගාස්තු පාරිභෝගිකයා විසින් ගෙවිය යුතුය.</li>
+<li><b>Digital භාණ්ඩ (BIOS/Schematic):</b> ගෙවීම තහවුරු කිරීමෙන් පසු ඔබේ WhatsApp / Email එකට එවනු ලැබේ.</li>
+</ul>
+<hr style="border:0;border-top:1px dashed #f59e0b;margin:12px 0">
+<div style="color:#57534e;font-size:12px;"><b>English:</b> No COD. Items will be shipped only after payment slip confirmation. Courier charges paid by customer. Digital items sent to your WhatsApp/Email.</div>
+</div>
+
+<div id="cartTotal" style="margin-top:16px;font-weight:800;font-size:18px;color:#38bdf8"></div>
+<button class="checkout-btn" onclick="checkoutWhatsApp()">Checkout via WhatsApp 💬</button>
 <button onclick="closeCart()" style="width:100%;margin-top:12px;padding:10px;background:transparent;border:1px solid #334155;color:#94a3b8;border-radius:10px;cursor:pointer">Close</button>
 </div>
 </div>
 
 <script>
 var CONFIG={whatsapp:"94721352940"};
-var categories=["All","BIOS Files","Schematics","BoardView","Laptop Repair Components","Laptop Repair Accessories","Battery","Tools","Multimeter"];
+var categories=["All","BIOS Files","Schematics","BoardView","Laptop Repair Components","Laptop Repair Accessories","Battery/Charger/Keyboard","Tools","Electronics Devices"];
 var products=[];var cart=[];var currentCategory="All";
 
-function loadCategories(){var html="";for(var i=0;i<categories.length;i++){var cat=categories[i];html+='<button class="cat-btn '+(cat===currentCategory?'active':'')+'" onclick="selectCategory(\''+cat+'\')">'+cat+'</button>';}document.getElementById('categoryList').innerHTML=html;}
+function loadCategories(){var h="";for(var i=0;i<categories.length;i++){var c=categories[i];h+='<button class="cat-btn '+(c===currentCategory?'active':'')+'" onclick="selectCategory(\''+c+'\')">'+c+'</button>';}document.getElementById('categoryList').innerHTML=h;}
 function selectCategory(c){currentCategory=c;loadCategories();filterProducts();}
 function filterProducts(){var s=document.getElementById('searchInput').value.toLowerCase();var f=[];for(var i=0;i<products.length;i++){var p=products[i];if((currentCategory==="All"||p.category===currentCategory)&&p.name.toLowerCase().includes(s))f.push(p);}renderProducts(f);}
-
 function renderProducts(arr){
-  var list=document.getElementById('productList');
-  if(arr.length===0){list.innerHTML='<div class="no-products">No products found 🔍</div>';return;}
-  var html="";
-  for(var i=0;i<arr.length;i++){
-    var p=arr[i];
-    var stockText=p.stock?'<div class="in-stock">● In Stock</div>':'<div class="out-stock">● Out of Stock</div>';
-    var btnText=p.stock?'<button class="add-to-cart-btn" onclick="addToCart('+p.id+')">Add to Cart</button>':'<button class="request-stock-btn" onclick="requestStock('+p.id+')">Request Stock</button>';
-    var isPhoto = p.img.includes('images/')||p.img.includes('.jpg')||p.img.includes('.png')||p.img.includes('.jpeg')||p.img.includes('http');
-    var imgContent = isPhoto?'<img src="'+p.img+'" alt="'+p.name+'" onerror="this.style.display=\'none\'">':'<span class="emoji">'+p.img+'</span>';
-    var bg = isPhoto?'background:white':'background:radial-gradient(circle at 30% 30%, #1e293b, #0f172a)';
-    html+='<div class="product-card"><div class="product-img" style="'+bg+'">'+imgContent+'</div><div class="product-info"><div class="product-name">'+p.name+'</div>'+stockText+'<div class="product-price">Rs '+p.price+'</div>'+btnText+'</div></div>';
-  }
-  list.innerHTML=html;
+ var list=document.getElementById('productList');
+ if(arr.length===0){list.innerHTML='<div style="text-align:center;padding:60px;color:#64748b">No products found 🔍</div>';return;}
+ var html="";for(var i=0;i<arr.length;i++){var p=arr[i];var stock=p.stock?'● In Stock':'● Out of Stock';var stockColor=p.stock?'#4ade80':'#fb7185';var btn=p.stock?'<button class="add-to-cart-btn" onclick="addToCart('+p.id+')">Add to Cart</button>':'<button class="request-stock-btn" onclick="requestStock('+p.id+')">Request Stock</button>';var isPhoto=p.img.toString().includes('images/')||p.img.toString().includes('.jpg')||p.img.toString().includes('.png')||p.img.toString().includes('http');var imgC=isPhoto?'<img src="'+p.img+'" onerror="this.parentElement.innerHTML=\'📦\'">':'<span style="font-size:55px">'+p.img+'</span>';html+='<div class="product-card"><div class="product-img">'+imgC+'</div><div class="product-info"><div class="product-name">'+p.name+'</div><div style="color:'+stockColor+';font-size:11px;font-weight:600;margin:5px 0">'+stock+'</div><div class="product-price">Rs '+p.price+'</div>'+btn+'</div></div>';}list.innerHTML=html;
 }
-
-function addToCart(pid){var product=null;for(var i=0;i<products.length;i++)if(products[i].id===pid){product=products[i];break;}if(!product||!product.stock)return;for(var i=0;i<cart.length;i++)if(cart[i].id===pid){cart[i].qty++;updateCartCount();return;}cart.push({id:pid,name:product.name,price:product.price,qty:1});updateCartCount();}
-function requestStock(pid){var p=null;for(var i=0;i<products.length;i++)if(products[i].id===pid){p=products[i];break;}var msg='SAYUMIN TECH - Request Stock%0A%0AProduct: '+p.name+'%0APrice: Rs '+p.price;window.open('https://wa.me/'+CONFIG.whatsapp+'?text='+msg,'_blank');}
+function addToCart(pid){var prod=null;for(var i=0;i<products.length;i++)if(products[i].id===pid)prod=products[i];if(!prod||!prod.stock)return;for(var i=0;i<cart.length;i++)if(cart[i].id===pid){cart[i].qty++;updateCartCount();return;}cart.push({id:pid,name:prod.name,price:prod.price,category:prod.category,qty:1});updateCartCount();}
+function requestStock(pid){var p=null;for(var i=0;i<products.length;i++)if(products[i].id===pid)p=products[i];var msg='SAYUMIN TECH - Stock Request%0A%0A• Item: '+p.name+'%0A• Category: '+p.category+'%0A%0AStock thiyenawada?';window.open('https://wa.me/'+CONFIG.whatsapp+'?text='+msg,'_blank');}
 function updateCartCount(){var t=0;for(var i=0;i<cart.length;i++)t+=cart[i].qty;document.getElementById('cartCount').textContent=t;}
-function openCart(){var m=document.getElementById('cartModal');var ci=document.getElementById('cartItems');var ct=document.getElementById('cartTotal');if(cart.length===0){ci.innerHTML='<div style="color:#64748b;padding:20px;text-align:center">Cart හිස්!</div>';ct.innerHTML='';}else{var h='';var tot=0;for(var i=0;i<cart.length;i++){var it=cart[i];var itTot=it.price*it.qty;tot+=itTot;h+='<div class="cart-item"><div><div style="font-weight:600;font-size:13px">'+it.name+'</div><div style="margin-top:6px"><button class="qty-btn" onclick="changeQty('+i+',-1)">-</button><span style="margin:0 10px;font-weight:700">'+it.qty+'</span><button class="qty-btn" onclick="changeQty('+i+',1)">+</button></div></div><div style="text-align:right"><div style="font-weight:700;color:#38bdf8">Rs '+itTot+'</div><button class="remove-btn" onclick="removeFromCart('+i+')">Remove</button></div></div>';}ci.innerHTML=h;ct.innerHTML='Total: Rs '+tot;}m.style.display='flex';}
+function openCart(){var m=document.getElementById('cartModal');var ci=document.getElementById('cartItems');var ct=document.getElementById('cartTotal');if(cart.length===0){ci.innerHTML='<div style="color:#64748b;padding:20px;text-align:center">Cart හිස්! 🛒</div>';ct.innerHTML='';}else{var h='';var tot=0;for(var i=0;i<cart.length;i++){var it=cart[i];var itTot=it.price*it.qty;tot+=itTot;h+='<div class="cart-item"><div><div style="font-weight:600;font-size:13px">'+it.name+'</div><div style="margin-top:6px"><button class="qty-btn" onclick="changeQty('+i+',-1)">-</button><span style="margin:0 10px;font-weight:700">'+it.qty+'</span><button class="qty-btn" onclick="changeQty('+i+',1)">+</button></div></div><div style="text-align:right"><div style="font-weight:700;color:#38bdf8">Rs '+itTot+'</div><button class="remove-btn" onclick="removeFromCart('+i+')">X</button></div></div>';}ci.innerHTML=h;ct.innerHTML='Total: Rs '+tot;}m.style.display='flex';}
 function changeQty(i,c){cart[i].qty+=c;if(cart[i].qty<=0)cart.splice(i,1);updateCartCount();openCart();}
 function closeCart(){document.getElementById('cartModal').style.display='none';}
 function removeFromCart(i){cart.splice(i,1);updateCartCount();openCart();}
-function checkoutWhatsApp(){if(cart.length===0)return alert('Cart හිස්!');var msg='SAYUMIN TECH - New Order%0A%0A';var total=0;for(var i=0;i<cart.length;i++){var it=cart[i];var itTot=it.price*it.qty;total+=itTot;msg+=it.name+' x'+it.qty+' = Rs '+itTot+'%0A';}msg+='%0ATotal: Rs '+total;window.open('https://wa.me/'+CONFIG.whatsapp+'?text='+msg,'_blank');}
+
+function checkoutWhatsApp(){
+ if(cart.length===0)return alert('Cart හිස්!');
+ var message='SAYUMIN TECH - New Order%0A%0A';
+ var total=0;
+ for(var i=0;i<cart.length;i++){
+   var itTot=cart[i].price*cart[i].qty;total+=itTot;
+   message+='• '+cart[i].name+' x'+cart[i].qty+' - Rs '+itTot+'%0A Category: '+cart[i].category+'%0A';
+ }
+ message+='%0A*Total Amount: Rs '+total+'*%0A%0A';
+ message+='----------------------------%0A*Bank Deposit Details*%0ABank: BOC%0AName: SAYUMIN TECH%0AA/C: 12345678%0ABranch: Moratuwa%0A----------------------------%0A%0A';
+ message+='IMPORTANT NOTES:%0A';
+ message+='1. ❌ COD පහසුකම් නොමැත - No COD Available%0A';
+ message+='2. 🚚 Courier ගාස්තු පාරිභෝගිකයා විසින් ගෙවිය යුතුයි (Prompt XP / ඔබ කැමති ඕනෑම Courier)%0A';
+ message+='3. 🧾 මුදල් deposit කර Slip එක WhatsApp එවන්න%0A';
+ message+='4. Slip එක ලැබුණු පසුව පමණක් පාර්සලය Courier කරනු ලැබේ%0A';
+ message+='5. 💾 Digital Items (BIOS/Schematic) ගෙවීමෙන් පසු WhatsApp/Email එවනු ලැබේ%0A%0A';
+ message+='මුදල් අප වෙත deposit කරපසු slip එක එවීමට කටුතුකරන්න ඉන් පසුව ඔබගේ පාර්සලය courier ආයතනය වෙත බාරදෙනු ලැබේ 🛵';
+ window.open('https://wa.me/'+CONFIG.whatsapp+'?text='+message,'_blank');
+}
 window.onclick=function(e){if(e.target==document.getElementById('cartModal'))closeCart();}
-fetch('products.json?v='+Date.now()).then(r=>r.json()).then(data=>{if(Array.isArray(data)){products=data;loadCategories();filterProducts();}}).catch(e=>{document.getElementById('productList').innerHTML='<div class="no-products">Error: '+e+'</div>';});
+fetch('products.json?v='+Date.now()).then(r=>r.json()).then(data=>{if(Array.isArray(data)){products=data;loadCategories();filterProducts();}}).catch(()=>{loadCategories();filterProducts();});
 </script>
 </body>
 </html>
