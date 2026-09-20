@@ -4,11 +4,14 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sayumin Admin</title>
 <style>
-body{font-family:sans-serif;background:#111;color:#fff;display:flex;justify-content:center;padding:20px}
-.box{background:#222;padding:25px;border-radius:15px;width:100%;max-width:400px;border:1px solid #333}
-input{width:100%;padding:12px;margin:8px 0;border-radius:8px;border:none;box-sizing:border-box}
-button{width:100%;padding:12px;background:orange;color:#000;font-weight:bold;border:none;border-radius:8px;cursor:pointer;margin-top:10px}
+body{font-family:sans-serif;background:#111;color:#fff;display:flex;justify-content:center;padding:20px;margin:0}
+.box{background:#222;padding:25px;border-radius:15px;width:100%;max-width:450px}
+input{width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #333;box-sizing:border-box;background:#333;color:#fff}
+button{width:100%;padding:12px;background:orange;color:#000;font-weight:bold;border:none;border-radius:8px;cursor:pointer;margin-top:10px;font-size:16px}
 #loginBox{display:block} #adminBox{display:none}
+.item{background:#333;padding:10px;border-radius:8px;margin-top:10px;display:flex;justify-content:space-between;align-items:center}
+.del{color:red;cursor:pointer;font-weight:bold;padding:5px 10px}
+#msg{color:lightgreen;text-align:center;margin-top:10px}
 </style>
 </head>
 <body>
@@ -21,34 +24,56 @@ button{width:100%;padding:12px;background:orange;color:#000;font-weight:bold;bor
   <div id="adminBox">
     <h2>➕ Product එකක් දාන්න</h2>
     <input id="pName" placeholder="Product Name - ex: Dell Battery">
-    <input id="pPrice" placeholder="Price - ex: 1200">
+    <input id="pPrice" placeholder="Price - ex: 12000">
     <input id="pImage" placeholder="Image Link (imgur link එකක්)">
     <input id="pCategory" placeholder="Category - ex: Battery">
     <button onclick="addProduct()">Add Product</button>
-    <p id="msg" style="color:lightgreen"></p>
+    <p id="msg"></p>
     <hr style="margin:20px 0;border-color:#333">
-    <p style="font-size:12px;color:#aaa">Product දැම්මම ඒක localStorage එකේ save වෙනවා. ඊට පස්සේ Main Site එකේ Auto පේනවා.</p>
+    <h3>📦 දාලා තියෙන Products</h3>
+    <div id="list"></div>
+    <button onclick="logout()" style="background:#444;color:#fff;margin-top:20px">Logout</button>
   </div>
 </div>
 <script>
+const ADMIN_PASS="sayumin123";
 function login(){
-  if(document.getElementById('pass').value === 'sayumin123'){
-    document.getElementById('loginBox').style.display='none';
-    document.getElementById('adminBox').style.display='block';
-  } else { alert('Password වැරදියි!'); }
+ if(document.getElementById('pass').value===ADMIN_PASS){
+  document.getElementById('loginBox').style.display='none';
+  document.getElementById('adminBox').style.display='block';
+  loadProducts();
+ } else { alert('Password වැරදියි!'); }
+}
+function logout(){
+ document.getElementById('loginBox').style.display='block';
+ document.getElementById('adminBox').style.display='none';
 }
 function addProduct(){
-  const name = document.getElementById('pName').value;
-  const price = document.getElementById('pPrice').value;
-  const image = document.getElementById('pImage').value;
-  const category = document.getElementById('pCategory').value;
-  if(!name || !price) return alert('Name & Price දාන්න');
-  
-  let products = JSON.parse(localStorage.getItem('sayumin_products') || '[]');
-  products.push({name, price, image, category, id: Date.now()});
-  localStorage.setItem('sayumin_products', JSON.stringify(products));
-  document.getElementById('msg').innerText = '✅ ' + name + ' Added!';
-  document.getElementById('pName').value=''; document.getElementById('pPrice').value='';
+ const name=document.getElementById('pName').value;
+ const price=document.getElementById('pPrice').value;
+ const image=document.getElementById('pImage').value || 'https://via.placeholder.com/300';
+ const category=document.getElementById('pCategory').value || 'General';
+ if(!name || !price){ alert('Name & Price දාන්න!'); return; }
+ let products=JSON.parse(localStorage.getItem('sayumin_products')||'[]');
+ products.push({id:Date.now(),name,price,image,category});
+ localStorage.setItem('sayumin_products',JSON.stringify(products));
+ document.getElementById('msg').innerText='✅ Product එක Add උනා!';
+ document.getElementById('pName').value=''; document.getElementById('pPrice').value=''; document.getElementById('pImage').value=''; document.getElementById('pCategory').value='';
+ loadProducts();
+}
+function loadProducts(){
+ let products=JSON.parse(localStorage.getItem('sayumin_products')||'[]');
+ let html='';
+ products.reverse().forEach(p=>{
+   html+=`<div class="item"><div><b>${p.name}</b><br>Rs.${p.price} - ${p.category}</div><span class="del" onclick="deleteP(${p.id})">X</span></div>`;
+ });
+ document.getElementById('list').innerHTML=html || 'තවම Products නෑ';
+}
+function deleteP(id){
+ let products=JSON.parse(localStorage.getItem('sayumin_products')||'[]');
+ products=products.filter(p=>p.id!==id);
+ localStorage.setItem('sayumin_products',JSON.stringify(products));
+ loadProducts();
 }
 </script>
 </body>
