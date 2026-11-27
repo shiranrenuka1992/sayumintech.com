@@ -9,4 +9,29 @@
   { "id": 8, "name": "NM-C421 - BoardView", "category": "BoardView", "price": 2000, "stock": true, "img": "📐" },
   { "id": 9, "name": "Laptop Motherboard Repair - DC Jack Pin", "category": "Laptop Repair Components", "price": 850, "stock": true, "img": "🔌" },
   { "id": 10, "name": "Precision Screwdriver Set 24 in 1 - Laptop Repair Tools", "category": "Tools", "price": 2800, "stock":true , "img": "🪛" }
+
+  {
+    "id": 1,
+    "board": "DA0X8QMB8E0",
+    "name": "DA0X8QMB8E0 - Schematic + BoardView",
+    "category": "Schematic",
+    "price": 0,
+    "file": "downloads/DA0X8QMB8E0.pdf"
+  },
+  {
+    "id": 2,
+    "board": "LA-K491P",
+    "name": "LA-K491P - Schematic + BoardView",
+    "category": "Schematic",
+    "price": 0,
+    "file": "downloads/LA-K491P.pdf"
+  },
+  {
+    "id": 3,
+    "board": "NM-C421",
+    "name": "NM-C421 - BIOS Bin File",
+    "category": "BIOS",
+    "price": 0,
+    "file": "downloads/NM-C421.bin"
+  }
 ]
