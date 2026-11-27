@@ -8,5 +8,5 @@
   { "id": 7, "name": "LA-K491P - Schematic + BoardView", "category": "Schematics", "price": 2000, "stock": true, "img": "📄" },
   { "id": 8, "name": "NM-C421 - BoardView", "category": "BoardView", "price": 2000, "stock": true, "img": "📐" },
   { "id": 9, "name": "Laptop Motherboard Repair - DC Jack Pin", "category": "Laptop Repair Components", "price": 850, "stock": true, "img": "🔌" },
-  { "id": 10, "name": "Precision Screwdriver Set 24 in 1 - Laptop Repair Tools", "category": "Tools", "price": 2800, "stock": false, "img": "🪛" }
+  { "id": 10, "name": "Precision Screwdriver Set 24 in 1 - Laptop Repair Tools", "category": "Tools", "price": 2800, "stock":true , "img": "🪛" }
 ]
