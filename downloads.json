@@ -8,7 +8,7 @@
     "type": "Schematic + BoardView",
     "price": 0,
     "file": "downloads/DA0X8QMB8E0.pdf",
-    "img": "images/download.jpg",
+    "img": "images/schematic.jpg",
     "images": [],
     "desc": "Complete Schematic + BoardView for DA0X8QMB8E0. For Repair & Educational Purpose Only."
   },
@@ -21,7 +21,7 @@
     "type": "Schematic + BoardView",
     "price": 0,
     "file": "downloads/LA-K491P.pdf",
-    "img": "images/download.jpg",
+    "img": "images/schematic.jpg",
     "images": [],
     "desc": "Complete Schematic + BoardView for LA-K491P. Clear PDF. For Repair Purpose Only."
   },
@@ -34,7 +34,7 @@
     "type": "Schematic + BoardView",
     "price": 2500,
     "file": "",
-    "img": "images/download.jpg",
+    "img": "images/schematic.jpg",
     "images": [],
     "desc": "Complete Schematic + BoardView for LA-K034P. Pay via WhatsApp. File Sent to WhatsApp / Email."
   },
@@ -47,7 +47,7 @@
     "type": "Schematic + BoardView",
     "price": 2500,
     "file": "",
-    "img": "images/download.jpg",
+    "img": "images/schematic.jpg",
     "images": [],
     "desc": "TEST - Schematic + BoardView for LA-9981P. For Website Testing Only."
   },
@@ -60,7 +60,7 @@
     "type": "Schematic + BoardView",
     "price": 2000,
     "file": "",
-    "img": "images/download.jpg",
+    "img": "images/schematic.jpg",
     "images": [],
     "desc": "TEST - Schematic + BoardView for DA0G3QMB8D0. For Website Testing Only."
   },
@@ -73,7 +73,7 @@
     "type": "Schematic + BoardView",
     "price": 0,
     "file": "",
-    "img": "images/download.jpg",
+    "img": "images/schematic.jpg",
     "images": [],
     "desc": "TEST - Schematic + BoardView for NM-D441. For Website Testing Only."
   },
@@ -86,7 +86,7 @@
     "type": "BIOS Bin",
     "price": 0,
     "file": "downloads/NM-C421.bin",
-    "img": "images/download.jpg",
+    "img": "images/bios.jpg",
     "images": [],
     "desc": "Tested BIOS Bin File for NM-C421. 100% Working. Backup Your Old BIOS Before Flash."
   },
@@ -99,7 +99,7 @@
     "type": "BIOS Bin",
     "price": 1500,
     "file": "downloads/X515EA.bin",
-    "img": "images/download.jpg",
+    "img": "images/bios.jpg",
     "images": [],
     "desc": "Tested BIOS Bin File for X515EA. 100% Working. For Repair Purpose Only."
   },
@@ -112,7 +112,7 @@
     "type": "BIOS Bin",
     "price": 1500,
     "file": "",
-    "img": "images/download.jpg",
+    "img": "images/bios.jpg",
     "images": [],
     "desc": "TEST - BIOS Bin File for LA-K491P. For Website Testing Only."
   },
@@ -125,7 +125,7 @@
     "type": "BIOS Bin",
     "price": 1200,
     "file": "",
-    "img": "images/download.jpg",
+    "img": "images/bios.jpg",
     "images": [],
     "desc": "TEST - BIOS Bin File for DA0X8QMB8E0. For Website Testing Only."
   },
@@ -138,7 +138,7 @@
     "type": "BIOS Bin",
     "price": 0,
     "file": "",
-    "img": "images/download.jpg",
+    "img": "images/bios.jpg",
     "images": [],
     "desc": "TEST - BIOS Bin File for NM-D441. For Website Testing Only."
   },
@@ -151,7 +151,7 @@
     "type": "BIOS Bin",
     "price": 1800,
     "file": "",
-    "img": "images/download.jpg",
+    "img": "images/bios.jpg",
     "images": [],
     "desc": "TEST - BIOS Bin File for X1502ZA. For Website Testing Only."
   }
