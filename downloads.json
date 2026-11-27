@@ -1,4 +1,4 @@
-[
+[ew-3.jpg"],
   {
     "id": 1,
     "board": "DA0X8QMB8E0",
@@ -9,7 +9,7 @@
     "price": 0,
     "file": "downloads/DA0X8QMB8E0.pdf",
     "img": "images/schematic-cover.jpg",
-    "images": ["images/schematic-cover.jpg","images/boardview-1.jpg","images/boardview-2.jpg","images/boardview-3.jpg"],
+    "images":  [],
     "desc": "Complete Schematic + BoardView for DA0X8QMB8E0. With SAYUMIN TECH Watermark. For Repair & Educational Purpose Only."
   },
   {
@@ -22,7 +22,7 @@
     "price": 0,
     "file": "downloads/LA-K491P.pdf",
     "img": "images/schematic-cover.jpg",
-    "images": ["images/schematic-cover.jpg","images/boardview-1.jpg","images/boardview-2.jpg","images/boardview-3.jpg"],
+    "images": [],
     "desc": "Complete Schematic + BoardView for LA-K491P. Clear PDF. For Repair & Educational Purpose Only."
   },
   {
@@ -35,7 +35,7 @@
     "price": 0,
     "file": "downloads/NM-C421.bin",
     "img": "images/bios-cover.jpg",
-    "images": ["images/bios-cover.jpg","images/bios-1.jpg","images/bios-2.jpg","images/bios-3.jpg"],
+    "images": [],
     "desc": "Tested BIOS Bin File for NM-C421. 100% Working. Backup Your Old BIOS Before Flash."
   },
   {
@@ -48,7 +48,7 @@
     "price": 2500,
     "file": "",
     "img": "images/schematic-cover.jpg",
-    "images": ["images/schematic-cover.jpg","images/boardview-1.jpg","images/boardview-2.jpg","images/boardview-3.jpg"],
+    "images": [],
     "desc": "Complete Schematic + BoardView for LA-K034P. Pay via WhatsApp. File Sent to WhatsApp / Email."
   },
   {
@@ -61,7 +61,7 @@
     "price": 1500,
     "file": "downloads/X515EA.bin",
     "img": "images/bios-cover.jpg",
-    "images": ["images/bios-cover.jpg","images/bios-1.jpg","images/bios-2.jpg","images/bios-3.jpg"],
+    "images": [],
     "desc": "Tested BIOS Bin File for X515EA. 100% Working. For Repair Purpose Only."
   }
 ]
