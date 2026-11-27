@@ -118,14 +118,14 @@ body{background:#020617;background-image:radial-gradient(circle at 10% 10%,rgba(
 <script>
 var CONFIG={whatsapp:"94721352940"};
 var categories=["All","BIOS Files","Schematics","BoardView","Laptop Repair Components","Laptop Repair Accessories","Battery/Charger/Keyboard","Tools","Electronics Devices"];
-var products=[];var cart=[];var currentCategory="All";
+var products=[];var cart=[];var currentCategory="All"
 var downloads=[
-{id:101,name:"HP ProBook 440 G8 Schematic Free Download",board:"DA0X8QMB8E0",type:"Schematic + BoardView"},
-{id:102,name:"Dell Latitude 5420 Schematic Free Download",board:"LA-K491P",type:"Schematic + BoardView"},
-{id:103,name:"Lenovo ThinkPad T14 BIOS Bin File Free Download",board:"NM-C421",type:"BIOS Bin"},
-{id:104,name:"HP EliteBook 840 G8 Schematic Free Download",board:"DA0X8NMB8E0",type:"Schematic"},
-{id:105,name:"Dell Inspiron 15 3511 Schematic Free Download",board:"LA-K034P",type:"Schematic + BoardView"},
-{id:106,name:"Asus VivoBook 15 BIOS Bin File Free Download",board:"X515EA",type:"BIOS Bin"}
+{id:101,name:"DA0X8QMB8E0 - Schematic + BoardView",board:"DA0X8QMB8E0",type:"Schematic + BoardView",price:0},
+{id:102,name:"LA-K491P - Schematic + BoardView",board:"LA-K491P",type:"Schematic + BoardView",price:0},
+{id:103,name:"NM-C421 - BIOS Bin File",board:"NM-C421",type:"BIOS Bin",price:0},
+{id:104,name:"DA0X8NMB8E0 - Schematic",board:"DA0X8NMB8E0",type:"Schematic",price:0},
+{id:105,name:"LA-K034P - Schematic + BoardView",board:"LA-K034P",type:"Schematic + BoardView",price:0},
+{id:106,name:"X515EA - BIOS Bin File",board:"X515EA",type:"BIOS Bin",price:0},
 ];
 function showSection(s){document.getElementById('shopSection').style.display=s==='shop'?'block':'none';document.getElementById('downloadsSection').style.display=s==='downloads'?'block':'none';document.getElementById('btn-shop').classList.toggle('active',s==='shop');document.getElementById('btn-downloads').classList.toggle('active',s==='downloads');window.scrollTo({top:0,behavior:'smooth'});filterAll();}
 function loadCategories(){var h="";for(var i=0;i<categories.length;i++){var c=categories[i];h+='<button class="cat-btn '+(c===currentCategory?'active':'')+'" onclick="selectCategory(\''+c+'\')">'+c+'</button>';}document.getElementById('categoryList').innerHTML=h;}
