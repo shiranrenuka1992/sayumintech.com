@@ -122,7 +122,25 @@ var products=[];var downloads=[];var cart=[];var currentCategory="All";
 if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(r=>{for(var i=0;i<r.length;i++)r[i].unregister();});}
 function showSection(s){document.getElementById('shopSection').style.display=s==='shop'?'block':'none';document.getElementById('downloadsSection').style.display=s==='downloads'?'block':'none';document.getElementById('btn-shop').classList.toggle('active',s==='shop');document.getElementById('btn-downloads').classList.toggle('active',s==='downloads');window.scrollTo({top:0,behavior:'smooth'});filterAll();}
 function loadCategories(){var h="";for(var i=0;i<categories.length;i++){var c=categories[i];h+='<button class="cat-btn '+(c===currentCategory?'active':'')+'" onclick="selectCategory(\''+c+'\')">'+c+'</button>';}document.getElementById('categoryList').innerHTML=h;}
-function selectCategory(c){currentCategory=c;loadCategories();filterAll();}
+function selectCategory(c){currentCategory=c.trim();loadCategories();filterAll();}
+function filterAll(){
+  var s=document.getElementById('searchInput').value.toLowerCase().trim();
+  var f=[];
+  for(var i=0;i<products.length;i++){
+    var p=products[i];
+    var pc=(p.category||"").toLowerCase().trim();
+    var cc=currentCategory.toLowerCase().trim();
+    var catOk=(cc==="all"||pc===cc);
+    var searchOk=(p.name||"").toLowerCase().includes(s)||(p.board||"").toLowerCase().includes(s);
+    if(catOk && searchOk) f.push(p);
+  }
+  renderProducts(f);
+  var df=[];
+  for(var i=0;i<downloads.length;i++){
+    if(downloads[i].name.toLowerCase().includes(s)||(downloads[i].board||"").toLowerCase().includes(s)) df.push(downloads[i]);
+  }
+  renderDownloads(df);
+}
 function filterAll(){var s=document.getElementById('searchInput').value.toLowerCase();var f=[];for(var i=0;i<products.length;i++){var p=products[i];if((currentCategory==="All"||p.category===currentCategory)&&(p.name.toLowerCase().includes(s)||(p.board||"").toLowerCase().includes(s)))f.push(p);}renderProducts(f);var df=[];for(var i=0;i<downloads.length;i++){if(downloads[i].name.toLowerCase().includes(s)||(downloads[i].board||"").toLowerCase().includes(s))df.push(downloads[i]);}renderDownloads(df);}
 function renderProducts(arr){var list=document.getElementById('productList');if(arr.length===0){list.innerHTML='<div style="text-align:center;padding:40px;color:#64748b">No products found 🔍<br><br><button onclick="openWhatsAppRepair()" style="padding:10px 18px;background:#25D366;border:none;color:white;border-radius:10px;font-weight:700">Ask on WhatsApp</button></div>';return;}var html="";for(var i=0;i<arr.length;i++){var p=arr[i];var stock=p.stock?'● In Stock':'● Out of Stock';var stockColor=p.stock?'#4ade80':'#fb7185';var btn=p.stock?'<button class="add-to-cart-btn" onclick="event.stopPropagation();addToCart('+p.id+')">Add 🛒</button>':'<button class="request-stock-btn" onclick="event.stopPropagation();requestStock('+p.id+')">Ask Stock</button>';var imgC=(p.img&&p.img!=="")?'<img src="'+p.img+'" loading="lazy" onerror="this.parentElement.innerHTML=\'📦\'">':'<span style="font-size:30px">📦</span>';html+='<div class="product-card" onclick="openProduct('+p.id+')"><div class="product-img">'+imgC+'</div><div class="product-info"><div class="product-name">'+p.name+'</div><div style="color:#94a3b8;font-size:11px;margin-top:3px">'+p.category+' • '+(p.board||'')+'</div><div style="color:'+stockColor+';font-size:11px;font-weight:600;margin-top:3px">'+stock+'</div></div><div style="text-align:right"><div class="product-price">Rs '+p.price+'</div>'+btn+'</div></div>';}list.innerHTML=html;}
 function renderDownloads(arr){var list=document.getElementById('downloadList');if(!list)return;if(arr.length===0){list.innerHTML='<div style="color:#64748b;text-align:center;padding:20px">No file found - WhatsApp us!</div>';return;}var html="";for(var i=0;i<arr.length;i++){var d=arr[i];var isFree=d.price===0;var btn=isFree?'<a href="'+d.file+'" download onclick="event.stopPropagation()" style="display:inline-block;text-decoration:none;padding:9px 14px;background:linear-gradient(90deg,#38bdf8,#6366f1);border-radius:10px;color:white;font-weight:700;white-space:nowrap">⬇️ FREE</a>':'<button class="download-btn" onclick="event.stopPropagation();requestDownload('+d.id+')">Buy Rs '+d.price+'</button>';var priceText=isFree?'FREE':'Rs '+d.price;var priceColor=isFree?'#4ade80':'#fbbf24';var imgC=(d.img&&d.img!=="")?'<img src="'+d.img+'" loading="lazy" onerror="this.parentElement.innerHTML=\'📄\'">':'<span style="font-size:28px">📄</span>';html+='<div class="download-card" onclick="openDownload('+d.id+')"><div class="product-img" style="width:60px;height:60px;min-width:60px">'+imgC+'</div><div style="flex:1;min-width:0"><div style="font-weight:700;font-size:14px">'+d.name+'</div><div style="color:#94a3b8;font-size:11px;margin-top:3px">Board: '+(d.board||'')+' • '+(d.type||d.category)+'</div></div><div style="text-align:right"><div style="color:'+priceColor+';font-weight:800">'+priceText+'</div><div style="margin-top:6px">'+btn+'</div></div></div>';}list.innerHTML=html;}
