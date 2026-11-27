@@ -1,82 +1,12 @@
 [
-  {
-    "id": 1,
-    "name": "Laptop Cooling Pad - 5 Fan RGB",
-    "category": "Laptop Repair Accessories",
-    "price": 4500,
-    "stock": true,
-    "img": "images/pads.jpg"
-  },
-  {
-    "id": 2,
-    "name": "USB-C Hub 7 in 1 - HDMI + USB + SD Card",
-    "category": "Laptop Repair Accessories",
-    "price": 6500,
-    "stock": true,
-    "img": "images/hubs.jpg"
-  },
-  {
-    "id": 3,
-    "name": "HP ProBook 440 G8 Keyboard - Backlight",
-    "category": "Battery/Charger/Keyboard",
-    "price": 8500,
-    "stock": true,
-    "img": "images/Key.jpg"
-  },
-  {
-    "id": 4,
-    "name": "Dell Latitude 5420 Battery - Original",
-    "category": "Battery/Charger/Keyboard",
-    "price": 14500,
-    "stock": true,
-    "img": "images/battery.jpg"
-  },
-  {
-    "id": 5,
-    "name": "HP 65W Smart AC Adapter Charger",
-    "category": "Battery/Charger/Keyboard",
-    "price": 5500,
-    "stock": true,
-    "img": "images/charger.jpg"
-  },
-  {
-    "id": 6,
-    "name": "HP ProBook 440 G8 BIOS Bin File - DA0X8QMB8E0",
-    "category": "BIOS Files",
-    "price": 1500,
-    "stock": true,
-    "img": "💾"
-  },
-  {
-    "id": 7,
-    "name": "Dell Latitude 5420 Schematic + BoardView - LA-K491P",
-    "category": "Schematics",
-    "price": 2000,
-    "stock": true,
-    "img": "📄"
-  },
-  {
-    "id": 8,
-    "name": "Lenovo ThinkPad T14 BoardView - NM-C421",
-    "category": "BoardView",
-    "price": 2000,
-    "stock": true,
-    "img": "📐"
-  },
-  {
-    "id": 9,
-    "name": "Laptop Motherboard Repair - DC Jack Pin",
-    "category": "Laptop Repair Components",
-    "price": 850,
-    "stock": true,
-    "img": "🔌"
-  },
-  {
-    "id": 10,
-    "name": "Precision Screwdriver Set 24 in 1 - Laptop Repair Tools",
-    "category": "Tools",
-    "price": 2800,
-    "stock": false,
-    "img": "🪛"
-  }
+  { "id": 1, "name": "Laptop Cooling Pad - 5 Fan RGB", "category": "Laptop Repair Accessories", "price": 4500, "stock": true, "img": "images/pads.jpg" },
+  { "id": 2, "name": "USB-C Hub 7 in 1 - HDMI + USB + SD Card", "category": "Laptop Repair Accessories", "price": 6500, "stock": true, "img": "images/hubs.jpg" },
+  { "id": 3, "name": "HP ProBook 440 G8 Keyboard - Backlight", "category": "Battery/Charger/Keyboard", "price": 8500, "stock": true, "img": "images/Key.jpg" },
+  { "id": 4, "name": "Dell Latitude 5420 Battery - Original", "category": "Battery/Charger/Keyboard", "price": 14500, "stock": true, "img": "images/battery.jpg" },
+  { "id": 5, "name": "HP 65W Smart AC Adapter Charger", "category": "Battery/Charger/Keyboard", "price": 5500, "stock": true, "img": "images/charger.jpg" },
+  { "id": 6, "name": "HP ProBook 440 G8 BIOS Bin File - DA0X8QMB8E0", "category": "BIOS Files", "price": 1500, "stock": true, "img": "💾" },
+  { "id": 7, "name": "Dell Latitude 5420 Schematic + BoardView - LA-K491P", "category": "Schematics", "price": 2000, "stock": true, "img": "📄" },
+  { "id": 8, "name": "Lenovo ThinkPad T14 BoardView - NM-C421", "category": "BoardView", "price": 2000, "stock": true, "img": "📐" },
+  { "id": 9, "name": "Laptop Motherboard Repair - DC Jack Pin", "category": "Laptop Repair Components", "price": 850, "stock": true, "img": "🔌" },
+  { "id": 10, "name": "Precision Screwdriver Set 24 in 1 - Laptop Repair Tools", "category": "Tools", "price": 2800, "stock": false, "img": "🪛" }
 ]
