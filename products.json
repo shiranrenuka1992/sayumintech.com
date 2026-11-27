@@ -1,156 +1,47 @@
 [
   {
-    "id": 99901,
-    "name": "Pull Cord - Generator / Grass Cutter",
-    "price": 1500,
-    "category": "Tools",
-    "img": "🔧",
-    "stock": true,
-    "board_model": "Universal"
-  },
-  {
-    "id": 99902,
-    "name": "තෘණ කපන තලය - Grass Cutter Blade",
-    "price": 2500,
-    "category": "Tools",
-    "img": "🔧",
-    "stock": true,
-    "board_model": "Universal"
-  },
-  {
-    "id": 99903,
-    "name": "Spark Plug - Generator",
-    "price": 850,
-    "category": "Tools",
-    "img": "🔧",
-    "stock": true,
-    "board_model": "Universal"
-  },
-  {
-    "id": 1,
-    "name": "Motherboard IC Chip",
-    "price": 1200,
-    "category": "Laptop Repair Components",
-    "img": "🔧",
-    "stock": true
-  },
-  {
-    "id": 2,
-    "name": "lcdcaball",
-    "price": 800,
-    "category": "Laptop Repair Components",
-    "img": "lcd.jpg",
-    "stock": true
-  },
-  {
-    "id": 3,
+    "id": 4,
     "name": "Laptop Cooling Pad",
     "price": 2200,
     "category": "Laptop Repair Accessories",
     "img": "pads.jpg",
-    "stock": false
-  },
-  {
-    "id": 4,
-    "name": "USB-C Hub",
-    "price": 3500,
-    "category": "Laptop Repair Accessories",
-    "img": "🔌",
-    "stock": true
+    "stock": true,
+    "desc": "Premium Quality Laptop Cooling Pad - USB Powered"
   },
   {
     "id": 5,
-    "name": "Laptop Keyboard",
-    "price": 2500,
-    "category": "Battery/Charger/Keyboard",
-    "img": "⌨️",
-    "stock": true
+    "name": "USB-C Hub",
+    "price": 3500,
+    "category": "Accessories",
+    "img": "hubs.jpg",
+    "stock": true,
+    "desc": "4-in-1 USB-C Hub with HDMI"
   },
   {
     "id": 6,
-    "name": "Laptop Battery 6-Cell",
-    "price": 8500,
-    "category": "Battery/Charger/Keyboard",
-    "img": "🔋",
-    "stock": true
+    "name": "Laptop Keyboard",
+    "price": 2500,
+    "category": "Laptop Repair Accessories",
+    "img": "Key.jpg",
+    "stock": true,
+    "desc": "High Quality Laptop Keyboard Replacement"
   },
   {
     "id": 7,
+    "name": "Laptop Battery 6-Cell",
+    "price": 8500,
+    "category": "Battery/Charger/Keyboard",
+    "img": "battery.jpg",
+    "stock": true,
+    "desc": "Original Quality 6-Cell Laptop Battery"
+  },
+  {
+    "id": 8,
     "name": "65W Laptop Charger",
     "price": 3200,
     "category": "Battery/Charger/Keyboard",
-    "img": "🔌",
-    "stock": true
-  },
-  {
-    "id": 101,
-    "name": "DELL LA-F115P BIOS 8MB",
-    "price": 2000,
-    "category": "BIOS Files",
-    "img": "💾",
-    "digital": true,
+    "img": "charger.jpg",
     "stock": true,
-    "board_model": "LA-F115P"
-  },
-  {
-    "id": 102,
-    "name": "HP 6050A2979101 BIOS",
-    "price": 1000,
-    "category": "BIOS Files",
-    "img": "💾",
-    "digital": true,
-    "stock": true,
-    "board_model": "6050A2979101"
-  },
-  {
-    "id": 201,
-    "name": "DELL LA-F115P Schematic",
-    "price": 600,
-    "category": "Schematics",
-    "img": "📄",
-    "digital": true,
-    "stock": true,
-    "board_model": "LA-F115P"
-  },
-  {
-    "id": 301,
-    "name": "DELL LA-F115P BoardView",
-    "price": 600,
-    "category": "BoardView",
-    "img": "🔍",
-    "digital": true,
-    "stock": true,
-    "board_model": "LA-F115P"
-  },
-  {
-    "id": 10,
-    "name": "Precision Screwdriver Set",
-    "price": 1800,
-    "category": "Tools",
-    "img": "🛠️",
-    "stock": true
-  },
-  {
-    "id": 11,
-    "name": "Soldering Iron Kit",
-    "price": 4500,
-    "category": "Tools",
-    "img": "🛠️",
-    "stock": true
-  },
-  {
-    "id": 12,
-    "name": "UNI-T UT197PV Multimeter",
-    "price": 2800,
-    "category": "Electronics Devices",
-    "img": "📟",
-    "stock": true
-  },
-  {
-    "id": 14,
-    "name": "UNI-T UT33A+ Multimeter",
-    "price": 5800,
-    "category": "Electronics Devices",
-     "img": "images/Se356baa23cfb49e4bb2355a17c8619699.jpg",
-    "stock": true }
+    "desc": "65W Original Laptop Charger"
+  }
 ]
