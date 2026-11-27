@@ -1,37 +1,86 @@
 [
-  { "id": 1, "name": "Laptop Cooling Pad - 5 Fan RGB", "category": "Laptop Repair Accessories", "price": 4500, "stock": true, "img": "images/pads.jpg" },
-  { "id": 2, "name": "USB-C Hub 7 in 1 - HDMI + USB + SD Card", "category": "Laptop Repair Accessories", "price": 6500, "stock": true, "img": "images/hubs.jpg" },
-  { "id": 3, "name": "HP ProBook 440 G8 Keyboard - Backlight", "category": "Battery/Charger/Keyboard", "price": 8500, "stock": true, "img": "images/Key.jpg" },
-  { "id": 4, "name": "Dell Latitude 5420 Battery - Original", "category": "Battery/Charger/Keyboard", "price": 14500, "stock": true, "img": "images/battery.jpg" },
-  { "id": 5, "name": "HP 65W Smart AC Adapter Charger", "category": "Battery/Charger/Keyboard", "price": 5500, "stock": true, "img": "images/charger.jpg" },
-  { "id": 6, "name": "DA0X8QMB8E0 - BIOS Bin File", "category": "BIOS Files", "price": 1500, "stock": true, "img": "💾" },
-  { "id": 7, "name": "LA-K491P - Schematic + BoardView", "category": "Schematics", "price": 2000, "stock": true, "img": "📄" },
-  { "id": 8, "name": "NM-C421 - BoardView", "category": "BoardView", "price": 2000, "stock": true, "img": "📐" },
-  { "id": 9, "name": "Laptop Motherboard Repair - DC Jack Pin", "category": "Laptop Repair Components", "price": 850, "stock": true, "img": "🔌" },
-  { "id": 10, "name": "Precision Screwdriver Set 24 in 1 - Laptop Repair Tools", "category": "Tools", "price": 2800, "stock":true , "img": "🪛" }
-
   {
     "id": 1,
     "board": "DA0X8QMB8E0",
     "name": "DA0X8QMB8E0 - Schematic + BoardView",
-    "category": "Schematic",
+    "category": "Schematics",
+    "kind": "download",
+    "type": "Schematic + BoardView",
     "price": 0,
-    "file": "downloads/DA0X8QMB8E0.pdf"
+    "file": "downloads/DA0X8QMB8E0.pdf",
+    "img": "",
+    "stock": true
   },
   {
     "id": 2,
     "board": "LA-K491P",
     "name": "LA-K491P - Schematic + BoardView",
-    "category": "Schematic",
+    "category": "Schematics",
+    "kind": "download",
+    "type": "Schematic + BoardView",
     "price": 0,
-    "file": "downloads/LA-K491P.pdf"
+    "file": "downloads/LA-K491P.pdf",
+    "img": "",
+    "stock": true
   },
   {
     "id": 3,
     "board": "NM-C421",
     "name": "NM-C421 - BIOS Bin File",
-    "category": "BIOS",
+    "category": "BIOS Files",
+    "kind": "download",
+    "type": "BIOS Bin",
     "price": 0,
-    "file": "downloads/NM-C421.bin"
+    "file": "downloads/NM-C421.bin",
+    "img": "",
+    "stock": true
+  },
+  {
+    "id": 4,
+    "board": "LA-K034P",
+    "name": "LA-K034P - Schematic + BoardView",
+    "category": "Schematics",
+    "kind": "download",
+    "type": "Schematic + BoardView",
+    "price": 2500,
+    "file": "",
+    "img": "",
+    "stock": true
+  },
+  {
+    "id": 5,
+    "board": "X515EA",
+    "name": "X515EA - BIOS Bin File",
+    "category": "BIOS Files",
+    "kind": "download",
+    "type": "BIOS Bin",
+    "price": 1500,
+    "file": "downloads/X515EA.bin",
+    "img": "",
+    "stock": true
+  },
+  {
+    "id": 6,
+    "board": "HP 15S",
+    "name": "HP 15S - Charging Port",
+    "category": "Laptop Repair Components",
+    "kind": "shop",
+    "type": "Parts",
+    "price": 3500,
+    "file": "",
+    "img": "images/hp-charging-port.jpg",
+    "stock": true
+  },
+  {
+    "id": 7,
+    "board": "Dell Inspiron",
+    "name": "Dell Inspiron - Battery Original",
+    "category": "Battery/Charger/Keyboard",
+    "kind": "shop",
+    "type": "Parts",
+    "price": 12500,
+    "file": "",
+    "img": "images/dell-battery.jpg",
+    "stock": false
   }
 ]
