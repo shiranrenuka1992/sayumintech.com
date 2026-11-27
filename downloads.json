@@ -1,4 +1,4 @@
-[ew-3.jpg"],
+[
   {
     "id": 1,
     "board": "DA0X8QMB8E0",
@@ -9,7 +9,7 @@
     "price": 0,
     "file": "downloads/DA0X8QMB8E0.pdf",
     "img": "images/schematic-cover.jpg",
-    "images":  [],
+    "images": [],
     "desc": "Complete Schematic + BoardView for DA0X8QMB8E0. With SAYUMIN TECH Watermark. For Repair & Educational Purpose Only."
   },
   {
