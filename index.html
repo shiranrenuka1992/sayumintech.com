@@ -119,7 +119,7 @@ body{background:#020617;background-image:radial-gradient(circle at 10% 10%,rgba(
 var CONFIG={whatsapp:"94721352940"};
 var categories=["All","BIOS Files","Schematics","BoardView","Laptop Repair Components","Laptop Repair Accessories","Battery/Charger/Keyboard","Tools","Electronics Devices"];
 var products=[];var downloads=[];var cart=[];var currentCategory="All";
-if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(()=>{});}
+if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(r=>{for(var i=0;i<r.length;i++)r[i].unregister();});}
 function showSection(s){document.getElementById('shopSection').style.display=s==='shop'?'block':'none';document.getElementById('downloadsSection').style.display=s==='downloads'?'block':'none';document.getElementById('btn-shop').classList.toggle('active',s==='shop');document.getElementById('btn-downloads').classList.toggle('active',s==='downloads');window.scrollTo({top:0,behavior:'smooth'});filterAll();}
 function loadCategories(){var h="";for(var i=0;i<categories.length;i++){var c=categories[i];h+='<button class="cat-btn '+(c===currentCategory?'active':'')+'" onclick="selectCategory(\''+c+'\')">'+c+'</button>';}document.getElementById('categoryList').innerHTML=h;}
 function selectCategory(c){currentCategory=c;loadCategories();filterAll();}
