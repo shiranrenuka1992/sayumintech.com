@@ -151,7 +151,7 @@ function changeQty(i,c){cart[i].qty+=c;if(cart[i].qty<=0)cart.splice(i,1);update
 function closeCart(){document.getElementById('cartModal').style.display='none';}
 function removeFromCart(i){cart.splice(i,1);updateCartCount();openCart();}
 function checkoutWhatsApp(){
-if(cart.length===0)return alert('Cart හිස්!');
+if(cart.length===0)return alert('Cart empty!');
 var message='SAYUMIN TECH - New Order%0A%0A';var total=0;
 for(var i=0;i<cart.length;i++){var itTot=cart[i].price*cart[i].qty;total+=itTot;message+='• '+cart[i].name+' x'+cart[i].qty+' - Rs '+itTot+'%0A Category: '+cart[i].category+'%0A';}
 message+='%0A*Total Amount: Rs '+total+'*%0A%0A';
