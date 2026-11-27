@@ -165,4 +165,53 @@ function renderDownloads(arr){
     var btn=isFree?'<a href="'+d.file+'" download onclick="event.stopPropagation()" style="display:inline-block;text-decoration:none;padding:8px 12px;background:linear-gradient(90deg,#38bdf8,#6366f1);border-radius:10px;color:white;font-weight:700;font-size:12px">⬇️ FREE</a>':'<button class="download-btn" onclick="event.stopPropagation();requestDownload('+d.id+')">Buy Rs '+d.price+'</button>';
     var priceText=isFree?'FREE':'Rs '+d.price; var priceColor=isFree?'#4ade80':'#fbbf24';
     var imgC=(d.img&&d.img!=="")?'<img src="'+d.img+'" loading="lazy" onerror="this.parentElement.innerHTML=\'📄\'">':'<span style="font-size:40px">📄</span>';
-    html+='<div class="product-card" onclick="openDownload('+d.id+')"><div class="product-img">'+imgC+'</div><div class="product-info"><div class="product-name">'+d.name+'</div><div class="product-desc">Board: '+(d.board||'')+' • '+(d.type||d.category)+' • '+(d.desc||'')
+    html+='<div class="product-card" onclick="openDownload('+d.id+')"><div class="product-img">'+imgC+'</div><div class="product-info"><div class="product-name">'+d.name+'</div><div class="product-desc">Board: '+(d.board||'')+' • '+(d.type||d.category)+' • '+(d.desc||'')+'</div></div><div style="display:flex;justify-content:space-between;align-items:center;padding:10px 11px 12px"><div style="color:'+priceColor+';font-weight:800">Rs '+d.price+'</div>'+btn+'</div></div>';
+  }
+  list.innerHTML=html;
+}
+// 2 - PAGINATION - 6I, YATATA GIYAMA 2 PITUWA
+function renderProductsPage(){var s=(currentPage-1)*itemsPerPage; renderProducts(filteredProducts.slice(s,s+itemsPerPage)); renderPagination('pagination',currentPage,Math.ceil(filteredProducts.length/itemsPerPage),'goToPage');}
+function renderDownloadsPage(){var s=(currentDownloadPage-1)*itemsPerPage; renderDownloads(filteredDownloads.slice(s,s+itemsPerPage)); renderPagination('pagination2',currentDownloadPage,Math.ceil(filteredDownloads.length/itemsPerPage),'goToDownloadPage');}
+function renderPagination(elId,cur,total,fn){
+  var pag=document.getElementById(elId); if(total<=1){pag.innerHTML='';return;}
+  var h='';
+  if(cur>1) h+='<button class="pag-btn" onclick="'+fn+'('+(cur-1)+')">‹ Prev</button>';
+  function addBtn(p){ h+='<button class="pag-btn '+(p===cur?'active':'')+'" onclick="'+fn+'('+p+')">'+p+'</button>'; }
+  function dots(){ h+='<span style="color:#94a3b8;font-weight:700">...</span>'; }
+  if(total<=7){ for(var i=1;i<=total;i++) addBtn(i); }
+  else{ addBtn(1); if(cur>4) dots(); var st=Math.max(2,cur-1); var en=Math.min(total-1,cur+1); if(cur<=4){st=2;en=5;} if(cur>=total-3){st=total-4;en=total-1;} for(var i=st;i<=en;i++) addBtn(i); if(cur<total-3) dots(); addBtn(total); }
+  if(cur<total) h+='<button class="pag-btn" onclick="'+fn+'('+(cur+1)+')">Next ›</button>';
+  pag.innerHTML=h;
+}
+function goToPage(p){currentPage=p;renderProductsPage();window.scrollTo({top:350,behavior:'smooth'});}
+function goToDownloadPage(p){currentDownloadPage=p;renderDownloadsPage();window.scrollTo({top:350,behavior:'smooth'});}
+function openProduct(id){var p=null;for(var i=0;i<products.length;i++)if(products[i].id===id)p=products[i];if(!p)return;showDetail(p,'shop');}
+function openDownload(id){var d=null;for(var i=0;i<downloads.length;i++)if(downloads[i].id===id)d=downloads[i];if(!d)return;showDetail(d,'download');}
+function showDetail(p,type){
+  var imgs=p.images&&p.images.length?p.images:[p.img];
+  var thumbs="";for(var j=0;j<imgs.length;j++){thumbs+='<img src="'+imgs[j]+'" class="'+(j===0?'active':'')+'" onclick="document.getElementById(\'mainImg\').src=this.src;var t=this.parentElement.querySelectorAll(\'img\');for(var k=0;k<t.length;k++)t[k].classList.remove(\'active\');this.classList.add(\'active\')" onerror="this.style.display=\'none\'">';}
+  var mainImg=imgs[0]||'';
+  var btnHtml=type==='shop'?(p.stock?'<button onclick="addToCart('+p.id+');closeDetail()" style="width:100%;padding:13px;background:linear-gradient(90deg,#38bdf8,#6366f1);border:none;color:white;border-radius:12px;font-weight:800;margin-top:14px;cursor:pointer">Add to Cart 🛒</button>':'<button onclick="requestStock('+p.id+')" style="width:100%;padding:13px;background:#1e293b;color:#fbbf24;border:1px solid #f59e0b;border-radius:12px;font-weight:700;margin-top:14px;cursor:pointer">Request Stock 💬</button>'):(p.price===0?'<a href="'+p.file+'" download style="display:block;text-align:center;text-decoration:none;padding:13px;background:linear-gradient(90deg,#38bdf8,#6366f1);border-radius:12px;color:white;font-weight:800;margin-top:14px">⬇️ Download FREE 💻</a>':'<button onclick="requestDownload('+p.id+')" style="width:100%;padding:13px;background:linear-gradient(90deg,#22c55e,#16a34a);border:none;color:white;border-radius:12px;font-weight:800;margin-top:14px;cursor:pointer">Buy via WhatsApp - Rs '+p.price+' 💬</button>');
+  var priceTxt=p.price===0?'FREE':'Rs '+p.price;
+  document.getElementById('detailContent').innerHTML='<div style="text-align:right"><button onclick="closeDetail()" style="background:#ef4444;border:none;color:white;padding:6px 12px;border-radius:8px;cursor:pointer">X</button></div><div class="detail-main"><img id="mainImg" src="'+mainImg+'" onerror="this.parentElement.innerHTML=\'📦\'"></div><div class="detail-thumbs">'+thumbs+'</div><h3 style="margin:14px 0 4px">'+p.name+'</h3><div style="color:#94a3b8;font-size:12px">'+(p.category||'')+' • Board: '+(p.board||'')+'</div><div style="color:#38bdf8;font-weight:800;font-size:19px;margin:8px 0">'+priceTxt+'</div><div style="color:#4ade80;font-size:12px;font-weight:600">● '+(type==='download'?'Digital File - Instant':'In Stock - Islandwide Courier')+'</div><p style="color:#cbd5e1;font-size:13px;line-height:1.7;margin-top:12px;background:#0f172a;padding:12px;border-radius:12px;border:1px solid #1e293b">'+(p.desc||'100% Tested Original Quality. Islandwide Courier Available. No COD.')+'</p>'+btnHtml+'<button onclick="openWhatsAppRepair()" style="width:100%;padding:11px;background:transparent;border:1px solid #334155;color:#94a3b8;border-radius:10px;cursor:pointer;margin-top:10px">Ask on WhatsApp 💬</button>';
+  document.getElementById('detailModal').style.display='flex';
+}
+function closeDetail(){document.getElementById('detailModal').style.display='none';}
+function requestDownload(id){var d=null;for(var i=0;i<downloads.length;i++)if(downloads[i].id===id)d=downloads[i];var msg='SAYUMIN TECH - File Request%0A%0A• Board: '+d.board+'%0A• File: '+d.name+'%0A• Type: '+(d.type||d.category)+' %0A• Price: '+(d.price===0?'FREE':'Rs '+d.price)+'%0A%0APls send file?';window.open('https://wa.me/'+CONFIG.whatsapp+'?text='+msg,'_blank');}
+function openWhatsAppRepair(){window.open('https://wa.me/'+CONFIG.whatsapp+'?text='+encodeURIComponent('Hi SAYUMIN TECH! I need laptop repair service. Model: '),'_blank');}
+function openWhatsAppTrack(){window.open('https://wa.me/'+CONFIG.whatsapp+'?text='+encodeURIComponent('Hi SAYUMIN TECH! I want to track my order. Order Date: '),'_blank');}
+function addToCart(pid){var prod=null;for(var i=0;i<products.length;i++)if(products[i].id===pid)prod=products[i];if(!prod||!prod.stock)return;for(var i=0;i<cart.length;i++)if(cart[i].id===pid){cart[i].qty++;updateCartCount();return;}cart.push({id:pid,name:prod.name,price:prod.price,category:prod.category,qty:1});updateCartCount();}
+function requestStock(pid){var p=null;for(var i=0;i<products.length;i++)if(products[i].id===pid)p=products[i];var msg='SAYUMIN TECH - Stock Request%0A%0A• Item: '+p.name+'%0A• Category: '+p.category+'%0A%0AStock thiyenawada?';window.open('https://wa.me/'+CONFIG.whatsapp+'?text='+msg,'_blank');}
+function updateCartCount(){var t=0;for(var i=0;i<cart.length;i++)t+=cart[i].qty;document.getElementById('cartCount').textContent=t;}
+function openCart(){var m=document.getElementById('cartModal');var ci=document.getElementById('cartItems');var ct=document.getElementById('cartTotal');if(cart.length===0){ci.innerHTML='<div style="color:#64748b;padding:20px;text-align:center">Cart හිස්! 🛒</div>';ct.innerHTML='';}else{var h='';var tot=0;for(var i=0;i<cart.length;i++){var it=cart[i];var itTot=it.price*it.qty;tot+=itTot;h+='<div class="cart-item"><div><div style="font-weight:600;font-size:13px">'+it.name+'</div><div style="margin-top:6px"><button class="qty-btn" onclick="changeQty('+i+',-1)">-</button><span style="margin:0 10px;font-weight:700">'+it.qty+'</span><button class="qty-btn" onclick="changeQty('+i+',1)">+</button></div></div><div style="text-align:right"><div style="font-weight:700;color:#38bdf8">Rs '+itTot+'</div><button class="remove-btn" onclick="removeFromCart('+i+')">X</button></div></div>';}ci.innerHTML=h;ct.innerHTML='Total: Rs '+tot;}m.style.display='flex';}
+function changeQty(i,c){cart[i].qty+=c;if(cart[i].qty<=0)cart.splice(i,1);updateCartCount();openCart();}
+function closeCart(){document.getElementById('cartModal').style.display='none';}
+function removeFromCart(i){cart.splice(i,1);updateCartCount();openCart();}
+function checkoutWhatsApp(){if(cart.length===0)return alert('Cart empty!');var message='SAYUMIN TECH - New Order%0A%0A';var total=0;for(var i=0;i<cart.length;i++){var itTot=cart[i].price*cart[i].qty;total+=itTot;message+='• '+cart[i].name+' x'+cart[i].qty+' - Rs '+itTot+'%0A Category: '+cart[i].category+'%0A';}message+='%0A*Total Amount: Rs '+total+'*%0A%0A';message+='----------------------------%0A*Bank Deposit Details*%0ABank: BOC%0AName: SAYUMIN TECH%0AA/C: 12345678%0ABranch: Moratuwa%0A----------------------------%0A%0A';message+='IMPORTANT NOTES:%0A1. ❌ COD පහසුකම් නොමැත - No COD Available%0A2. 🚚 Courier ගාස්තු පාරිභෝගිකයා විසින් ගෙවිය යුතුයි (Prompt XP / ඔබ කැමති ඕනෑම Courier)%0A3. 🧾 මුදල් deposit කර Slip එක WhatsApp එවන්න%0A4. Slip එක ලැබුණු පසුව පමණක් පාර්සලය Courier කරනු ලැබේ%0A5. 💾 Digital Items (BIOS/Schematic) ගෙවීමෙන් පසු WhatsApp/Email එවනු ලැබේ%0A%0A';message+='මුදල් අප වෙත deposit කරපසු slip එක එවීමට කටුතුකරන්න ඉන් පසුව ඔබගේ පාර්සලය courier ආයතනය වෙත බාරදෙනු ලැබේ 🛵';window.open('https://wa.me/'+CONFIG.whatsapp+'?text='+message,'_blank');}
+window.onclick=function(e){if(e.target==document.getElementById('cartModal'))closeCart();if(e.target==document.getElementById('detailModal'))closeDetail();};
+// 3 - JSON DEKAMA EHEMMAMA
+Promise.all([fetch('products.json?v='+Date.now()).then(r=>r.json()).catch(()=>[]),fetch('downloads.json?v='+Date.now()).then(r=>r.json()).catch(()=>[])]).then(function(res){products=res[0];downloads=res[1];loadCategories();filterAll();});
+loadCategories();
+</script>
+</body>
+</html>
