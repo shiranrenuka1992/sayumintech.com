@@ -1,75 +1,20 @@
 [
   {
-    "id": 1,
-    "board": "DA0X8QMB8E0",
-    "name": "DA0X8QMB8E0 - Schematic + BoardView",
-    "category": "Schematics",
-    "kind": "download",
-    "type": "Schematic + BoardView",
-    "price": 0,
-    "file": "downloads/DA0X8QMB8E0.pdf",
-    "img": "",
-    "stock": true
-  },
-  {
-    "id": 2,
-    "board": "LA-K491P",
-    "name": "LA-K491P - Schematic + BoardView",
-    "category": "Schematics",
-    "kind": "download",
-    "type": "Schematic + BoardView",
-    "price": 0,
-    "file": "downloads/LA-K491P.pdf",
-    "img": "",
-    "stock": true
-  },
-  {
-    "id": 3,
-    "board": "NM-C421",
-    "name": "NM-C421 - BIOS Bin File",
-    "category": "BIOS Files",
-    "kind": "download",
-    "type": "BIOS Bin",
-    "price": 0,
-    "file": "downloads/NM-C421.bin",
-    "img": "",
-    "stock": true
-  },
-  {
-    "id": 4,
-    "board": "LA-K034P",
-    "name": "LA-K034P - Schematic + BoardView",
-    "category": "Schematics",
-    "kind": "download",
-    "type": "Schematic + BoardView",
-    "price": 2500,
-    "file": "",
-    "img": "",
-    "stock": true
-  },
-  {
-    "id": 5,
-    "board": "X515EA",
-    "name": "X515EA - BIOS Bin File",
-    "category": "BIOS Files",
-    "kind": "download",
-    "type": "BIOS Bin",
-    "price": 1500,
-    "file": "downloads/X515EA.bin",
-    "img": "",
-    "stock": true
-  },
-  {
     "id": 6,
     "board": "HP 15S",
     "name": "HP 15S - Charging Port",
     "category": "Laptop Repair Components",
     "kind": "shop",
-    "type": "Parts",
     "price": 3500,
-    "file": "",
+    "stock": true,
     "img": "images/hp-charging-port.jpg",
-    "stock": true
+    "images": [
+      "images/hp-charging-port.jpg",
+      "images/hp-charging-port-2.jpg",
+      "images/hp-charging-port-3.jpg",
+      "images/hp-charging-port-4.jpg"
+    ],
+    "desc": "100% Tested Original HP 15S Charging Port. Easy Fitting. 1 Month Checking Warranty. Islandwide Courier Available."
   },
   {
     "id": 7,
@@ -77,10 +22,15 @@
     "name": "Dell Inspiron - Battery Original",
     "category": "Battery/Charger/Keyboard",
     "kind": "shop",
-    "type": "Parts",
     "price": 12500,
-    "file": "",
+    "stock": false,
     "img": "images/dell-battery.jpg",
-    "stock": false
+    "images": [
+      "images/dell-battery.jpg",
+      "images/dell-battery-2.jpg",
+      "images/dell-battery-3.jpg",
+      "images/dell-battery-4.jpg"
+    ],
+    "desc": "Genuine Dell Inspiron Battery. Long Backup. 100% Tested. 3 Months Warranty. Original Quality."
   }
 ]
