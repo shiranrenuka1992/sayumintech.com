@@ -1,0 +1,9 @@
+{
+  "name": "SAYUMIN TECH",
+  "short_name": "SAYUMIN",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#020617",
+  "icons": []
+}
