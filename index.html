@@ -3,108 +3,151 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SAYUMIN TECH - Laptop Repair Parts & Schematic</title>
-<meta name="description" content="Search by Board Number - Schematic, BoardView, BIOS, Parts - SAYUMIN TECH">
+<title>SAYUMIN TECH - Laptop Repair Parts | BoardView Schematic BIOS Download</title>
+<meta name="description" content="SAYUMIN TECH Moratuwa - Laptop Repair Parts, Schematic BoardView BIOS Download by Board Number. DA0X8QMB8E0 LA-K491P NM-C421. Islandwide Courier Sri Lanka.">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#020617">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
-body{background:#0f172a;color:white}
-header{background:#020617;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
-.logo{font-weight:900;font-size:22px;color:#38bdf8} .logo span{color:#fbbf24}
-.hero{text-align:center;padding:40px 15px;background:linear-gradient(135deg,#1e293b,#0f172a)}
-.hero h1{font-size:28px;line-height:1.3} .hero h1 span{color:#38bdf8}
-.hero p{color:#94a3b8;margin-top:10px}
-.search-box{max-width:600px;margin:20px auto;display:flex;background:white;border-radius:50px;overflow:hidden;padding:5px}
-.search-box input{flex:1;border:none;outline:none;padding:12px 15px;font-size:16px;color:#000}
-.search-box button{background:#0ea5e9;color:white;border:none;padding:10px 22px;border-radius:50px;font-weight:700;cursor:pointer}
-.cats{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:15px}
-.cats button{background:#1e293b;color:white;border:1px solid #334155;padding:8px 16px;border-radius:50px;cursor:pointer}
-.cats button.active{background:#0ea5e9;border-color:#0ea5e9}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:15px;padding:20px;max-width:1100px;margin:auto}
-.card{background:#1e293b;border:1px solid #334155;border-radius:15px;padding:16px}
-.card h3{font-size:15px;line-height:1.4;min-height:42px}
-.card .meta{color:#94a3b8;font-size:12px;line-height:1.6;margin:8px 0}
-.card .price{font-weight:800;font-size:18px;margin:8px 0} .free{color:#4ade80} .paid{color:#fbbf24}
-.btn{display:block;text-align:center;text-decoration:none;width:100%;padding:11px;border:none;border-radius:10px;color:white;font-weight:700;cursor:pointer;margin-top:8px;font-size:14px}
-.btn-free{background:linear-gradient(90deg,#38bdf8,#6366f1)}
-.btn-paid{background:#25D366}
-footer{text-align:center;padding:30px;color:#64748b;font-size:13px;line-height:1.8}
-.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:14px 20px;border-radius:50px;text-decoration:none;font-weight:700;box-shadow:0 5px 20px rgba(0,0,0,.4);z-index:200}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+body{background:#020617;background-image:radial-gradient(circle at 10% 10%,rgba(56,189,248,0.22) 0%,transparent 40%),radial-gradient(circle at 90% 20%,rgba(129,140,248,0.22) 0%,transparent 40%);color:#e2e8f0;min-height:100vh}
+.header{background:rgba(2,6,23,0.95);padding:12px 14px;position:sticky;top:0;z-index:100;display:flex;justify-content:space-between;align-items:center;gap:8px;border-bottom:1px solid #38bdf8;box-shadow:0 0 25px rgba(56,189,248,0.35)}
+.logo{font-weight:800;font-size:19px;background:linear-gradient(90deg,#38bdf8,#818cf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;white-space:nowrap;cursor:pointer}
+.search-box{background:#0f172a;border:1px solid #334155;padding:10px 14px;border-radius:24px;color:white;flex:1;max-width:340px;outline:none;font-size:14px}
+.search-box:focus{border-color:#38bdf8;box-shadow:0 0 12px rgba(56,189,248,0.4)}
+.cart-icon{cursor:pointer;background:linear-gradient(90deg,#38bdf8,#6366f1);color:white;padding:10px 16px;border-radius:24px;font-weight:700;font-size:14px;white-space:nowrap;box-shadow:0 0 15px rgba(56,189,248,0.5)}
+.hero{padding:22px 16px 6px;text-align:center}
+.hero h1{font-size:24px;line-height:1.3;background:linear-gradient(90deg,#fff,#38bdf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:#94a3b8;font-size:13px;margin-top:8px;line-height:1.6}
+.top-nav{display:flex;gap:8px;padding:14px 16px 6px;overflow-x:auto}
+.nav-btn{padding:10px 16px;border-radius:20px;border:1px solid #334155;background:#1e293b;color:#fff;white-space:nowrap;cursor:pointer;font-weight:600;font-size:13px}
+.nav-btn.active{background:#38bdf8;color:#020617;border-color:#38bdf8;box-shadow:0 0 15px rgba(56,189,248,0.6)}
+.categories{display:flex;gap:10px;padding:10px 16px;overflow-x:auto;scrollbar-width:none}
+.cat-btn{padding:9px 16px;border-radius:24px;border:1px solid #334155;background:#1e293b;color:#94a3b8;white-space:nowrap;cursor:pointer;font-size:13px;font-weight:600}
+.cat-btn.active{background:#fff;color:#0b1220;border-color:#fff}
+.section-title{padding:14px 16px 0;font-size:18px;font-weight:800}
+.section-sub{padding:6px 16px 0;color:#94a3b8;font-size:13px;line-height:1.6}
+.product-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;padding:16px}
+@media(max-width:900px){.product-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){.product-grid{grid-template-columns:repeat(2,1fr);gap:12px;padding:12px}.hero h1{font-size:20px}.logo{font-size:16px}}
+.product-card{background:#0f172a;border-radius:16px;overflow:hidden;border:1px solid #1e40af;transition:0.3s}
+.product-card:hover{border-color:#38bdf8;box-shadow:0 0 25px rgba(56,189,248,0.55);transform:translateY(-4px)}
+.product-img{height:165px;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.product-img img{width:100%;height:100%;object-fit:contain;padding:8px}
+.product-info{padding:12px}
+.product-name{font-size:13px;font-weight:600;line-height:1.35;height:36px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.product-price{font-weight:800;color:#38bdf8;margin:6px 0;font-size:15px}
+.add-to-cart-btn{width:100%;padding:9px;background:linear-gradient(90deg,#38bdf8,#6366f1);color:#fff;border:none;border-radius:10px;font-weight:700;cursor:pointer;margin-top:4px}
+.request-stock-btn{width:100%;padding:9px;background:#1e293b;color:#fbbf24;border:1px solid #f59e0b;border-radius:10px;cursor:pointer;font-weight:600}
+.download-card{background:#0f172a;border:1px solid #1e40af;border-radius:16px;padding:16px}
+.download-btn{width:100%;padding:10px;background:linear-gradient(90deg,#22c55e,#16a34a);border:none;border-radius:10px;color:white;font-weight:700;cursor:pointer;margin-top:10px}
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.75);z-index:200;justify-content:center;align-items:center;padding:12px}
+.modal-content{background:#151f32;width:100%;max-width:480px;border-radius:20px;padding:22px;border:1px solid #334155;max-height:90vh;overflow-y:auto}
+.cart-item{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #1e293b;gap:10px}
+.qty-btn{background:#1e293b;border:1px solid #334155;color:white;width:28px;height:28px;border-radius:8px;cursor:pointer;font-weight:700}
+.remove-btn{background:#ef444420;border:1px solid #ef444450;color:#fb7185;padding:4px 10px;border-radius:8px;cursor:pointer}
+.checkout-btn{width:100%;padding:14px;background:linear-gradient(90deg,#22c55e,#16a34a);border:none;border-radius:12px;font-weight:800;margin-top:18px;cursor:pointer;color:white;font-size:15px}
+.cart-notes{background:#fef3c7;border:1.5px solid #fbbf24;padding:16px;margin-top:18px;border-radius:12px;color:#451a03;font-size:13px;line-height:1.6}
 </style>
 </head>
 <body>
-
-<header><div class="logo">SAYUMIN <span>TECH ⚡</span></div><div style="font-size:13px;color:#94a3b8">Colombo | Islandwide Delivery</div></header>
-
+<div class="header">
+<div class="logo" onclick="showSection('shop')">⚡ SAYUMIN TECH</div>
+<input type="text" id="searchInput" class="search-box" placeholder="Search product / board no..." oninput="filterAll()">
+<div class="cart-icon" onclick="openCart()">🛒 <span id="cartCount">0</span></div>
+</div>
 <div class="hero">
-<h1>Search by <span>Board Number</span><br>Schematic • BIOS • Parts</h1>
-<p>Example: DA0X8QMB8E0 , LA-K491P , NM-C421</p>
-<div class="search-box"><input id="searchInput" placeholder="Board Number එක ගහන්න... DA0X8QMB8E0" oninput="doSearch()"><button onclick="doSearch()">Search 🔍</button></div>
-<div class="cats" id="catBtns">
-<button class="active" onclick="filterCat('All',this)">All</button>
-<button onclick="filterCat('Schematic',this)">Schematic</button>
-<button onclick="filterCat('BIOS',this)">BIOS</button>
-<button onclick="filterCat('Parts',this)">Parts</button>
-<button onclick="filterCat('BoardView',this)">BoardView</button>
+<h1>Laptop Repair Parts & Schematic Store 🇱🇰</h1>
+<p>Tested Parts | Schematic / BoardView / BIOS by Board Number<br>Islandwide Courier • No COD • Fast Service from Moratuwa</p>
+</div>
+<div class="top-nav">
+<button class="nav-btn active" id="btn-shop" onclick="showSection('shop')">🛍️ Shop</button>
+<button class="nav-btn" id="btn-downloads" onclick="showSection('downloads')">📥 Schematic / BIOS</button>
+<button class="nav-btn" onclick="openWhatsAppRepair()">🔧 Repair Service</button>
+<button class="nav-btn" onclick="openWhatsAppTrack()">📦 Track Order</button>
+</div>
+<div id="shopSection">
+<div class="categories" id="categoryList"></div>
+<div class="product-grid" id="productList"></div>
+</div>
+<div id="downloadsSection" style="display:none">
+<h2 class="section-title">📥 Schematic, BoardView & BIOS - By Board Number</h2>
+<p class="section-sub">Search by Board Number - DA0X8QMB8E0, LA-K491P, NM-C421, DA0X8NMB8E0, LA-K034P, X515EA<br>With SAYUMIN TECH Watermark. For Repair & Educational Purpose Only.</p>
+<div class="product-grid" id="downloadList"></div>
+</div>
+<div style="padding:30px 16px;background:#020617;border-top:2px solid #38bdf8;box-shadow:0 -10px 40px rgba(56,189,248,0.25);margin-top:10px">
+<div style="text-align:center">
+<div style="font-size:26px;font-weight:800;background:linear-gradient(90deg,#38bdf8,#818cf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent">⚡ SAYUMIN TECH ⚡</div>
+<p style="color:#94a3b8;font-size:13px;margin-top:8px;line-height:1.6">Sri Lanka's Trusted Laptop Repair Parts & Schematic Store<br>Moratuwa | Islandwide Courier | Fast Service</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:25px">
+<div><h4 style="color:#38bdf8;margin-bottom:10px">🔧 Our Services</h4><p style="color:#cbd5e1;font-size:13px;line-height:1.8">• Laptop Motherboard Repair<br>• BIOS / Schematic Service<br>• Battery / Keyboard / Charger<br>• No Power / No Display Repair<br>• Data Recovery</p></div>
+<div><h4 style="color:#38bdf8;margin-bottom:10px">🚚 Delivery & Payment</h4><p style="color:#cbd5e1;font-size:13px;line-height:1.8">• Prompt XP / Any Courier<br>• No COD - Bank Deposit Only<br>• Bank: BOC - SAYUMIN TECH<br>• Slip එක WhatsApp එවන්න<br>• Digital Items - WhatsApp / Email</p></div>
+<div><h4 style="color:#38bdf8;margin-bottom:10px">📞 Contact Us</h4><p style="color:#cbd5e1;font-size:13px;line-height:1.8">• WhatsApp: 072 135 2940<br>• Location: Moratuwa<br>• Open: Mon - Sat 9AM - 7PM<br>• Sunday: Closed</p></div>
+<div><h4 style="color:#38bdf8;margin-bottom:10px">⭐ Why SAYUMIN TECH?</h4><p style="color:#cbd5e1;font-size:13px;line-height:1.8">• 100% Tested Parts<br>• Genuine Quality<br>• Fast Islandwide Delivery<br>• Trusted Repair Service<br>• Schematic Support</p></div>
+</div>
+<div style="text-align:center;margin-top:25px;padding-top:15px;border-top:1px solid #1e293b;color:#64748b;font-size:12px">© 2026 SAYUMIN TECH - All Rights Reserved | Made with ⚡ in Sri Lanka<br>Files are for Repair & Educational Purpose Only.</div>
+</div>
+<div class="modal" id="cartModal">
+<div class="modal-content">
+<h3 style="margin-bottom:12px">Your Cart 🛒</h3>
+<div id="cartItems"></div>
+<div class="cart-notes">
+<h4 style="margin:0 0 10px 0;color:#92400e;font-size:14px;">🛒 ඇනවුම් කිරීමට පෙර - Important Notes</h4>
+<ul style="margin:0;padding-left:18px;color:#451a03;">
+<li><b>ගෙවීම් තහවුරු කිරීම:</b> අපගේ ගිණුමට මුදල් බැර කර Slip එක WhatsApp හරහා එවූ පසුව පමණක් භාණ්ඩ Courier කරනු ලැබේ.</li>
+<li><b style="color:#dc2626;">COD පහසුකම් නොමැත.</b></li>
+<li><b>කුරියර් සේවාව:</b> අප සාමාන්‍යයෙන් Prompt XP Courier භාවිතා කරයි. <b>ඔබ කැමති ඕනෑම Courier එකකින් එවීමට හැකිය.</b> Courier ගාස්තු පාරිභෝගිකයා විසින් ගෙවිය යුතුය.</li>
+<li><b>Digital භාණ්ඩ (BIOS/Schematic):</b> ගෙවීම තහවුරු කිරීමෙන් පසු ඔබේ WhatsApp / Email එකට එවනු ලැබේ.</li>
+</ul>
+<hr style="border:0;border-top:1px dashed #f59e0b;margin:12px 0">
+<div style="color:#57534e;font-size:12px;"><b>English:</b> No COD. Items will be shipped only after payment slip confirmation. Courier charges paid by customer. Digital items sent to your WhatsApp/Email.</div>
+</div>
+<div id="cartTotal" style="margin-top:16px;font-weight:800;font-size:18px;color:#38bdf8"></div>
+<button class="checkout-btn" onclick="checkoutWhatsApp()">Checkout via WhatsApp 💬</button>
+<button onclick="closeCart()" style="width:100%;margin-top:12px;padding:10px;background:transparent;border:1px solid #334155;color:#94a3b8;border-radius:10px;cursor:pointer">Close</button>
 </div>
 </div>
-
-<div class="grid" id="downloadList"><div style="grid-column:1/-1;text-align:center;color:#94a3b8;padding:30px">Loading... ⚡</div></div>
-
-<footer>SAYUMIN TECH © 2026<br>Watermark: SAYUMIN TECH ⚡ - All Files Protected<br>WhatsApp: 077XXXXXXX</footer>
-<a class="whatsapp" href="https://wa.me/9477XXXXXXX?text=Hi%20Sayumin%20Tech" target="_blank">💬 WhatsApp Us</a>
-
 <script>
-var allProducts=[];
-var currentCat='All';
-var waNumber="9477XXXXXXX";
+var CONFIG={whatsapp:"94721352940"};
+var categories=["All","BIOS Files","Schematics","BoardView","Laptop Repair Components","Laptop Repair Accessories","Battery/Charger/Keyboard","Tools","Electronics Devices"];
+var products=[];var downloads=[];var cart=[];var currentCategory="All";
+if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(()=>{});}
 
-// products.json එකෙන් ඔක්කොම ගන්නවා
+function showSection(s){document.getElementById('shopSection').style.display=s==='shop'?'block':'none';document.getElementById('downloadsSection').style.display=s==='downloads'?'block':'none';document.getElementById('btn-shop').classList.toggle('active',s==='shop');document.getElementById('btn-downloads').classList.toggle('active',s==='downloads');window.scrollTo({top:0,behavior:'smooth'});filterAll();}
+function loadCategories(){var h="";for(var i=0;i<categories.length;i++){var c=categories[i];h+='<button class="cat-btn '+(c===currentCategory?'active':'')+'" onclick="selectCategory(\''+c+'\')">'+c+'</button>';}document.getElementById('categoryList').innerHTML=h;}
+function selectCategory(c){currentCategory=c;loadCategories();filterAll();}
+function filterAll(){var s=document.getElementById('searchInput').value.toLowerCase();var f=[];for(var i=0;i<products.length;i++){var p=products[i];if((currentCategory==="All"||p.category===currentCategory)&&(p.name.toLowerCase().includes(s)||(p.board||"").toLowerCase().includes(s)))f.push(p);}renderProducts(f);var df=[];for(var i=0;i<downloads.length;i++){if(downloads[i].name.toLowerCase().includes(s)||(downloads[i].board||"").toLowerCase().includes(s))df.push(downloads[i]);}renderDownloads(df);}
+function renderProducts(arr){var list=document.getElementById('productList');if(arr.length===0){list.innerHTML='<div style="text-align:center;padding:60px;color:#64748b;grid-column:1/-1">No products found 🔍<br><br><button onclick="openWhatsAppRepair()" style="padding:10px 18px;background:#25D366;border:none;color:white;border-radius:10px;font-weight:700">Ask on WhatsApp</button></div>';return;}var html="";for(var i=0;i<arr.length;i++){var p=arr[i];var stock=p.stock?'● In Stock':'● Out of Stock';var stockColor=p.stock?'#4ade80':'#fb7185';var btn=p.stock?'<button class="add-to-cart-btn" onclick="addToCart('+p.id+')">Add to Cart</button>':'<button class="request-stock-btn" onclick="requestStock('+p.id+')">Request Stock</button>';var imgC='';if(p.img&&p.img!==""){imgC='<img src="'+p.img+'" loading="lazy" onerror="this.parentElement.innerHTML=\'📦\'">';}else{imgC='<span style="font-size:55px">📦</span>';}html+='<div class="product-card"><div class="product-img">'+imgC+'</div><div class="product-info"><div class="product-name">'+p.name+'</div><div style="color:'+stockColor+';font-size:11px;font-weight:600;margin:5px 0">'+stock+'</div><div class="product-price">Rs '+p.price+'</div>'+btn+'</div></div>';}list.innerHTML=html;}
+function renderDownloads(arr){var list=document.getElementById('downloadList');if(!list)return;if(arr.length===0){list.innerHTML='<div style="color:#64748b;grid-column:1/-1;text-align:center;padding:20px">No file found - WhatsApp us!</div>';return;}var html="";for(var i=0;i<arr.length;i++){var d=arr[i];var isFree=d.price===0;var btn=isFree?'<a href="'+d.file+'" download style="display:block;text-align:center;text-decoration:none;width:100%;padding:10px;background:linear-gradient(90deg,#38bdf8,#6366f1);border-radius:10px;color:white;font-weight:700;margin-top:10px">⬇️ Download to PC 💻</a>':'<button class="download-btn" onclick="requestDownload('+d.id+')">Buy via WhatsApp - Rs '+d.price+' 💬</button>';var priceText=isFree?'FREE':'Rs '+d.price;var priceColor=isFree?'#4ade80':'#fbbf24';html+='<div class="download-card"><div style="font-size:28px">📄</div><div style="font-weight:700;margin:8px 0;font-size:14px;line-height:1.4">'+d.name+'</div><div style="color:#94a3b8;font-size:12px;line-height:1.6">Board: '+(d.board||'')+'<br>Type: '+(d.type||d.category||'')+'<br>Watermark: SAYUMIN TECH ⚡</div><div style="color:'+priceColor+';font-weight:800;margin-top:8px">'+priceText+'</div>'+btn+'</div>';}list.innerHTML=html;}
+function requestDownload(id){var d=null;for(var i=0;i<downloads.length;i++)if(downloads[i].id===id)d=downloads[i];var msg='SAYUMIN TECH - File Request%0A%0A• Board: '+d.board+'%0A• File: '+d.name+'%0A• Type: '+(d.type||d.category)+' %0A• Price: '+(d.price===0?'FREE':'Rs '+d.price)+'%0A%0APls send file?';window.open('https://wa.me/'+CONFIG.whatsapp+'?text='+msg,'_blank');}
+function openWhatsAppRepair(){window.open('https://wa.me/'+CONFIG.whatsapp+'?text='+encodeURIComponent('Hi SAYUMIN TECH! I need laptop repair service. Model: '),'_blank');}
+function openWhatsAppTrack(){window.open('https://wa.me/'+CONFIG.whatsapp+'?text='+encodeURIComponent('Hi SAYUMIN TECH! I want to track my order. Order Date: '),'_blank');}
+function addToCart(pid){var prod=null;for(var i=0;i<products.length;i++)if(products[i].id===pid)prod=products[i];if(!prod||!prod.stock)return;for(var i=0;i<cart.length;i++)if(cart[i].id===pid){cart[i].qty++;updateCartCount();return;}cart.push({id:pid,name:prod.name,price:prod.price,category:prod.category,qty:1});updateCartCount();}
+function requestStock(pid){var p=null;for(var i=0;i<products.length;i++)if(products[i].id===pid)p=products[i];var msg='SAYUMIN TECH - Stock Request%0A%0A• Item: '+p.name+'%0A• Category: '+p.category+'%0A%0AStock thiyenawada?';window.open('https://wa.me/'+CONFIG.whatsapp+'?text='+msg,'_blank');}
+function updateCartCount(){var t=0;for(var i=0;i<cart.length;i++)t+=cart[i].qty;document.getElementById('cartCount').textContent=t;}
+function openCart(){var m=document.getElementById('cartModal');var ci=document.getElementById('cartItems');var ct=document.getElementById('cartTotal');if(cart.length===0){ci.innerHTML='<div style="color:#64748b;padding:20px;text-align:center">Cart හිස්! 🛒</div>';ct.innerHTML='';}else{var h='';var tot=0;for(var i=0;i<cart.length;i++){var it=cart[i];var itTot=it.price*it.qty;tot+=itTot;h+='<div class="cart-item"><div><div style="font-weight:600;font-size:13px">'+it.name+'</div><div style="margin-top:6px"><button class="qty-btn" onclick="changeQty('+i+',-1)">-</button><span style="margin:0 10px;font-weight:700">'+it.qty+'</span><button class="qty-btn" onclick="changeQty('+i+',1)">+</button></div></div><div style="text-align:right"><div style="font-weight:700;color:#38bdf8">Rs '+itTot+'</div><button class="remove-btn" onclick="removeFromCart('+i+')">X</button></div></div>';}ci.innerHTML=h;ct.innerHTML='Total: Rs '+tot;}m.style.display='flex';}
+function changeQty(i,c){cart[i].qty+=c;if(cart[i].qty<=0)cart.splice(i,1);updateCartCount();openCart();}
+function closeCart(){document.getElementById('cartModal').style.display='none';}
+function removeFromCart(i){cart.splice(i,1);updateCartCount();openCart();}
+function checkoutWhatsApp(){if(cart.length===0)return alert('Cart empty!');var message='SAYUMIN TECH - New Order%0A%0A';var total=0;for(var i=0;i<cart.length;i++){var itTot=cart[i].price*cart[i].qty;total+=itTot;message+='• '+cart[i].name+' x'+cart[i].qty+' - Rs '+itTot+'%0A Category: '+cart[i].category+'%0A';}message+='%0A*Total Amount: Rs '+total+'*%0A%0A';message+='----------------------------%0A*Bank Deposit Details*%0ABank: BOC%0AName: SAYUMIN TECH%0AA/C: 12345678%0ABranch: Moratuwa%0A----------------------------%0A%0A';message+='IMPORTANT NOTES:%0A1. ❌ COD පහසුකම් නොමැත - No COD Available%0A2. 🚚 Courier ගාස්තු පාරිභෝගිකයා විසින් ගෙවිය යුතුයි (Prompt XP / ඔබ කැමති ඕනෑම Courier)%0A3. 🧾 මුදල් deposit කර Slip එක WhatsApp එවන්න%0A4. Slip එක ලැබුණු පසුව පමණක් පාර්සලය Courier කරනු ලැබේ%0A5. 💾 Digital Items (BIOS/Schematic) ගෙවීමෙන් පසු WhatsApp/Email එවනු ලැබේ%0A%0A';message+='මුදල් අප වෙත deposit කරපසු slip එක එවීමට කටුතුකරන්න ඉන් පසුව ඔබගේ පාර්සලය courier ආයතනය වෙත බාරදෙනු ලැබේ 🛵';window.open('https://wa.me/'+CONFIG.whatsapp+'?text='+message,'_blank');}
+window.onclick=function(e){if(e.target==document.getElementById('cartModal'))closeCart();};
+// products.json එකෙන් ඔක්කොම ගන්නවා - Shop + Downloads
 fetch('products.json?v='+Date.now()).then(r=>r.json()).then(data=>{
-  allProducts=data;
-  renderDownloads(allProducts);
-}).catch(e=>{
-  document.getElementById('downloadList').innerHTML='<div style="grid-column:1/-1;text-align:center">products.json File එක නෑ! GitHub එකට දාන්න!</div>';
-});
-
-function renderDownloads(arr){
-  var list=document.getElementById('downloadList');
-  if(arr.length===0){list.innerHTML='<div style="grid-column:1/-1;text-align:center;color:#94a3b8;padding:30px">No file found - WhatsApp us!</div>';return;}
-  var html="";
-  for(var i=0;i<arr.length;i++){
-    var d=arr[i];
-    var isFree=d.price===0;
-    var priceText=isFree?'FREE':'Rs '+d.price;
-    var priceClass=isFree?'free':'paid';
-    var btn="";
-    if(isFree){
-      // FREE නම් කෙලින්ම PC එකට Download
-      btn='<a class="btn btn-free" href="'+d.file+'" download>⬇️ Download to PC 💻</a>';
+  products=[];downloads=[];
+  for(var i=0;i<data.length;i++){
+    var d=data[i];
+    // kind = download නම් Downloads එකට, නැත්තන් Shop එකට
+    // Schematics / BIOS Files / BoardView නම් auto Download
+    if(d.kind==="download" || d.category==="Schematics" || d.category==="BIOS Files" || d.category==="BoardView"){
+      downloads.push({id:d.id,name:d.name,board:d.board||"",type:d.type||d.category,price:d.price,file:d.file||""});
     }else{
-      // PAID නම් WhatsApp
-      var msg=encodeURIComponent("Hi Sayumin Tech! I want to buy: "+d.name+" - Rs "+d.price);
-      btn='<a class="btn btn-paid" href="https://wa.me/'+waNumber+'?text='+msg+'" target="_blank">Buy via WhatsApp - Rs '+d.price+' 💬</a>';
+      products.push(d);
     }
-    html+='<div class="card"><div style="font-size:28px">📄</div><h3>'+d.name+'</h3><div class="meta">Board: '+d.board+'<br>Category: '+d.category+'<br>Watermark: SAYUMIN TECH ⚡</div><div class="price '+priceClass+'">'+priceText+'</div>'+btn+'</div>';
   }
-  list.innerHTML=html;
-}
-
-function doSearch(){
-  var q=document.getElementById('searchInput').value.toLowerCase().trim();
-  var filtered=allProducts.filter(function(d){
-    var matchCat=(currentCat==='All'||d.category===currentCat);
-    var matchQ=!q||d.board.toLowerCase().includes(q)||d.name.toLowerCase().includes(q);
-    return matchCat&&matchQ;
-  });
-  renderDownloads(filtered);
-}
-function filterCat(cat,btn){
-  currentCat=cat;
-  var btns=document.querySelectorAll('.cats button');
-  for(var i=0;i<btns.length;i++) btns[i].classList.remove('active');
-  btn.classList.add('active');
-  doSearch();
-}
+  loadCategories();filterAll();
+}).catch(()=>{loadCategories();filterAll();});
+loadCategories();
 </script>
 </body>
 </html>
