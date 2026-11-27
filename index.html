@@ -123,7 +123,23 @@ function loadCategories(){var h="";for(var i=0;i<categories.length;i++){var c=ca
 function selectCategory(c){currentCategory=c;loadCategories();filterAll();}
 function filterAll(){var s=document.getElementById('searchInput').value.toLowerCase();var f=[];for(var i=0;i<products.length;i++){var p=products[i];if((currentCategory==="All"||p.category===currentCategory)&&p.name.toLowerCase().includes(s))f.push(p);}renderProducts(f);var df=[];for(var i=0;i<downloads.length;i++){if(downloads[i].name.toLowerCase().includes(s))df.push(downloads[i]);}renderDownloads(df);}
 function renderProducts(arr){var list=document.getElementById('productList');if(arr.length===0){list.innerHTML='<div style="text-align:center;padding:60px;color:#64748b;grid-column:1/-1">No products found 🔍</div>';return;}var html="";for(var i=0;i<arr.length;i++){var p=arr[i];var stock=p.stock?'● In Stock':'● Out of Stock';var stockColor=p.stock?'#4ade80':'#fb7185';var btn=p.stock?'<button class="add-to-cart-btn" onclick="addToCart('+p.id+')">Add to Cart</button>':'<button class="request-stock-btn" onclick="requestStock('+p.id+')">Request Stock</button>';var isPhoto=p.img.toString().includes('images/')||p.img.toString().includes('.jpg')||p.img.toString().includes('.png')||p.img.toString().includes('http');var imgC=isPhoto?'<img src="'+p.img+'" onerror="this.parentElement.innerHTML=\'📦\'">':'<span style="font-size:55px">'+p.img+'</span>';html+='<div class="product-card"><div class="product-img">'+imgC+'</div><div class="product-info"><div class="product-name">'+p.name+'</div><div style="color:'+stockColor+';font-size:11px;font-weight:600;margin:5px 0">'+stock+'</div><div class="product-price">Rs '+p.price+'</div>'+btn+'</div></div>';}list.innerHTML=html;}
-function renderDownloads(arr){var list=document.getElementById('downloadList');if(!list)return;if(arr.length===0){list.innerHTML='<div style="color:#64748b;grid-column:1/-1;text-align:center;padding:20px">No file found - WhatsApp us, we will find it!</div>';return;}var html="";for(var i=0;i<arr.length;i++){var d=arr[i];var isFree=d.price===0;var btnText=isFree?'Get via WhatsApp - FREE 💬':'Get via WhatsApp - Rs '+d.price+' 💬';var priceText=isFree?'FREE':'Rs '+d.price;var priceColor=isFree?'#4ade80':'#fbbf24';html+='<div class="download-card"><div style="font-size:28px">📄</div><div style="font-weight:700;margin:8px 0;font-size:14px;line-height:1.4">'+d.name+'</div><div style="color:#94a3b8;font-size:12px;line-height:1.6">Board: '+d.board+'<br>Type: '+d.type+'<br>Watermark: SAYUMIN TECH ⚡</div><div style="color:'+priceColor+';font-weight:800;margin-top:8px">'+priceText+'</div><button class="download-btn" onclick="requestDownload('+d.id+')">'+btnText+'</button></div>';}list.innerHTML=html;}
+function renderDownloads(arr){
+var list=document.getElementById('downloadList');if(!list)return;
+if(arr.length===0){list.innerHTML='<div style="color:#64748b;grid-column:1/-1;text-align:center;padding:20px">No file found - WhatsApp us!</div>';return;}
+var html="";
+for(var i=0;i<arr.length;i++){
+var d=arr[i];
+var isFree=d.price===0;
+// FREE නම් PC එකට කෙලින්ම Download, PAID නම් WhatsApp
+var btn = isFree
+? '<a href="'+d.file+'" download style="display:block;text-align:center;text-decoration:none;width:100%;padding:10px;background:linear-gradient(90deg,#38bdf8,#6366f1);border-radius:10px;color:white;font-weight:700;margin-top:10px">⬇️ Download to PC 💻</a>'
+: '<button class="download-btn" onclick="requestDownload('+d.id+')">Buy via WhatsApp - Rs '+d.price+' 💬</button>';
+var priceText = isFree ? 'FREE' : 'Rs '+d.price;
+var priceColor = isFree ? '#4ade80' : '#fbbf24';
+html+='<div class="download-card"><div style="font-size:28px">📄</div><div style="font-weight:700;margin:8px 0;font-size:14px;line-height:1.4">'+d.name+'</div><div style="color:#94a3b8;font-size:12px;line-height:1.6">Board: '+d.board+'<br>Type: '+d.type+'<br>Watermark: SAYUMIN TECH ⚡</div><div style="color:'+priceColor+';font-weight:800;margin-top:8px">'+priceText+'</div>'+btn+'</div>';
+}
+list.innerHTML=html;
+}
 function requestDownload(id){var d=null;for(var i=0;i<downloads.length;i++)if(downloads[i].id===id)d=downloads[i];var msg='SAYUMIN TECH - File Request%0A%0A• Board: '+d.board+'%0A• File: '+d.name+'%0A• Type: '+d.type+'%0A• Price: '+(d.price===0?'FREE':'Rs '+d.price)+'%0A%0APls send file?';window.open('https://wa.me/'+CONFIG.whatsapp+'?text='+msg,'_blank');}
 function openWhatsAppRepair(){window.open('https://wa.me/'+CONFIG.whatsapp+'?text='+encodeURIComponent('Hi SAYUMIN TECH! I need laptop repair service. Model: '),'_blank');}
 function openWhatsAppTrack(){window.open('https://wa.me/'+CONFIG.whatsapp+'?text='+encodeURIComponent('Hi SAYUMIN TECH! I want to track my order. Order Date: '),'_blank');}
