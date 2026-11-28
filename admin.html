@@ -3,111 +3,154 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SayuminTech Admin</title>
+<meta name="robots" content="noindex, nofollow">
+<title>Admin</title>
 <style>
 body{font-family:sans-serif;padding:15px;background:#111;color:#fff}
 .tab{display:flex;gap:10px}
-.tab button{flex:1;padding:12px;border:none;border-radius:10px;font-size:16px;font-weight:bold}
+.tab button{flex:1;padding:12px;border:none;border-radius:10px;font-size:15px;font-weight:bold;cursor:pointer}
 .active{background:#00c853;color:#fff}
 .inactive{background:#333;color:#aaa}
 input,select,textarea{width:100%;padding:11px;margin:6px 0;border-radius:8px;border:none;box-sizing:border-box}
-.btn{width:100%;padding:13px;background:#00c853;color:#fff;border:none;border-radius:10px;font-size:16px;margin-top:10px;font-weight:bold}
+.btn{width:100%;padding:13px;background:#00c853;color:#fff;border:none;border-radius:10px;font-size:16px;margin-top:10px;font-weight:bold;cursor:pointer}
 .btn2{background:#ff9800}
+.btn3{background:#2196f3}
 .card{background:#222;padding:10px;border-radius:10px;margin-top:10px;display:flex;gap:10px;align-items:center}
 .card img{width:60px;height:60px;object-fit:cover;border-radius:8px}
+#lock{position:fixed;top:0;left:0;width:100%;height:100%;background:#111;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px;box-sizing:border-box;z-index:999}
+#lock input{max-width:300px;text-align:center;font-size:18px;letter-spacing:2px}
 </style>
-<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
 </head>
 <body>
 
-<h2>🛠️ SayuminTech Admin - Firebase</h2>
+<div id="lock">
+<h2>🔒 SAYUMIN TECH</h2>
+<p style="color:#aaa">Password එක දාපන්</p>
+<input id="passInput" type="password" placeholder="Password">
+<button class="btn" style="max-width:300px" onclick="checkPass()">UNLOCK 🔓</button>
+<p id="passErr" style="color:#ff5252;display:none">Password වැරදියි බං!</p>
+</div>
 
+<div id="main" style="display:none">
+<h2>🛠️ SayuminTech Admin</h2>
 <div class="tab">
 <button id="btnP" class="active" onclick="switchMode('products')">🛒 Products</button>
 <button id="btnD" class="inactive" onclick="switchMode('downloads')">📥 Downloads</button>
 </div>
-
-<p id="modeText">දැන් හදන්නේ: Products</p>
+<p id="modeText">දැන් හදන්නේ: products.json</p>
 
 <input id="name" placeholder="Name - උදා: tps51125 / Dell 3520 BIOS">
+<div style="display:flex;gap:8px">
+<button class="btn3 btn" style="margin-top:6px" onclick="searchGoogle()">🔍 Google එකේ හොයපන්</button>
+<button class="btn3 btn" style="margin-top:6px;background:#333" onclick="searchGoogleImage()">🖼️ Photo හොයපන්</button>
+</div>
 <input id="price" type="number" placeholder="Price - උදා: 3200">
 <select id="category">
 <option>Laptop Repair Components</option>
-<option>Battery/Charger</option>
-<option>Laptop Accessories</option>
+<option>Battery/Charger/Keyboard</option>
+<option>Laptop Repair Accessories</option>
 <option>Tools</option>
-<option>BIOS</option>
-<option>Schematic / Boardview</option>
+<option>BIOS Files</option>
+<option>Schematics</option>
+<option>BoardView</option>
+<option>Electronics Devices</option>
 </select>
 <input id="img" placeholder="Photo - images/tps.jpg">
 <input id="file" placeholder="Download File Link - Downloads වලට විතරයි">
+<input id="board" placeholder="Board No - DA0X8QMB8E0">
 <textarea id="desc" placeholder="Description"></textarea>
+<button class="btn" onclick="addItem()">+ ADD කරපන්</button>
+<button class="btn btn2" onclick="downloadJSON()">📥 <span id="dlText">products.json</span> Download කරගනින්</button>
+<button class="btn btn3" onclick="loadOld()">🔄 පරණ JSON එක Load කරගනින්</button>
 
-<button class="btn" onclick="addItem()">+ ADD කරපන් - Firebase එකට යනවා</button>
-
-<h3>දැම්ම ටික (Firebase එකෙන්):</h3>
-<div id="list">Loading...</div>
+<h3>දැම්ම ටික:</h3>
+<div id="list"></div>
+<h3>👇 මේ Code එක Copy කරලා GitHub එකේ JSON එකට Paste කරපන්:</h3>
+<textarea id="copyBox" rows="8" readonly style="background:#000;color:#00ff00;font-size:12px"></textarea>
+<button class="btn" style="background:#fff;color:#000" onclick="copyCode()">📋 Copy කරගනින්</button>
+</div>
 
 <script>
-const firebaseConfig = {
-  apiKey: "AIzaSyCBG6OXPLdU98fHIS82PXK-BM89Ew4Dc",
-  authDomain: "sayumintech.firebaseapp.com",
-  databaseURL: "https://sayumintech-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "sayumintech",
-  storageBucket: "sayumintech.firebasestorage.app",
-  messagingSenderId: "224307692174",
-  appId: "1:224307692174:web:9be3ffb2b200f5e5277fdf"
-};
-firebase.initializeApp(firebaseConfig);
-const db = firebase.database();
+var MY_PASS = "4504286ARBE";
+function checkPass(){
+  var v = document.getElementById('passInput').value;
+  if(v === MY_PASS){
+    document.getElementById('lock').style.display='none';
+    document.getElementById('main').style.display='block';
+  } else {
+    document.getElementById('passErr').style.display='block';
+  }
+}
+document.getElementById('passInput').addEventListener('keyup', function(e){ if(e.key==='Enter') checkPass(); });
 
 let mode = 'products';
-let data = { products: [], downloads: [] };
-
+let data = { products: JSON.parse(localStorage.getItem('products')||'[]'), downloads: JSON.parse(localStorage.getItem('downloads')||'[]') };
 function switchMode(m){
   mode = m;
   document.getElementById('btnP').className = m=='products'?'active':'inactive';
   document.getElementById('btnD').className = m=='downloads'?'active':'inactive';
-  document.getElementById('modeText').innerText = 'දැන් හදන්නේ: '+m;
+  document.getElementById('modeText').innerText = 'දැන් හදන්නේ: '+m+'.json';
+  document.getElementById('dlText').innerText = m+'.json';
   showList();
 }
+function save(){ localStorage.setItem('products', JSON.stringify(data.products)); localStorage.setItem('downloads', JSON.stringify(data.downloads)); updateCopyBox(); }
+function searchGoogle(){
+  var n = document.getElementById('name').value;
+  if(!n){ alert('මුලින්ම Name එක ගහපන් බං!'); return; }
+  window.open('https://www.google.com/search?q='+encodeURIComponent(n), '_blank');
+}
+function searchGoogleImage(){
+  var n = document.getElementById('name').value;
+  if(!n){ alert('මුලින්ම Name එක ගහපන් බං!'); return; }
+  window.open('https://www.google.com/search?tbm=isch&q='+encodeURIComponent(n), '_blank');
+}
 function addItem(){
+  let arr = data[mode];
   let item = {
+    id: arr.length+1,
     name: document.getElementById('name').value,
     price: Number(document.getElementById('price').value),
     category: document.getElementById('category').value,
     img: document.getElementById('img').value,
-    desc: document.getElementById('desc').value
+    board: document.getElementById('board').value,
+    desc: document.getElementById('desc').value,
+    stock: true
   };
   if(mode=='downloads') item.file = document.getElementById('file').value;
   if(!item.name || !item.price){ alert('Nameයි Price එකයි දාපන් බං!'); return; }
-  db.ref(mode).push(item).then(()=>{
-    alert('Firebase එකට වැටුනා බං! ✅');
-    document.getElementById('name').value=''; document.getElementById('price').value=''; document.getElementById('desc').value=''; document.getElementById('file').value='';
-  });
+  arr.push(item); save();
+  document.getElementById('name').value=''; document.getElementById('price').value=''; document.getElementById('desc').value=''; document.getElementById('file').value=''; document.getElementById('board').value='';
+  showList(); alert('වැටුනා බං! ✅');
 }
 function showList(){
-  let arr = data[mode] || [];
-  document.getElementById('list').innerHTML = arr.map((p)=>`
+  let arr = data[mode];
+  document.getElementById('list').innerHTML = arr.map((p,i)=>`
     <div class="card">
       <img src="${p.img}" onerror="this.src='https://via.placeholder.com/60'">
-      <div style="flex:1"><b>${p.name}</b><br>Rs.${p.price} - ${p.category}</div>
-      <button onclick="del('${p.key}')" style="background:red;color:#fff;border:none;padding:8px 12px;border-radius:8px">X</button>
+      <div style="flex:1"><b>${p.id}. ${p.name}</b><br>Rs.${p.price} - ${p.category}</div>
+      <button onclick="del(${i})" style="background:red;color:#fff;border:none;padding:8px 12px;border-radius:8px">X</button>
     </div>`).join('') || 'තවම මොකුත් නෑ බං';
+  updateCopyBox();
 }
-function del(key){ if(confirm('මකනවද?')) db.ref(mode+'/'+key).remove(); }
-
-db.ref('products').on('value', s=>{
-  let v = s.val() || {};
-  data.products = Object.keys(v).map(k=>({...v[k], key:k}));
-  if(mode=='products') showList();
-});
-db.ref('downloads').on('value', s=>{
-  let v = s.val() || {};
-  data.downloads = Object.keys(v).map(k=>({...v[k], key:k}));
-  if(mode=='downloads') showList();
-});
+function updateCopyBox(){
+  document.getElementById('copyBox').value = JSON.stringify(data[mode], null, 2);
+}
+function del(i){ data[mode].splice(i,1); data[mode].forEach((p,idx)=>p.id=idx+1); save(); showList(); }
+function downloadJSON(){
+  let blob = new Blob([JSON.stringify(data[mode], null, 2)], {type:'application/json'});
+  let a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=mode+'.json'; a.click();
+}
+async function loadOld(){
+  try{
+    let res = await fetch(mode+'.json');
+    let j = await res.json();
+    data[mode]=j; save(); showList(); alert('පරණ ටික Load වුනා බං! ✅');
+  }catch(e){ alert('Load වුනේ නෑ බං!'); }
+}
+function copyCode(){
+  var t = document.getElementById('copyBox');
+  t.select(); document.execCommand('copy'); alert('Copy වුනා බං! ✅');
+}
 showList();
 </script>
 </body>
