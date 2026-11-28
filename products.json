@@ -53,5 +53,15 @@
     "stock": true,
     "board": "",
     "desc": "65W Original Laptop Charger. Fast Charging. Safe & Tested. Islandwide Courier Available."
-  }
-]
+  },
+{
+    "id": 9,
+    "name": "tps 51125 ",
+    "price": 3200,
+    "category": "Laptop Repair Components",
+    "img": "images/charger.jpg",
+    "images": ["images/charger.jpg","images/charger-2.jpg","images/charger-3.jpg","images/charger-4.jpg"],
+    "stock": true,
+    "board": "",
+    "desc": "65W Original Laptop Charger. Fast Charging. Safe & Tested. Islandwide Courier Available."
+  }                                                                                                          ]
