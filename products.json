@@ -5,7 +5,12 @@
     "price": 2200,
     "category": "Laptop Repair Accessories",
     "img": "images/pads.jpg",
-    "images": ["images/pads.jpg","images/pads-2.jpg","images/pads-3.jpg","images/pads-4.jpg"],
+    "images": [
+      "images/pads.jpg",
+      "images/pads-2.jpg",
+      "images/pads-3.jpg",
+      "images/pads-4.jpg"
+    ],
     "stock": true,
     "board": "",
     "desc": "Premium Quality Laptop Cooling Pad - USB Powered. Keep Your Laptop Cool. Islandwide Courier Available."
@@ -16,7 +21,12 @@
     "price": 3500,
     "category": "Laptop Repair Accessories",
     "img": "images/hubs.jpg",
-    "images": ["images/hubs.jpg","images/hubs-2.jpg","images/hubs-3.jpg","images/hubs-4.jpg"],
+    "images": [
+      "images/hubs.jpg",
+      "images/hubs-2.jpg",
+      "images/hubs-3.jpg",
+      "images/hubs-4.jpg"
+    ],
     "stock": true,
     "board": "",
     "desc": "4-In-1 USB-C Hub with HDMI. High Speed Data Transfer. 100% Tested Original Quality."
@@ -27,7 +37,12 @@
     "price": 2500,
     "category": "Laptop Repair Accessories",
     "img": "images/key.jpg",
-    "images": ["images/key.jpg","images/key-2.jpg","images/key-3.jpg","images/key-4.jpg"],
+    "images": [
+      "images/key.jpg",
+      "images/key-2.jpg",
+      "images/key-3.jpg",
+      "images/key-4.jpg"
+    ],
     "stock": true,
     "board": "",
     "desc": "High Quality Laptop Keyboard Replacement. Easy Fitting. 1 Month Checking Warranty."
@@ -38,7 +53,12 @@
     "price": 8500,
     "category": "Battery/Charger/Keyboard",
     "img": "images/battery.jpg",
-    "images": ["images/battery.jpg","images/battery-2.jpg","images/battery-3.jpg","images/battery-4.jpg"],
+    "images": [
+      "images/battery.jpg",
+      "images/battery-2.jpg",
+      "images/battery-3.jpg",
+      "images/battery-4.jpg"
+    ],
     "stock": true,
     "board": "",
     "desc": "Original Quality 6-Cell Laptop Battery. Long Backup. 3 Months Warranty. 100% Tested."
@@ -49,19 +69,30 @@
     "price": 3200,
     "category": "Battery/Charger/Keyboard",
     "img": "images/charger.jpg",
-    "images": ["images/charger.jpg","images/charger-2.jpg","images/charger-3.jpg","images/charger-4.jpg"],
+    "images": [
+      "images/charger.jpg",
+      "images/charger-2.jpg",
+      "images/charger-3.jpg",
+      "images/charger-4.jpg"
+    ],
     "stock": true,
     "board": "",
     "desc": "65W Original Laptop Charger. Fast Charging. Safe & Tested. Islandwide Courier Available."
   },
-{
+  {
     "id": 9,
     "name": "tps51125 ",
     "price": 3200,
     "category": "Laptop Repair Components",
     "img": "images/charger.jpg",
-    "images": ["images/charger.jpg","images/charger-2.jpg","images/charger-3.jpg","images/charger-4.jpg"],
+    "images": [
+      "images/charger.jpg",
+      "images/charger-2.jpg",
+      "images/charger-3.jpg",
+      "images/charger-4.jpg"
+    ],
     "stock": true,
     "board": "",
     "desc": "65W Original Laptop Charger. Fast Charging. Safe & Tested. Islandwide Courier Available."
-  }                                                                                                          ]
+  }
+]
