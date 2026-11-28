@@ -1,80 +1,105 @@
 <!DOCTYPE html>
-<html lang="si">
+<html>
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sayumin Admin</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SayuminTech Admin</title>
 <style>
-body{font-family:sans-serif;background:#111;color:#fff;display:flex;justify-content:center;padding:20px;margin:0}
-.box{background:#222;padding:25px;border-radius:15px;width:100%;max-width:450px}
-input{width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #333;box-sizing:border-box;background:#333;color:#fff}
-button{width:100%;padding:12px;background:orange;color:#000;font-weight:bold;border:none;border-radius:8px;cursor:pointer;margin-top:10px;font-size:16px}
-#loginBox{display:block} #adminBox{display:none}
-.item{background:#333;padding:10px;border-radius:8px;margin-top:10px;display:flex;justify-content:space-between;align-items:center}
-.del{color:red;cursor:pointer;font-weight:bold;padding:5px 10px}
-#msg{color:lightgreen;text-align:center;margin-top:10px}
+body{font-family:sans-serif;padding:15px;background:#111;color:#fff}
+.tab{display:flex;gap:10px}
+.tab button{flex:1;padding:12px;border:none;border-radius:10px;font-size:16px;font-weight:bold}
+.active{background:#00c853;color:#fff}
+.inactive{background:#333;color:#aaa}
+input,select,textarea{width:100%;padding:11px;margin:6px 0;border-radius:8px;border:none;box-sizing:border-box}
+.btn{width:100%;padding:13px;background:#00c853;color:#fff;border:none;border-radius:10px;font-size:16px;margin-top:10px;font-weight:bold}
+.btn2{background:#ff9800}
+.card{background:#222;padding:10px;border-radius:10px;margin-top:10px;display:flex;gap:10px;align-items:center}
+.card img{width:60px;height:60px;object-fit:cover;border-radius:8px}
 </style>
 </head>
 <body>
-<div class="box">
-  <div id="loginBox">
-    <h2>🔐 Sayumin Admin Login</h2>
-    <input type="password" id="pass" placeholder="Password එක දාන්න">
-    <button onclick="login()">Login</button>
-  </div>
-  <div id="adminBox">
-    <h2>➕ Product එකක් දාන්න</h2>
-    <input id="pName" placeholder="Product Name - ex: Dell Battery">
-    <input id="pPrice" placeholder="Price - ex: 12000">
-    <input id="pImage" placeholder="Image Link (imgur link එකක්)">
-    <input id="pCategory" placeholder="Category - ex: Battery">
-    <button onclick="addProduct()">Add Product</button>
-    <p id="msg"></p>
-    <hr style="margin:20px 0;border-color:#333">
-    <h3>📦 දාලා තියෙන Products</h3>
-    <div id="list"></div>
-    <button onclick="logout()" style="background:#444;color:#fff;margin-top:20px">Logout</button>
-  </div>
+
+<h2>🛠️ SayuminTech Admin</h2>
+
+<div class="tab">
+<button id="btnP" class="active" onclick="switchMode('products')">🛒 Products</button>
+<button id="btnD" class="inactive" onclick="switchMode('downloads')">📥 Downloads</button>
 </div>
+
+<p id="modeText">දැන් හදන්නේ: Products.json</p>
+
+<input id="name" placeholder="Name - උදා: tps51125 / Dell 3520 BIOS">
+<input id="price" type="number" placeholder="Price - උදා: 3200">
+<select id="category">
+<option>Laptop Repair Components</option>
+<option>Battery/Charger</option>
+<option>Laptop Accessories</option>
+<option>Tools</option>
+<option>BIOS</option>
+<option>Schematic / Boardview</option>
+</select>
+<input id="img" placeholder="Photo - images/tps.jpg">
+<input id="file" placeholder="Download File Link - Downloads වලට විතරයි">
+<textarea id="desc" placeholder="Description"></textarea>
+
+<button class="btn" onclick="addItem()">+ ADD කරපන්</button>
+<button class="btn btn2" onclick="downloadJSON()">📥 <span id="dlText">products.json</span> Download කරගනින්</button>
+<button class="btn" style="background:#2196f3" onclick="loadOld()">🔄 පරණ JSON එක Load කරගනින්</button>
+
+<h3>දැම්ම ටික:</h3>
+<div id="list"></div>
+
 <script>
-const ADMIN_PASS="sayumin123";
-function login(){
- if(document.getElementById('pass').value===ADMIN_PASS){
-  document.getElementById('loginBox').style.display='none';
-  document.getElementById('adminBox').style.display='block';
-  loadProducts();
- } else { alert('Password වැරදියි!'); }
+let mode = 'products';
+let data = { products: JSON.parse(localStorage.getItem('products')||'[]'), downloads: JSON.parse(localStorage.getItem('downloads')||'[]') };
+
+function switchMode(m){
+  mode = m;
+  document.getElementById('btnP').className = m=='products'?'active':'inactive';
+  document.getElementById('btnD').className = m=='downloads'?'active':'inactive';
+  document.getElementById('modeText').innerText = 'දැන් හදන්නේ: '+m+'.json';
+  document.getElementById('dlText').innerText = m+'.json';
+  showList();
 }
-function logout(){
- document.getElementById('loginBox').style.display='block';
- document.getElementById('adminBox').style.display='none';
+function save(){ localStorage.setItem('products', JSON.stringify(data.products)); localStorage.setItem('downloads', JSON.stringify(data.downloads)); }
+function addItem(){
+  let arr = data[mode];
+  let item = {
+    id: arr.length+1,
+    name: document.getElementById('name').value,
+    price: Number(document.getElementById('price').value),
+    category: document.getElementById('category').value,
+    img: document.getElementById('img').value,
+    desc: document.getElementById('desc').value
+  };
+  if(mode=='downloads') item.file = document.getElementById('file').value;
+  if(!item.name || !item.price){ alert('Nameයි Price එකයි දාපන් බං!'); return; }
+  arr.push(item); save();
+  document.getElementById('name').value=''; document.getElementById('price').value=''; document.getElementById('desc').value=''; document.getElementById('file').value='';
+  showList(); alert('වැටුනා බං! ✅');
 }
-function addProduct(){
- const name=document.getElementById('pName').value;
- const price=document.getElementById('pPrice').value;
- const image=document.getElementById('pImage').value || 'https://via.placeholder.com/300';
- const category=document.getElementById('pCategory').value || 'General';
- if(!name || !price){ alert('Name & Price දාන්න!'); return; }
- let products=JSON.parse(localStorage.getItem('sayumin_products')||'[]');
- products.push({id:Date.now(),name,price,image,category});
- localStorage.setItem('sayumin_products',JSON.stringify(products));
- document.getElementById('msg').innerText='✅ Product එක Add උනා!';
- document.getElementById('pName').value=''; document.getElementById('pPrice').value=''; document.getElementById('pImage').value=''; document.getElementById('pCategory').value='';
- loadProducts();
+function showList(){
+  let arr = data[mode];
+  document.getElementById('list').innerHTML = arr.map((p,i)=>`
+    <div class="card">
+      <img src="${p.img}" onerror="this.src='https://via.placeholder.com/60'">
+      <div style="flex:1"><b>${p.id}. ${p.name}</b><br>Rs.${p.price} - ${p.category}</div>
+      <button onclick="del(${i})" style="background:red;color:#fff;border:none;padding:8px 12px;border-radius:8px">X</button>
+    </div>`).join('') || 'තවම මොකුත් නෑ බං';
 }
-function loadProducts(){
- let products=JSON.parse(localStorage.getItem('sayumin_products')||'[]');
- let html='';
- products.reverse().forEach(p=>{
-   html+=`<div class="item"><div><b>${p.name}</b><br>Rs.${p.price} - ${p.category}</div><span class="del" onclick="deleteP(${p.id})">X</span></div>`;
- });
- document.getElementById('list').innerHTML=html || 'තවම Products නෑ';
+function del(i){ data[mode].splice(i,1); data[mode].forEach((p,idx)=>p.id=idx+1); save(); showList(); }
+function downloadJSON(){
+  let blob = new Blob([JSON.stringify(data[mode], null, 2)], {type:'application/json'});
+  let a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=mode+'.json'; a.click();
 }
-function deleteP(id){
- let products=JSON.parse(localStorage.getItem('sayumin_products')||'[]');
- products=products.filter(p=>p.id!==id);
- localStorage.setItem('sayumin_products',JSON.stringify(products));
- loadProducts();
+async function loadOld(){
+  try{
+    let res = await fetch(mode+'.json');
+    let j = await res.json();
+    data[mode]=j; save(); showList(); alert('පරණ ටික Load වුනා බං! ✅');
+  }catch(e){ alert('Load වුනේ නෑ බං! admin.html එකයි json එකයි එකම තැනද බලපන්'); }
 }
+showList();
 </script>
 </body>
 </html>
