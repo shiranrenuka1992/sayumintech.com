@@ -3,7 +3,7 @@
     "id": 4,
     "name": "Laptop Cooling Pad",
     "price": 2200,
-    "category": "Laptop Repair Accessories",
+    "category": "Repair Accessories",
     "img": "images/pads.jpg",
     "images": [
       "images/pads.jpg",
@@ -19,7 +19,7 @@
     "id": 5,
     "name": "USB-C Hub",
     "price": 3500,
-    "category": "Laptop Repair Accessories",
+    "category": "Repair Accessories",
     "img": "images/hubs.jpg",
     "images": [
       "images/hubs.jpg",
@@ -35,7 +35,7 @@
     "id": 6,
     "name": "Laptop Keyboard",
     "price": 2500,
-    "category": "Laptop Repair Accessories",
+    "category": "Battery / Keyboard / Charger",
     "img": "images/key.jpg",
     "images": [
       "images/key.jpg",
@@ -51,7 +51,7 @@
     "id": 7,
     "name": "Laptop Battery 6-Cell",
     "price": 8500,
-    "category": "Battery/Charger/Keyboard",
+    "category": "Battery / Keyboard / Charger",
     "img": "images/battery.jpg",
     "images": [
       "images/battery.jpg",
@@ -67,7 +67,7 @@
     "id": 8,
     "name": "65W Laptop Charger",
     "price": 3200,
-    "category": "Battery/Charger/Keyboard",
+    "category": "Battery / Keyboard / Charger",
     "img": "images/charger.jpg",
     "images": [
       "images/charger.jpg",
@@ -83,7 +83,7 @@
     "id": 9,
     "name": "tps51125 ",
     "price": 3200,
-    "category": "Laptop Repair Components",
+    "category": "Repair Components (IC, MOSFET)",
     "img": "images/charger.jpg",
     "images": [
       "images/charger.jpg",
