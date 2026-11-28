@@ -19,10 +19,10 @@ input,select,textarea{width:100%;padding:11px;margin:6px 0;border-radius:8px;bor
 .card img{width:60px;height:60px;object-fit:cover;border-radius:8px}
 #lock{position:fixed;top:0;left:0;width:100%;height:100%;background:#111;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px;box-sizing:border-box;z-index:999}
 #lock input{max-width:300px;text-align:center;font-size:18px;letter-spacing:2px}
+#preview{width:100%;height:180px;object-fit:cover;border-radius:10px;background:#222;display:none;margin-top:8px}
 </style>
 </head>
 <body>
-
 <div id="lock">
 <h2>🔒 SAYUMIN TECH</h2>
 <p style="color:#aaa">Password එක දාපන්</p>
@@ -30,7 +30,6 @@ input,select,textarea{width:100%;padding:11px;margin:6px 0;border-radius:8px;bor
 <button class="btn" style="max-width:300px" onclick="checkPass()">UNLOCK 🔓</button>
 <p id="passErr" style="color:#ff5252;display:none">Password වැරදියි බං!</p>
 </div>
-
 <div id="main" style="display:none">
 <h2>🛠️ SayuminTech Admin</h2>
 <div class="tab">
@@ -38,7 +37,6 @@ input,select,textarea{width:100%;padding:11px;margin:6px 0;border-radius:8px;bor
 <button id="btnD" class="inactive" onclick="switchMode('downloads')">📥 Downloads</button>
 </div>
 <p id="modeText">දැන් හදන්නේ: products.json</p>
-
 <input id="name" placeholder="Name - උදා: tps51125 / Dell 3520 BIOS">
 <div style="display:flex;gap:8px">
 <button class="btn3 btn" style="margin-top:6px" onclick="searchGoogle()">🔍 Google එකේ හොයපන්</button>
@@ -55,21 +53,23 @@ input,select,textarea{width:100%;padding:11px;margin:6px 0;border-radius:8px;bor
 <option>BIOS / Schematic / BoardView</option>
 <option>Software</option>
 </select>
-<input id="img" placeholder="Photo - images/tps.jpg">
+<input id="img" placeholder="Photo - images/tps.jpg" oninput="document.getElementById('preview').src=this.value;document.getElementById('preview').style.display='block'">
+<label style="font-size:13px;color:#aaa">📸 Photo එක Phone එකෙන් ගනින් - Google Link දාන්න එපා!</label>
+<input type="file" id="imgFile" accept="image/*" style="background:#333;color:#fff">
+<img id="preview">
 <input id="file" placeholder="Download File Link - Downloads වලට විතරයි">
 <input id="board" placeholder="Board No - DA0X8QMB8E0">
 <textarea id="desc" placeholder="Description"></textarea>
 <button class="btn" onclick="addItem()">+ ADD කරපන්</button>
 <button class="btn btn2" onclick="downloadJSON()">📥 <span id="dlText">products.json</span> Download කරගනින්</button>
 <button class="btn btn3" onclick="loadOld()">🔄 පරණ JSON එක Load කරගනින්</button>
-
 <h3>දැම්ම ටික:</h3>
 <div id="list"></div>
 <h3>👇 මේ Code එක Copy කරලා GitHub එකේ JSON එකට Paste කරපන්:</h3>
 <textarea id="copyBox" rows="8" readonly style="background:#000;color:#00ff00;font-size:12px"></textarea>
 <button class="btn" style="background:#fff;color:#000" onclick="copyCode()">📋 Copy කරගනින්</button>
+<p style="color:#ff9800;font-weight:bold;text-align:center">⚠️ ADD කරාට විතරක් Site එකේ පෙන්නේ නෑ! මේ Code එක Copy කරලා GitHub එකේ products.json එකට දාන්නම ඕනේ!</p>
 </div>
-
 <script>
 var MY_PASS = "4504286ARBE";
 function checkPass(){
@@ -82,7 +82,6 @@ function checkPass(){
   }
 }
 document.getElementById('passInput').addEventListener('keyup', function(e){ if(e.key==='Enter') checkPass(); });
-
 let mode = 'products';
 let data = { products: JSON.parse(localStorage.getItem('products')||'[]'), downloads: JSON.parse(localStorage.getItem('downloads')||'[]') };
 function switchMode(m){
@@ -104,37 +103,42 @@ function searchGoogleImage(){
   if(!n){ alert('මුලින්ම Name එක ගහපන් බං!'); return; }
   window.open('https://www.google.com/search?tbm=isch&q='+encodeURIComponent(n), '_blank');
 }
+document.getElementById('imgFile').addEventListener('change', function(e){
+  let f = e.target.files[0]; if(!f) return;
+  let r = new FileReader();
+  r.onload = function(ev){ document.getElementById('img').value = ev.target.result; document.getElementById('preview').src = ev.target.result; document.getElementById('preview').style.display='block'; };
+  r.readAsDataURL(f);
+});
 function addItem(){
   let arr = data[mode];
   let item = {
-    id: arr.length+1,
-    name: document.getElementById('name').value,
+    id: Date.now(),
+    name: document.getElementById('name').value.trim(),
     price: Number(document.getElementById('price').value),
     category: document.getElementById('category').value,
-    img: document.getElementById('img').value,
+    img: document.getElementById('img').value.trim(),
     board: document.getElementById('board').value,
     desc: document.getElementById('desc').value,
     stock: true
   };
   if(mode=='downloads') item.file = document.getElementById('file').value;
   if(!item.name || !item.price){ alert('Nameයි Price එකයි දාපන් බං!'); return; }
+  if(!item.img) item.img = 'https://via.placeholder.com/400x300?text=SAYUMIN+TECH';
   arr.push(item); save();
-  document.getElementById('name').value=''; document.getElementById('price').value=''; document.getElementById('desc').value=''; document.getElementById('file').value=''; document.getElementById('board').value='';
-  showList(); alert('වැටුනා බං! ✅');
+  document.getElementById('name').value=''; document.getElementById('price').value=''; document.getElementById('desc').value=''; document.getElementById('file').value=''; document.getElementById('board').value=''; document.getElementById('img').value=''; document.getElementById('preview').style.display='none';
+  showList(); alert('වැටුනා බං! ✅ දැන් පහල Code එක Copy කරලා GitHub එකේ products.json එකට දාපන්!');
 }
 function showList(){
   let arr = data[mode];
   document.getElementById('list').innerHTML = arr.map((p,i)=>`
     <div class="card">
       <img src="${p.img}" onerror="this.src='https://via.placeholder.com/60'">
-      <div style="flex:1"><b>${p.id}. ${p.name}</b><br>Rs.${p.price} - ${p.category}</div>
+      <div style="flex:1"><b>${i+1}. ${p.name}</b><br>Rs.${p.price} - ${p.category}</div>
       <button onclick="del(${i})" style="background:red;color:#fff;border:none;padding:8px 12px;border-radius:8px">X</button>
     </div>`).join('') || 'තවම මොකුත් නෑ බං';
   updateCopyBox();
 }
-function updateCopyBox(){
-  document.getElementById('copyBox').value = JSON.stringify(data[mode], null, 2);
-}
+function updateCopyBox(){ document.getElementById('copyBox').value = JSON.stringify(data[mode], null, 2); }
 function del(i){ data[mode].splice(i,1); data[mode].forEach((p,idx)=>p.id=idx+1); save(); showList(); }
 function downloadJSON(){
   let blob = new Blob([JSON.stringify(data[mode], null, 2)], {type:'application/json'});
@@ -149,7 +153,7 @@ async function loadOld(){
 }
 function copyCode(){
   var t = document.getElementById('copyBox');
-  t.select(); document.execCommand('copy'); alert('Copy වුනා බං! ✅');
+  t.select(); document.execCommand('copy'); alert('Copy වුනා බං! ✅ දැන් GitHub එකේ products.json එකට Paste කරපන්!');
 }
 showList();
 </script>
