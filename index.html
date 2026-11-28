@@ -71,7 +71,7 @@ body{background:#020617;background-image:radial-gradient(circle at 10% 10%,rgba(
 <div class="header">
 <div class="logo" onclick="showSection('shop')">⚡ SAYUMIN TECH</div>
 <input type="text" id="searchInput" class="search-box" placeholder="Search product / board no..." oninput="filterAll()">
-<div class="cart-icon">🛒 CART <span id="cart-count">0</span></div>
+<div class="cart-icon" onclick="openCart()">🛒 CART <span id="cart-count">0</span></div>
 </div>
 <div class="hero">
 <h1>Laptop Repair Parts & Schematic Store 🇱🇰</h1>
@@ -233,7 +233,7 @@ function openWhatsAppRepair(){window.open('https://wa.me/'+CONFIG.whatsapp+'?tex
 function openWhatsAppTrack(){window.open('https://wa.me/'+CONFIG.whatsapp+'?text='+encodeURIComponent('Hi SAYUMIN TECH! I want to track my order. Order Date: '),'_blank');}
 function addToCart(pid){var prod=null;for(var i=0;i<products.length;i++)if(products[i].id===pid)prod=products[i];if(!prod||!prod.stock)return;for(var i=0;i<cart.length;i++)if(cart[i].id===pid){cart[i].qty++;updateCartCount();return;}cart.push({id:pid,name:prod.name,price:prod.price,category:prod.category,qty:1});updateCartCount();}
 function requestStock(pid){var p=null;for(var i=0;i<products.length;i++)if(products[i].id===pid)p=products[i];var msg='SAYUMIN TECH - Stock Request%0A%0A• Item: '+p.name+'%0A• Category: '+p.category+'%0A%0AStock thiyenawada?';window.open('https://wa.me/'+CONFIG.whatsapp+'?text='+msg,'_blank');}
-function updateCartCount(){var t=0;for(var i=0;i<cart.length;i++)t+=cart[i].qty;document.getElementById('cartCount').textContent=t;}
+function updateCartCount(){var t=0;for(var i=0;i<cart.length;i++)t+=cart[i].qty;document.getElementById('cart-count').textContent=t;}
 function openCart(){var m=document.getElementById('cartModal');var ci=document.getElementById('cartItems');var ct=document.getElementById('cartTotal');if(cart.length===0){ci.innerHTML='<div style="color:#64748b;padding:20px;text-align:center">Cart හිස්! 🛒</div>';ct.innerHTML='';}else{var h='';var tot=0;for(var i=0;i<cart.length;i++){var it=cart[i];var itTot=it.price*it.qty;tot+=itTot;h+='<div class="cart-item"><div><div style="font-weight:600;font-size:13px">'+it.name+'</div><div style="margin-top:6px"><button class="qty-btn" onclick="changeQty('+i+',-1)">-</button><span style="margin:0 10px;font-weight:700">'+it.qty+'</span><button class="qty-btn" onclick="changeQty('+i+',1)">+</button></div></div><div style="text-align:right"><div style="font-weight:700;color:#38bdf8">Rs '+itTot+'</div><button class="remove-btn" onclick="removeFromCart('+i+')">X</button></div></div>';}ci.innerHTML=h;ct.innerHTML='Total: Rs '+tot;}m.style.display='flex';}
 function changeQty(i,c){cart[i].qty+=c;if(cart[i].qty<=0)cart.splice(i,1);updateCartCount();openCart();}
 function closeCart(){document.getElementById('cartModal').style.display='none';}
