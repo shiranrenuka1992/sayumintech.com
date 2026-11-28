@@ -68,6 +68,21 @@ body{background:#020617;background-image:radial-gradient(circle at 10% 10%,rgba(
 </style>
 </head>
 <body>
+<div id="lockScreen" style="position:fixed;inset:0;background:#020617;z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;text-align:center">
+  <h2 style="color:white">⚡ SAYUMIN TECH</h2>
+  <p style="color:#94a3b8;margin:10px 0">Site eka hadanawa... 🔧</p>
+  <input id="passInput" type="password" placeholder="Password" style="padding:12px;border-radius:10px;border:1px solid #334155;background:#0f172a;color:white;width:250px;text-align:center">
+  <button onclick="checkPass()" style="margin-top:10px;padding:12px 30px;background:#38bdf8;border:none;border-radius:10px;font-weight:800;cursor:pointer">Unlock 🔓</button>
+</div>
+<script>
+function checkPass(){
+  if(document.getElementById('passInput').value === "sayumin123"){
+    document.getElementById('lockScreen').style.display='none';
+  } else {
+    alert('Password waradi ban!');
+  }
+}
+</script>  
 <div class="header">
 <div class="logo" onclick="showSection('shop')">⚡ SAYUMIN TECH</div>
 <input type="text" id="searchInput" class="search-box" placeholder="Search product / board no..." oninput="filterAll()">
