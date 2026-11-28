@@ -27,7 +27,6 @@ body{background:#020617;background-image:radial-gradient(circle at 10% 10%,rgba(
 .cat-btn.active{background:#fff;color:#0b1220;border-color:#fff}
 .section-title{padding:14px 16px 0;font-size:18px;font-weight:800}
 .section-sub{padding:6px 16px 0;color:#94a3b8;font-size:13px;line-height:1.6}
-/* SAYUMIN TECH - 6 THIRAS / 10 SIRAS = 60 PER PAGE - PHONE EKEATH 6MA */
 .product-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;padding:8px 8px 10px}
 .product-card{display:flex;flex-direction:column;background:#0f172a;border-radius:10px;overflow:hidden;border:1px solid #1e40af;cursor:pointer;transition:0.2s}
 .product-card:hover{border-color:#38bdf8;box-shadow:0 0 12px rgba(56,189,248,0.45)}
@@ -120,7 +119,7 @@ body{background:#020617;background-image:radial-gradient(circle at 10% 10%,rgba(
 <div class="modal" id="detailModal"><div class="modal-content" id="detailContent"></div></div>
 <script>
 var CONFIG={whatsapp:"94721352940"};
-var categories=["All","BIOS Files","Schematics","BoardView","Laptop Repair Components","Laptop Repair Accessories","Battery/Charger/Keyboard","Tools","Electronics Devices"];
+var categories=["All","Repair Components (IC, MOSFET)","Repair Accessories","Tools","Chemical (Alcohol, Clear)","Electronic Devices","Battery / Keyboard / Charger","BIOS / Schematic / BoardView","Software"];
 var products=[];var downloads=[];var cart=[];var currentCategory="All";
 var currentPage=1; var itemsPerPage=60; var filteredProducts=[]; var filteredDownloads=[]; var currentDownloadPage=1;
 if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(()=>{});}
